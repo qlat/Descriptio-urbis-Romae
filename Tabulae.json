@@ -1,0 +1,3125 @@
+[{
+    "TableCaption": "ANGVLI MVRORUM IN LATIO",
+    "TableNumber": 1,
+    "Coords": [{
+        "CoordNumber": 1,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 43,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 0.5
+        }]
+      },
+      {
+        "CoordNumber": 2,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 44,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 3,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 47,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 30,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 4,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 47,
+          "HorizonMinuta": 0.5,
+          "RadiusGradus": 21,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 5,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 48,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 25,
+          "RadiusMinuta": 0.5
+        }]
+      },
+      {
+        "CoordNumber": 6,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 1,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 25,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 7,
+        "CoordType": "Angulus",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,Cpc,O",
+            "HorizonGradus": 2,
+            "HorizonMinuta": 0.5,
+            "RadiusGradus": 28,
+            "RadiusMinuta": 0
+          },
+          {
+            "Mss": "A,B,Cac,M,N",
+            "HorizonGradus": 22,
+            "HorizonMinuta": 0.5,
+            "RadiusGradus": 28,
+            "RadiusMinuta": 0
+          }
+        ]
+      },
+      {
+        "CoordNumber": 8,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 2,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 28,
+          "RadiusMinuta": 1.5
+        }]
+      },
+      {
+        "CoordNumber": 9,
+        "CoordType": "Angulus",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,C,N",
+            "HorizonGradus": 2,
+            "HorizonMinuta": 2.5,
+            "RadiusGradus": 28,
+            "RadiusMinuta": 3
+          },
+          {
+            "Mss": "A,B,M,O",
+            "HorizonGradus": 2,
+            "HorizonMinuta": 0.5,
+            "RadiusGradus": 28,
+            "RadiusMinuta": 3
+          }
+        ]
+      },
+      {
+        "CoordNumber": 10,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 4,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 11,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 5,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 12,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 5,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 37,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 13,
+        "CoordType": "Angulus",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,A,B,M,O",
+            "HorizonGradus": 6,
+            "HorizonMinuta": 3.5,
+            "RadiusGradus": 35,
+            "RadiusMinuta": 3
+          },
+          {
+            "Mss": "C,N",
+            "HorizonGradus": 6,
+            "HorizonMinuta": 3.33,
+            "RadiusGradus": 35,
+            "RadiusMinuta": 3
+          }
+        ]
+      },
+      {
+        "CoordNumber": 14,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 6,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 15,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 7,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 0.5
+        }]
+      },
+      {
+        "CoordNumber": 16,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 9,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 17,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 10,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 33,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 18,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 10,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 35,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 19,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 11,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 20,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 11,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 21,
+        "CoordType": "Angulus",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan",
+            "HorizonGradus": 12,
+            "HorizonMinuta": 0.33,
+            "RadiusGradus": 39,
+            "RadiusMinuta": 3
+          },
+          {
+            "Mss": "Bac",
+            "HorizonGradus": 12,
+            "HorizonMinuta": 0.33,
+            "RadiusGradus": 33,
+            "RadiusMinuta": 3
+          }
+        ]
+      },
+      {
+        "CoordNumber": 22,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 12,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 42,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 23,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 13,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 24,
+        "CoordType": "Angulus",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,A,C,M,N,O",
+            "HorizonGradus": 13,
+            "HorizonMinuta": 1.5,
+            "RadiusGradus": 38,
+            "RadiusMinuta": 2
+          },
+          {
+            "Mss": "B",
+            "HorizonGradus": 15,
+            "HorizonMinuta": 1.5,
+            "RadiusGradus": 48,
+            "RadiusMinuta": 2
+          }
+        ]
+      },
+      {
+        "CoordNumber": 25,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 13,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 26,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 14,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 33,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 27,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 14,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 28,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 15,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 28,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 29,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 16,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 27,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 30,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 17,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 31,
+        "CoordType": "Angulus",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,A,B,M",
+            "HorizonGradus": 18,
+            "HorizonMinuta": 2,
+            "RadiusGradus": 36,
+            "RadiusMinuta": 3
+          },
+          {
+            "Mss": "C,N,O",
+            "HorizonGradus": 18,
+            "HorizonMinuta": 2,
+            "RadiusGradus": 26,
+            "RadiusMinuta": 3
+          }
+        ]
+      },
+      {
+        "CoordNumber": 32,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 19,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 34,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 33,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 20,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 30,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 34,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 20,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 35,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 23,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 29,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 36,
+        "CoordType": "Angulus",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,A,B,C,M,N",
+            "HorizonGradus": 26,
+            "HorizonMinuta": 0,
+            "RadiusGradus": 37,
+            "RadiusMinuta": 2
+          },
+          {
+            "Mss": "O",
+            "HorizonGradus": 26,
+            "HorizonMinuta": 1,
+            "RadiusGradus": 37,
+            "RadiusMinuta": 2
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TableCaption": "AVX MVRORUM IN LATIO",
+    "TableNumber": 2,
+    "Coords": [{
+        "CoordNumber": 1,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 46,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 25,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 2,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 48,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 24,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 3,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 3,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 4,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 8,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 5,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 9,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 33,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 6,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 10,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 34,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 7,
+        "CoordType": "Avx",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,A,B,C,M,O",
+            "HorizonGradus": 13,
+            "HorizonMinuta": 1.5,
+            "RadiusGradus": 39,
+            "RadiusMinuta": 3
+          },
+          {
+            "Mss": "N",
+            "HorizonGradus": 12,
+            "HorizonMinuta": 1.5,
+            "RadiusGradus": 39,
+            "RadiusMinuta": 3
+          }
+        ]
+      },
+      {
+        "CoordNumber": 8,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 13,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 35,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 9,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 14,
+          "HorizonMinuta": 1.5,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 10,
+        "CoordType": "Avx",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan",
+            "HorizonGradus": 15,
+            "HorizonMinuta": 3,
+            "RadiusGradus": 28,
+            "RadiusMinuta": 0
+          },
+          {
+            "Mss": "Bac",
+            "HorizonGradus": 15,
+            "HorizonMinuta": 3,
+            "RadiusGradus": 38,
+            "RadiusMinuta": 0
+          }
+        ]
+      },
+      {
+        "CoordNumber": 11,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 16,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 12,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 17,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 37,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 13,
+        "CoordType": "Avx",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,C,N,Opc",
+            "HorizonGradus": 19,
+            "HorizonMinuta": 2,
+            "RadiusGradus": 33,
+            "RadiusMinuta": 0
+          },
+          {
+            "Mss": "A,B,M,Oac",
+            "HorizonGradus": 18,
+            "HorizonMinuta": 2,
+            "RadiusGradus": 33,
+            "RadiusMinuta": 0
+          }
+        ]
+      },
+      {
+        "CoordNumber": 14,
+        "CoordType": "Avx",
+        "Variants": [{
+            "Mss": "Boriaud-Furlan,A,B,M",
+            "HorizonGradus": 21,
+            "HorizonMinuta": 1,
+            "RadiusGradus": 29,
+            "RadiusMinuta": 1
+          },
+          {
+            "Mss": "C,N",
+            "HorizonGradus": 22,
+            "HorizonMinuta": 1,
+            "RadiusGradus": 29,
+            "RadiusMinuta": 0
+          },
+          {
+            "Mss": "O",
+            "HorizonGradus": 22,
+            "HorizonMinuta": 1,
+            "RadiusGradus": 29,
+            "RadiusMinuta": 1
+          }
+        ]
+      }
+    ]
+  },
+
+  {
+    "TableCaption": "ANGVLI MVRORVM TRANS TYBERIM",
+    "TableNumber": 3,
+    "Coords": [{
+        "CoordNumber": 1,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,A,B,M,N,O",
+          "HorizonGradus": 27,
+          "HorizonMinuta": 1.666,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 2
+        },
+        {
+          "Mss": "C",
+          "HorizonGradus": 27,
+          "HorizonMinuta": 1.333,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 2,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 27,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 3,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 28,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 4,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 31,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 27,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 5,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,B,C,N,O",
+          "HorizonGradus": 32,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "A,M",
+          "HorizonGradus": 32,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 11
+        }]
+      },
+      {
+        "CoordNumber": 6,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 33,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 30,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 7,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,C,M,N,O",
+          "HorizonGradus": 35,
+          "HorizonMinuta": 0.5,
+          "RadiusGradus": 18,
+          "RadiusMinuta": 3
+        },
+        {
+          "Mss": "A",
+          "HorizonGradus": 35,
+          "HorizonMinuta": 1.5,
+          "RadiusGradus": 18,
+          "RadiusMinuta": 3
+        },
+        {
+          "Mss": "B",
+          "HorizonGradus": 35,
+          "HorizonMinuta": 0.5,
+          "RadiusGradus": 38,
+          "RadiusMinuta": 3
+        }]
+      }
+    ]
+  },
+
+  {
+    "TableCaption": "AVGES MVRORVM TRANS TYBERIM",
+    "TableNumber": 4,
+    "Coords": [{
+        "CoordNumber": 1,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 30,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 24,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 2,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 32,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 3,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,B,C,M,N,O",
+          "HorizonGradus": 33,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 23,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "A",
+          "HorizonGradus": 33,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "A2",
+          "HorizonGradus": 33,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 25,
+          "RadiusMinuta": 0
+        }]
+      }
+    ]
+  },
+
+  {
+    "TableCaption": "ANGULI MVRORVM AD LEONIDAM",
+    "TableNumber": 5,
+    "Coords": [{
+        "CoordNumber": 1,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 28,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "A,B,C,M",
+          "HorizonGradus": 36,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 28,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "Npc",
+          "HorizonGradus": 36,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 28,
+          "RadiusMinuta": 2
+        },
+        {
+          "Mss": "Oac",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 25,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "O",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 28,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "Nac",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 28,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 2,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,B,C,M",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "A",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 37,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "A2",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "Oac",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 2
+        },
+        {
+          "Mss": "Opc",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "Nac",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "Npc",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 3,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,A,B,M,O",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 1.666,
+          "RadiusGradus": 34,
+          "RadiusMinuta": 2
+        },
+        {
+          "Mss": "C,N",
+          "HorizonGradus": 32,
+          "HorizonMinuta": 1.666,
+          "RadiusGradus": 34,
+          "RadiusMinuta": 2
+        },
+        {
+          "Mss": "Nac",
+          "HorizonGradus": 32,
+          "HorizonMinuta": 1.666,
+          "RadiusGradus": 34,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 4,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,A,B,C,M,O",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 2
+        },
+        {
+          "Mss": "N",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 1.5,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 2
+        },
+        {
+          "Mss": "Nac",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 1.5,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 3
+        }]
+      },
+      {
+        "CoordNumber": 5,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,B,C,M,O",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 0.5,
+          "RadiusGradus": 43,
+          "RadiusMinuta": 3
+        },
+        {
+          "Mss": "A",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 1.5,
+          "RadiusGradus": 43,
+          "RadiusMinuta": 3
+        },
+        {
+          "Mss": "N",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 0.5,
+          "RadiusGradus": 48,
+          "RadiusMinuta": 3
+        },
+        {
+          "Mss": "Nac",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 0.5,
+          "RadiusGradus": 48,
+          "RadiusMinuta": 9
+        }]
+      },
+      {
+        "CoordNumber": 6,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,A,A2,B,M,O",
+          "HorizonGradus": 38,
+          "HorizonMinuta": 0.666,
+          "RadiusGradus": 46,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "C,N",
+          "HorizonGradus": 28,
+          "HorizonMinuta": 0.666,
+          "RadiusGradus": 46,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 7,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 38,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 46,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 8,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 43,
+          "RadiusMinuta": 3
+        },
+        {
+          "Mss": "Nac",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 43,
+          "RadiusMinuta": 8
+        }]
+      },
+      {
+        "CoordNumber": 9,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 38,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 41,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 10,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,B,M,O",
+          "HorizonGradus": 38,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "A",
+          "HorizonGradus": 38,
+          "HorizonMinuta": 0.5,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 0
+        },        
+        {
+          "Mss": "A2",
+          "HorizonGradus": 38,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "C",
+          "HorizonGradus": 28,
+          "HorizonMinuta": 2.5,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "Nac",
+          "HorizonGradus": 28,
+          "HorizonMinuta": 3.5,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "Npc",
+          "HorizonGradus": 28,
+          "HorizonMinuta": 0.5,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 11,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 38,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 37,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 12,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,A,C,M,N,O",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "B",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "Nac",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 31,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 13,
+        "CoordType": "Angulus",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,A,B,C,O",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 3.666,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "N",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 3.666,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "M",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 3.5,
+          "RadiusGradus": 26,
+          "RadiusMinuta": 1
+        }]
+      }
+    ]
+  },
+
+  {
+    "TableCaption": "AVGES MVRORVM AD LEONINAM",
+    "TableNumber": 6,
+    "Coords": [{
+        "CoordNumber": 1,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 37,
+          "HorizonMinuta": 1.5,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 2,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 38,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 45,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 3,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 4,
+        "CoordType": "Avx",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 39,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 30,
+          "RadiusMinuta": 0
+        }]
+      }
+    ]
+  },
+
+  {
+    "TableCaption": "PORTAE IN LATIO",
+    "TableNumber": 7,
+    "Coords": [{
+        "CoordNumber": 1,
+        "CoordType": "Porta",
+        "Nomen": "Populi",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 45,
+          "HorizonMinuta": 1.666,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 2,
+        "CoordType": "Porta",
+        "Nomen": "Pincia",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 0,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 25,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 3,
+        "CoordType": "Porta",
+        "Nomen": "Salaria",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 3,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 30,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 4,
+        "CoordType": "Porta",
+        "Nomen": "La Donna",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 4,
+          "HorizonMinuta": 1.666,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 5,
+        "CoordType": "Porta",
+        "Nomen": "Laurentii",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 9,
+          "HorizonMinuta": 0.333,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 1
+        },
+        {
+          "Mss": "A,B,C,M,N,O",
+          "HorizonGradus": 6,
+          "HorizonMinuta": 0.333,
+          "RadiusGradus": 32,
+          "RadiusMinuta": 1
+        }]
+      },
+      {
+        "CoordNumber": 6,
+        "CoordType": "Porta",
+        "Nomen": "Maior",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 11,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 2
+        }]
+      },
+      {
+        "CoordNumber": 7,
+        "CoordType": "Porta",
+        "Nomen": "Laterani",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,A,A1,B,C,M,N,O",
+          "HorizonGradus": 14,
+          "HorizonMinuta": 2.333,
+          "RadiusGradus": 30,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "B1",
+          "HorizonGradus": 14,
+          "HorizonMinuta": 2.666,
+          "RadiusGradus": 30,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 8,
+        "CoordType": "Porta",
+        "Nomen": "Latina",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 17,
+          "HorizonMinuta": 0.666,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 9,
+        "CoordType": "Porta",
+        "Nomen": "Appia",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan,A,B,C,M,O",
+          "HorizonGradus": 18,
+          "HorizonMinuta": 1.666,
+          "RadiusGradus": 37,
+          "RadiusMinuta": 0
+        },
+        {
+          "Mss": "A1,B1,N",
+          "HorizonGradus": 18,
+          "HorizonMinuta": 1.333,
+          "RadiusGradus": 37,
+          "RadiusMinuta": 0
+        }]
+      },
+      {
+        "CoordNumber": 10,
+        "CoordType": "Porta",
+        "Nomen": "Pauli",
+        "Variants": [{
+          "Mss": "Boriaud-Furlan",
+          "HorizonGradus": 23,
+          "HorizonMinuta": 3.25,
+          "RadiusGradus": 29,
+          "RadiusMinuta": 0
+        }]
+      }
+    ]
+  },
+
+  {
+    "TableCaption": "PORTAE IN MVRIS TRANS TYBERIM",
+    "TableNumber": 8,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "Porta",
+      "Nomen": "Portuensis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 27,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 26,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "Porta",
+      "Nomen": "Pancratii",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A1,A2,B,B1,C,M,N,O",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 29,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 26,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 3,
+      "CoordType": "Porta",
+      "Nomen": "Sub Iano",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,B,C,M,O",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,B1,N",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 9,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 2
+      }]
+    }]
+  },
+
+  {
+    "TableCaption": "PORTAE IN MVRIS LEONINAE",
+    "TableNumber": 9,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "Porta",
+      "Nomen": "Sub Iano Sancti Spiritus",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 29,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "Porta",
+      "Nomen": "Postica ad convallem",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 0.333,
+        "RadiusGradus": 37,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,A2,B,B1,C,M,N,O",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 0.333,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 0.333,
+        "RadiusGradus": 25,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 3,
+      "CoordType": "Porta",
+      "Nomen": "In colle",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 44,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 4,
+      "CoordType": "Porta",
+      "Nomen": "Sub Palatio",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,O",
+        "HorizonGradus": 38,
+        "HorizonMinuta": 3.333,
+        "RadiusGradus": 38,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "A1,B1,N",
+        "HorizonGradus": 48,
+        "HorizonMinuta": 3.333,
+        "RadiusGradus": 38,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 38,
+        "HorizonMinuta": 3.666,
+        "RadiusGradus": 38,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 5,
+      "CoordType": "Porta",
+      "Nomen": "Ad Castellum",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 3.5,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A,B,B1,M,N,O,Cac",
+        "HorizonGradus": 47,
+        "HorizonMinuta": 3.5,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1",
+        "HorizonGradus": 47,
+        "HorizonMinuta": 3.333,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 40,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 2
+      }]
+    }]
+  },
+
+  {
+    "TableCaption": "TYBERIS FLVVII LINEA MEDIANA",
+    "TableNumber": 10,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 43,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 40,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 43,
+        "HorizonMinuta": 1.5,
+        "RadiusGradus": 31,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 3,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 43,
+        "HorizonMinuta": 1.666,
+        "RadiusGradus": 26,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 4,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 43,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 5,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 42,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 21,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 6,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,C,M,N,O",
+        "HorizonGradus": 42,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 42,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 24
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 42,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 7,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O",
+        "HorizonGradus": 41,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 41,
+        "HorizonMinuta": 21,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 8,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 41,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 21,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A,M,N,O",
+        "HorizonGradus": 41,
+        "HorizonMinuta": 21,
+        "RadiusGradus": 1,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 41,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 1,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "Cac",
+        "HorizonGradus": 41,
+        "HorizonMinuta": 21,
+        "RadiusGradus": 21,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 9,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O,Bac",
+        "HorizonGradus": 40,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "Bpc",
+        "HorizonGradus": 40,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 10,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,C,M,N,O,A2",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 25,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 30,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 25,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 25,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 11,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 12,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O",
+        "HorizonGradus": 38,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 38,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 13,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 27,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 14,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 26,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 26,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 15,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O",
+        "HorizonGradus": 36,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 25,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 36,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 25,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 16,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O",
+        "HorizonGradus": 36,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 23,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 36,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 23,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 17,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,N,O",
+        "HorizonGradus": 35,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 19,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 35,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 19,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 18,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,O",
+        "HorizonGradus": 35,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 17,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "N,B",
+        "HorizonGradus": 35,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 17,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 19,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,C,M,O",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 15,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "B",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 15,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "N",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 15,
+        "RadiusMinuta": 0
+      }]
+    }]
+  },
+
+  {
+    "TableCaption": "INSULAE CAPITA",
+    "TableNumber": 11,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "InsulaeCaput",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,A1,B,B1,M,N,O",
+        "HorizonGradus": 33,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 12,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "C",
+        "HorizonGradus": 31,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 12,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "InsulaeCaput",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A1,B,B1,Cpc,M,N,O",
+        "HorizonGradus": 29,
+        "HorizonMinuta": 2.333,
+        "RadiusGradus": 6,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 29,
+        "HorizonMinuta": 2.5,
+        "RadiusGradus": 6,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "Cac",
+        "HorizonGradus": 29,
+        "HorizonMinuta": 2.666,
+        "RadiusGradus": 6,
+        "RadiusMinuta": 3
+      }]
+    }]
+  },
+
+  {
+    "TableCaption": "INSULAE AVGES",
+    "TableNumber": 12,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "InsulaeAvx",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 10,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "InsulaeAvx",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 33,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 8,
+        "RadiusMinuta": 2
+      }]
+    }]
+  },
+
+  {
+    "TableCaption": "LATERA FLVMINIS",
+    "TableNumber": 13,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "LatusFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,B,B1,C,M,N",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 15,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A1,O",
+        "HorizonGradus": 24,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 15,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "LatusFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 33,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 13,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 3,
+      "CoordType": "LatusFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 11,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 4,
+      "CoordType": "LatusFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 29,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 7,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 5,
+      "CoordType": "LatusFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 28,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 8,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 6,
+      "CoordType": "LatusFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 27,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 7,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 7,
+      "CoordType": "LatusFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 11,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 8,
+      "CoordType": "LatusFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 3.5,
+        "RadiusGradus": 14,
+        "RadiusMinuta": 2
+      }]
+    }]
+  },
+
+  {
+    "TableCaption": "LATERA FLVMINIS",
+    "TableNumber": 14,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "AvxLaterisFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,A1,B,B1,C,M,N,O",
+        "HorizonGradus": 33,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 13,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "A2",
+        "HorizonGradus": 33,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 13,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "AvxLaterisFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 10,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 3,
+      "CoordType": "AvxLaterisFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 29,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 7,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 4,
+      "CoordType": "AvxLaterisFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 6,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 5,
+      "CoordType": "AvxLaterisFluminis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 35,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 13,
+        "RadiusMinuta": 0
+      }]
+    }]
+  },
+
+  {
+    "TableCaption": "ITERVM MEDIANA LINEA FLVMINIS A PONTE INFRA",
+    "TableNumber": 15,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 27,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 9,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 27,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 11,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 3,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 27,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 14,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 4,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 28,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 16,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 5,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 28,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 6,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 27,
+        "HorizonMinuta": 3.333,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 7,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 27,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 25,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 8,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 26,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 30,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 9,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A,A1,B,B1,M,N,O,Cac",
+        "HorizonGradus": 26,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 25,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 26,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 35,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 10,
+      "CoordType": "Flumen",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A1,B1,O",
+        "HorizonGradus": 26,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 28,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A,B,M,N",
+        "HorizonGradus": 26,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 28,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cac",
+        "HorizonGradus": 26,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 28,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 26,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 38,
+        "RadiusMinuta": 1
+      }]
+    }]
+  },
+
+  {
+    "TableCaption": "TEMPLA ET PVBLICA VRBIS AEDIFICIA",
+    "TableNumber": 16,
+    "Coords": [{
+      "CoordNumber": 1,
+      "CoordType": "Aedificium",
+      "Nomen": "Maxima Petri basilica",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 38,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 39,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 88,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A1,A2,B,B1,M,N,O,Cac",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 38,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 2,
+      "CoordType": "Aedificium",
+      "Nomen": "Meta",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 28,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "A,A1,B,B1,Cac,M,N,O",
+        "HorizonGradus": 28,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 39,
+        "RadiusMinuta": 1.5
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 38,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 29,
+        "RadiusMinuta": 1.5
+      }]
+    },
+    {
+      "CoordNumber": 3,
+      "CoordType": "Aedificium",
+      "Nomen": "Castellum",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 40,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 26,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "A,A1,B,B1,M,N,O,Cac",
+        "HorizonGradus": 26,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 40,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 40,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 26,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 4,
+      "CoordType": "Aedificium",
+      "Nomen": "Spiritus",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 38,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 29,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A,B,B1,N,O,Cac",
+        "HorizonGradus": 29,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 38,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A1,M",
+        "HorizonGradus": 23,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 38,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 5,
+      "CoordType": "Aedificium",
+      "Nomen": "Parioni turris",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 38,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 17,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A,A1,B,B1,M,N,O,Cac",
+        "HorizonGradus": 17,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 38,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 6,
+      "CoordType": "Aedificium",
+      "Nomen": "Horologii in campo Florae",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 37,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 16,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A,A1,B,B1,M,N,O,Cac",
+        "HorizonGradus": 16,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 37,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 7,
+      "CoordType": "Aedificium",
+      "Nomen": "Rotunda: Pantheon",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 42,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 13,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A,B,Cac,N",
+        "HorizonGradus": 13,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 14,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A1,B1,M,O",
+        "HorizonGradus": 13,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 42,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 43,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 14,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 8,
+      "CoordType": "Aedificium",
+      "Nomen": "Columna Antonini",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 45,
+        "HorizonMinuta": 0.666,
+        "RadiusGradus": 14,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A,B,C,M,N,O",
+        "HorizonGradus": 45,
+        "HorizonMinuta": 0.666,
+        "RadiusGradus": 14,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 9,
+      "CoordType": "Aedificium",
+      "Nomen": "Mensa Neronis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 47,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 5,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A,A1,B,B1,Cac,M,N,O",
+        "HorizonGradus": 5,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 47,
+        "RadiusMinuta": 0.5
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 45,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 17,
+        "RadiusMinuta": 0.5
+      }]
+    },
+    {
+      "CoordNumber": 10,
+      "CoordType": "Aedificium",
+      "Nomen": "Columna Adriani seu Caritarium turris",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 47,
+        "HorizonMinuta": 0.333,
+        "RadiusGradus": 3,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A,B,B1,C,M,N,O",
+        "HorizonGradus": 13,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 47,
+        "RadiusMinuta": 0.333
+      },
+      {
+        "Mss": "A1",
+        "HorizonGradus": 23,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 47,
+        "RadiusMinuta": 0.333
+      }]
+    },
+    {
+      "CoordNumber": 11,
+      "CoordType": "Aedificium",
+      "Nomen": "Fastigium Constantini",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 1,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 10,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "A,A1,B,B1,M,N,O",
+        "HorizonGradus": 10,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 1,
+        "RadiusMinuta": 0.5
+      },
+      {
+        "Mss": "C",
+        "HorizonGradus": 48,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 11,
+        "RadiusMinuta": 0.5
+      }]
+    },
+    {
+      "CoordNumber": 12,
+      "CoordType": "Aedificium",
+      "Nomen": "Militiae",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 4,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 5,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A,B,C,M,N,O",
+        "HorizonGradus": 5,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 4,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 13,
+      "CoordType": "Aedificium",
+      "Nomen": "Sabae",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 22,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 24,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A,B,C,M,N,O",
+        "HorizonGradus": 24,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 0.5
+      }]
+    },
+    {
+      "CoordNumber": 14,
+      "CoordType": "Aedificium",
+      "Nomen": "Balbinae",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 20,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,B1,C,M,O",
+        "HorizonGradus": 22,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A,B,N",
+        "HorizonGradus": 0,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 0,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 15,
+      "CoordType": "Aedificium",
+      "Nomen": "Ioannis ad Latinam",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 17,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 36,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 36,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 13,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A1,B,B1,M,N,O,A2,Cac",
+        "HorizonGradus": 36,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 17,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 16,
+      "CoordType": "Aedificium",
+      "Nomen": "Ioannis Apostoli",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 14,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 28,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 28,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 16,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,B,B1,M,N,O,A2,Cac",
+        "HorizonGradus": 28,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 14,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 17,
+      "CoordType": "Aedificium",
+      "Nomen": "Crucis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 13,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 39,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 17,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A1,B,B1,M,N,O,A2,Cac",
+        "HorizonGradus": 39,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 13,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 11,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 36,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 18,
+      "CoordType": "Aedificium",
+      "Nomen": "Stephani rotundi",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 16,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 22,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 8,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,B,B1,M,N,O,A2,Cac",
+        "HorizonGradus": 22,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 16,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 19,
+      "CoordType": "Aedificium",
+      "Nomen": "Ioannis et Pauli",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A1,B,B1,M,N,O,A2,Cac",
+        "HorizonGradus": 17,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 17,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 17,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 10,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 17,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 20,
+      "CoordType": "Aedificium",
+      "Nomen": "Mariae maioris",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 8,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 22,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 4,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A1,B,B1,M,N,O,A2,Cac",
+        "HorizonGradus": 22,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 8,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 21,
+      "CoordType": "Aedificium",
+      "Nomen": "Capaquae",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 10,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 23,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 6,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A1",
+        "HorizonGradus": 33,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 10,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "B1,O",
+        "HorizonGradus": 23,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 10,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "B,M,N,A2,Cac",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 10,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 22,
+      "CoordType": "Aedificium",
+      "Nomen": "Thermae",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 4,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 21,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A,A1,B,B1,M,N,O,Cac",
+        "HorizonGradus": 21,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 4,
+        "RadiusMinuta": 3
+      }]
+    },
+    {
+      "CoordNumber": 23,
+      "CoordType": "Aedificium",
+      "Nomen": "Panispernae",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 6,
+        "HorizonMinuta": 3.666,
+        "RadiusGradus": 12,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A,A1,B,B1,M,N,O,Cac",
+        "HorizonGradus": 12,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 6,
+        "RadiusMinuta": 3.666
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 6,
+        "HorizonMinuta": 3.666,
+        "RadiusGradus": 14,
+        "RadiusMinuta": 3.666
+      }]
+    },
+    {
+      "CoordNumber": 24,
+      "CoordType": "Aedificium",
+      "Nomen": "Petri in monte",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 24,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A,A1,B,B1,M,N,O,Cac",
+        "HorizonGradus": 24,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 32,
+        "RadiusMinuta": 1
+      }]
+    },
+    {
+      "CoordNumber": 26,
+      "CoordType": "Aedificium",
+      "Nomen": "Honofrii in monte",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 36,
+        "HorizonMinuta": 1.5,
+        "RadiusGradus": 31,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,B1,M,N,O,Cac",
+        "HorizonGradus": 31,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 35,
+        "RadiusMinuta": 1.5
+      }]
+    },
+    {
+      "CoordNumber": 27,
+      "CoordType": "Aedificium",
+      "Nomen": "Pancratii",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cac",
+        "HorizonGradus": 31,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 34,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A1,B1,M,N,O",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 31,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 34,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 31,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 28,
+      "CoordType": "Aedificium",
+      "Nomen": "Priscae",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 22,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 16,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,B1,M,N,O",
+        "HorizonGradus": 16,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "Cac",
+        "HorizonGradus": 13,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 22,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 24,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 16,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 29,
+      "CoordType": "Aedificium",
+      "Nomen": "Mariae trans Tyberim",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,Cpc",
+        "HorizonGradus": 32,
+        "HorizonMinuta": 0.5,
+        "RadiusGradus": 20,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "A1,B1,M,N,O,Cac",
+        "HorizonGradus": 20,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 32,
+        "RadiusMinuta": 0.5
+      }]
+    },
+    {
+      "CoordNumber": 30,
+      "CoordType": "Aedificium",
+      "Nomen": "Crisogoni",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 31,
+        "HorizonMinuta": 3.5,
+        "RadiusGradus": 16,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1ac,N",
+        "HorizonGradus": 16,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 31,
+        "RadiusMinuta": 3.333
+      },
+      {
+        "Mss": "B1,M,O,A1pc,Cac",
+        "HorizonGradus": 16,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 31,
+        "RadiusMinuta": 3.5
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 31,
+        "HorizonMinuta": 3.333,
+        "RadiusGradus": 16,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 31,
+      "CoordType": "Aedificium",
+      "Nomen": "Vitalis",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 3,
+        "HorizonMinuta": 1.333,
+        "RadiusGradus": 12,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,B1,M,N,O,Cac",
+        "HorizonGradus": 12,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 3,
+        "RadiusMinuta": 1.333
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 4,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 17,
+        "RadiusMinuta": 1.333
+      }]
+    },
+    {
+      "CoordNumber": 32,
+      "CoordType": "Aedificium",
+      "Nomen": "Meta Pauli",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 24,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 29,
+        "RadiusMinuta": 2
+      },
+      {
+        "Mss": "A1,B1,M,N,O,Cac",
+        "HorizonGradus": 29,
+        "HorizonMinuta": 2,
+        "RadiusGradus": 24,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 25,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 30,
+        "RadiusMinuta": 2
+      }]
+    },
+    {
+      "CoordNumber": 33,
+      "CoordType": "Aedificium",
+      "Nomen": "Petri in Vincula",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 9,
+        "HorizonMinuta": 3,
+        "RadiusGradus": 12,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "A1,B1,M,O,Cac",
+        "HorizonGradus": 12,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 6,
+        "RadiusMinuta": 3
+      },
+      {
+        "Mss": "Cpc",
+        "HorizonGradus": 12,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 15,
+        "RadiusMinuta": 0
+      },
+      {
+        "Mss": "N",
+        "HorizonGradus": 12,
+        "HorizonMinuta": 1,
+        "RadiusGradus": 6,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 34,
+      "CoordType": "Aedificium",
+      "Nomen": "Capitolium",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan",
+        "HorizonGradus": 0,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 0,
+        "RadiusMinuta": 0
+      }]
+    },
+    {
+      "CoordNumber": 35,
+      "CoordType": "Aedificium",
+      "Nomen": "Ara Coeli",
+      "Variants": [{
+        "Mss": "Boriaud-Furlan,A1,B1,M,O",
+        "HorizonGradus": 0,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 0,
+        "RadiusMinuta": 1
+      },
+      {
+        "Mss": "C,N",
+        "HorizonGradus": 0,
+        "HorizonMinuta": 0,
+        "RadiusGradus": 0,
+        "RadiusMinuta": 0
+      }]
+    }]
+  }
+]

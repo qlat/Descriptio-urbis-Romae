@@ -1,0 +1,1465 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+	<meta charset="UTF-8">
+	<title>Descriptio urbis Romae</title>
+
+	<script type="text/javascript" src="scripts/webfont.js"></script>
+	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+
+	<!-- popper.js 1.11.0 -->
+	<script type="text/javascript" src="scripts/popper.min.js"></script>
+
+	<!-- bootstrap.min.js 4.0.0 -->
+	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+
+	<!-- boootstrap.min.css 4.0.0 -->
+	<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+
+	<!-- font-awesome.min.css 4.7.0 -->
+	<link rel="stylesheet" href="css/font-awesome.min.css">
+
+	<!-- bootstrap4-toggle.min.css 3.4.0 -->
+	<link href="css/bootstrap4-toggle.min.css" rel="stylesheet">
+
+	<!-- bootstrap4-toggle.min.js 3.4.0 -->
+	<script type="text/javascript" src="scripts/bootstrap4-toggle.min.js"></script>
+
+	<!-- bootstrap-select.min.css 1.13.9 -->
+	<link rel="stylesheet" href="css/bootstrap-select.min.css">
+
+	<!-- bootstrap-select.min.js 1.13.9 -->
+	<script type="text/javascript" src="scripts/bootstrap-select.min.js"></script>
+
+	<script type="text/javascript" src="scripts/FileSaver.min.js"></script>
+	<script type="text/javascript" src="scripts/d3.min.js"></script>
+	<script type="text/javascript" src="scripts/labeler.js"></script>
+	<script type="text/javascript" src="scripts/anime.min.js"></script>
+	<script type="text/javascript" src="scripts/paperjs/paper-full.js"></script>
+	<script type="text/javascript" src="scripts/jquery.mousewheel.js"></script>
+
+	<script type="text/javascript" src="scripts/utils.js"></script>
+	<script type="text/javascript" src="scripts/tables.js"></script>
+	<script type="text/javascript" src="scripts/Descriptio.js"></script>
+	<script type="text/javascript" src="scripts/Pictor.js"></script>
+
+
+	<script type="text/javascript">
+		var jsonLoaded = false;
+		var fontLoaded = false;
+
+		var flashBtnAnim = null;
+		var flashEnabled = false;
+
+		function initWindow() {
+			if (jsonLoaded && fontLoaded) {
+				console.log("Everything loaded. Init window.");
+
+				createLayers();
+
+				//initMap();
+
+				drawAlbertisRome();
+			} else {
+				console.log("Loading not finished: jsonLoaded=" + jsonLoaded + ", fontLoaded=" + fontLoaded);
+			}
+		}
+
+		function enableAllVariantToggles() {
+
+			$('#var-ms-bf-toggle').bootstrapToggle('enable');
+			$('#var-ms-a-toggle').bootstrapToggle('enable');
+			$('#var-ms-a1-toggle').bootstrapToggle('enable');
+			//$('#var-ms-a1ac-toggle').bootstrapToggle('enable');
+			//$('#var-ms-a1pc-toggle').bootstrapToggle('enable');
+			$('#var-ms-a2-toggle').bootstrapToggle('enable');
+
+			$('#var-ms-b-toggle').bootstrapToggle('enable');
+			$('#var-ms-bac-toggle').bootstrapToggle('enable');
+			//$('#var-ms-bpc-toggle').bootstrapToggle('enable');
+			$('#var-ms-b1-toggle').bootstrapToggle('enable');
+
+			$('#var-ms-c-toggle').bootstrapToggle('enable');
+			$('#var-ms-cac-toggle').bootstrapToggle('enable');
+			$('#var-ms-cpc-toggle').bootstrapToggle('enable');
+			$('#var-ms-m-toggle').bootstrapToggle('enable');
+			$('#var-ms-n-toggle').bootstrapToggle('enable');
+			$('#var-ms-nac-toggle').bootstrapToggle('enable');
+			$('#var-ms-npc-toggle').bootstrapToggle('enable');
+			$('#var-ms-o-toggle').bootstrapToggle('enable');
+			$('#var-ms-oac-toggle').bootstrapToggle('enable');
+			$('#var-ms-opc-toggle').bootstrapToggle('enable');
+
+		}
+
+		function setMainMs(ms) {
+
+			flashUpdateBtn();
+
+			// Deactivate variant switches
+			enableAllVariantToggles();
+
+			switch (ms) {
+
+				case "Boriaud-Furlan":
+					$('#var-ms-bf-toggle').bootstrapToggle('off');
+					$('#var-ms-bf-toggle').bootstrapToggle('disable');
+					break;
+
+				case "A":
+					$('#var-ms-a-toggle').bootstrapToggle('off');
+					$('#var-ms-a-toggle').bootstrapToggle('disable');
+					break;
+
+				case "A1":
+					$('#var-ms-a1-toggle').bootstrapToggle('off');
+					$('#var-ms-a1-toggle').bootstrapToggle('disable');
+					break;
+
+				case "A2":
+					$('#var-ms-a2-toggle').bootstrapToggle('off');
+					$('#var-ms-a2-toggle').bootstrapToggle('disable');
+					break;
+
+				case "B":
+					$('#var-ms-b-toggle').bootstrapToggle('off');
+					$('#var-ms-b-toggle').bootstrapToggle('disable');
+					break;
+
+				case "Bac":
+					$('#var-ms-bac-toggle').bootstrapToggle('off');
+					$('#var-ms-bac-toggle').bootstrapToggle('disable');
+					break;
+
+				case "B1":
+					$('#var-ms-b1-toggle').bootstrapToggle('off');
+					$('#var-ms-b1-toggle').bootstrapToggle('disable');
+					break;
+
+				case "C":
+					$('#var-ms-c-toggle').bootstrapToggle('off');
+					$('#var-ms-c-toggle').bootstrapToggle('disable');
+					break;
+
+				case "Cac":
+					$('#var-ms-cac-toggle').bootstrapToggle('off');
+					$('#var-ms-cac-toggle').bootstrapToggle('disable');
+					break;
+
+				case "Cpc":
+					$('#var-ms-cpc-toggle').bootstrapToggle('off');
+					$('#var-ms-cpc-toggle').bootstrapToggle('disable');
+					break;
+
+				case "M":
+					$('#var-ms-m-toggle').bootstrapToggle('off');
+					$('#var-ms-m-toggle').bootstrapToggle('disable');
+					break;
+
+				case "N":
+					$('#var-ms-n-toggle').bootstrapToggle('off');
+					$('#var-ms-n-toggle').bootstrapToggle('disable');
+					break;
+
+				case "Nac":
+					$('#var-ms-nac-toggle').bootstrapToggle('off');
+					$('#var-ms-nac-toggle').bootstrapToggle('disable');
+					break;
+
+				case "Npc":
+					$('#var-ms-npc-toggle').bootstrapToggle('off');
+					$('#var-ms-npc-toggle').bootstrapToggle('disable');
+					break;
+
+				case "O":
+					$('#var-ms-o-toggle').bootstrapToggle('off');
+					$('#var-ms-o-toggle').bootstrapToggle('disable');
+					break;
+
+				case "Oac":
+					$('#var-ms-oac-toggle').bootstrapToggle('off');
+					$('#var-ms-oac-toggle').bootstrapToggle('disable');
+					break;
+
+				case "Opc":
+					$('#var-ms-opc-toggle').bootstrapToggle('off');
+					$('#var-ms-opc-toggle').bootstrapToggle('disable');
+					break;
+
+			}
+
+
+			console.log("Set main ms to >" + ms + "<.");
+			globals.mainMs = ms;
+
+			// Remove ms from variant mss if it were listed there
+			while (globals.variantMss.indexOf(ms) > -1) {
+				globals.variantMss.splice(globals.variantMss.indexOf(ms), 1);
+			}
+
+			console.log("Main ms: >" + globals.mainMs + "<, variant mss: " + globals.variantMss);
+
+		}
+
+		function setVariantMs(ms, toggle) {
+
+			flashUpdateBtn();
+
+			console.log("Set variant ms: " + ms);
+			console.log("Toggle: " + toggle + ", checked=" + document.getElementById(toggle).checked);
+
+			if (document.getElementById(toggle).checked) {
+				globals.variantMss.push(ms);
+			} else {
+				idx = globals.variantMss.indexOf(ms);
+				if (idx > -1) {
+					globals.variantMss.splice(idx, 1);
+				}
+			}
+
+			console.log("Main ms: >" + globals.mainMs + "<, variant mss: " + globals.variantMss);
+		}
+
+		function flashUpdateBtn() {
+
+			console.log("flashUpdateBtn(), flashBtnAnim=" + flashBtnAnim + ", flashEnabled=" + flashEnabled);
+
+			if (flashBtnAnim == null && flashEnabled) {
+
+				console.log("Make new flash button...");
+
+				flashBtnAnim = anime({
+					targets: '#points-btn',
+					backgroundColor: '#EF96A2',
+					easing: 'steps(1)',
+					duration: 750,
+					direction: 'alternate',
+					loop: true,
+				});
+			}
+		}
+
+		function toggleVariantMss(toggle) {
+
+			$('#var-ms-bf-toggle').bootstrapToggle(toggle);
+			$('#var-ms-a-toggle').bootstrapToggle(toggle);
+			$('#var-ms-a1-toggle').bootstrapToggle(toggle);
+			$('#var-ms-a2-toggle').bootstrapToggle(toggle);
+
+			$('#var-ms-b-toggle').bootstrapToggle(toggle);
+			$('#var-ms-bac-toggle').bootstrapToggle(toggle);
+			$('#var-ms-b1-toggle').bootstrapToggle(toggle);
+
+			$('#var-ms-c-toggle').bootstrapToggle(toggle);
+			$('#var-ms-cac-toggle').bootstrapToggle(toggle);
+			$('#var-ms-cpc-toggle').bootstrapToggle(toggle);
+			$('#var-ms-m-toggle').bootstrapToggle(toggle);
+			$('#var-ms-n-toggle').bootstrapToggle(toggle);
+			$('#var-ms-nac-toggle').bootstrapToggle(toggle);
+			$('#var-ms-npc-toggle').bootstrapToggle(toggle);
+			$('#var-ms-o-toggle').bootstrapToggle(toggle);
+			$('#var-ms-oac-toggle').bootstrapToggle(toggle);
+			$('#var-ms-opc-toggle').bootstrapToggle(toggle);
+
+		}
+
+
+		$(document).ready(function () {
+
+			$('.selectpicker').selectpicker('val', 'None');
+
+			$('#main-ms-bf-btn').prop("checked", true);
+
+			$('#main-ms-a-btn').prop("checked", false);
+			$('#main-ms-a1-btn').prop("checked", false);
+			$('#main-ms-a2-btn').prop("checked", false);
+
+			$('#main-ms-b-btn').prop("checked", false);
+			$('#main-ms-bac-btn').prop("checked", false);
+			$('#main-ms-b1-btn').prop("checked", false);
+
+			$('#main-ms-c-btn').prop("checked", false);
+			$('#main-ms-cac-btn').prop("checked", false);
+			$('#main-ms-cpc-btn').prop("checked", false);
+			$('#main-ms-m-btn').prop("checked", false);
+			$('#main-ms-n-btn').prop("checked", false);
+			$('#main-ms-nac-btn').prop("checked", false);
+			$('#main-ms-npc-btn').prop("checked", false);
+			$('#main-ms-o-btn').prop("checked", false);
+			$('#main-ms-oac-btn').prop("checked", false);
+			$('#main-ms-opc-btn').prop("checked", false);
+
+
+			toggleVariantMss('off');
+			$('#var-ms-bf-toggle').bootstrapToggle('disable');
+
+
+			$('.leftmenutrigger').on('click', function (e) {
+				$('.side-nav').toggleClass("open");
+				e.preventDefault();
+			});
+			$('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+				if (!$(this).next().hasClass('show')) {
+					$(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+				}
+
+			});
+
+
+			$('#update-btn').on('click', function (e) {
+
+				$('#update-btn').blur();
+
+				console.log("Redraw button clicked.");
+
+				resetDrawModeTables();
+				sortDrawModeTables();
+				globals.draw_animation = true;
+
+			});
+
+
+			$('#points-btn').on('click', function (e) {
+
+				$('#points-btn').blur();
+
+				if (flashBtnAnim != null) {
+					flashBtnAnim.seek(0);
+					flashBtnAnim.pause();
+					flashBtnAnim = null;
+				}
+
+				if (globals.variants_expanded) {
+					$('#variants-btn').blur();
+
+					hideVariants();
+					globals.variants_expanded = false;
+				}
+
+
+				console.log("Redraw points.");
+
+				resetDrawModeTables();
+				sortDrawModeTables();
+
+				drawAlbertisRome();
+
+			});
+
+
+			$('#svg-export-btn').on('click', function (e) {
+
+				$('#svg-export-btn').blur();
+
+				console.log("Save to svg");
+
+				svgelem = paper.project.exportSVG({
+					asString: true
+				});
+				console.log(typeof svgelem);
+				console.log(svgelem);
+
+				var blob = new Blob([svgelem], {
+					type: "image/svg+xml;charset=utf-8"
+				});
+				saveAs(blob, "descriptio.svg");
+
+			});
+
+			$('#nice-map-btn').on('click', function (e) {
+
+				console.log("Draw nice map.");
+				$('#nice-map-btn').blur();
+
+				if (!globals.niceMap) {
+
+					globals.niceMap = true;
+
+					$('.selectpicker').selectpicker('val', 'Unit');
+					globals.options.drawMode = "per_unit";
+
+					toggleVariantMss('off');
+					$('#main-ms-bf-btn').click();
+					$('#points-btn').click();
+
+					resetDrawModeTables();
+					sortDrawModeTables();
+					globals.draw_animation = true;
+				}
+
+			});
+
+
+			$('#variants-btn').on('click', function (e) {
+
+				console.log("Variants button clicked.");
+
+				if (globals.variants_expanded) {
+					$('#variants-btn').blur();
+
+					hideVariants();
+					globals.variants_expanded = false;
+				} else {
+					showVariants();
+					globals.variants_expanded = true;
+				}
+
+			});
+
+			$('#starts-btn').on('click', function (e) {
+
+				console.log("Chose new starting points...");
+
+				if (globals.app_state == "choose_start_coord") {
+
+					$('#starts-btn').blur();
+
+					showStartMarkers(false);
+					globals.app_state = "none";
+				} else {
+					showStartMarkers(true);
+					globals.app_state = "choose_start_coord";
+				}
+			});
+
+			$('#measure-btn').on('click', function (e) {
+
+				console.log("Measure distance...");
+
+				if (globals.app_state == "measure_distance") {
+
+					$('#measure-btn').blur();
+
+					globals.measureLayer.removeChildren();
+					globals.app_state = "none";
+
+				} else {
+					globals.app_state = "measure_distance";
+				}
+
+			});
+
+			$('#map-btn').on('click', function (e) {
+
+				console.log("Toggle map...");
+
+				if (globals.backgroundMap.visible) {
+
+					$('#map-btn').blur();
+
+					anime({
+						targets: globals.backgroundMap,
+						opacity: 0,
+						duration: 200,
+						easing: 'linear',
+						complete: function (anim) {
+							globals.backgroundMap.visible = false;
+						}
+					});
+
+				} else {
+					globals.backgroundMap.visible = true;
+
+					anime({
+						targets: globals.backgroundMap,
+						opacity: 0.7,
+						duration: 200,
+						easing: 'linear'
+					});
+				}
+
+			});
+
+			$('#circle-btn').on('click', function (e) {
+
+				console.log("Circle overlay...");
+
+				$('#circle-btn').blur();
+
+				if (globals.circleOverlayLayer.visible) {
+
+					console.log("Hide overlay layer...");
+
+					anime({
+						targets: globals.circleOverlayLayer,
+						opacity: 0,
+						duration: 100,
+						easing: 'linear',
+						complete: function (anim) {
+							globals.circleOverlayLayer.visible = false;
+						}
+					});
+
+				} else {
+					console.log("Show overlay layer...");
+
+					globals.circleOverlayLayer.visible = true;
+
+					anime({
+						targets: globals.circleOverlayLayer,
+						opacity: 1,
+						duration: 100,
+						easing: 'linear'
+					});
+
+				}
+
+			});
+
+			$("#method-select").change(function () {
+
+				// Unfocus bootstrap-select. Source: https://stackoverflow.com/a/42161771
+				$(".btn").blur();
+
+				var selected = $('#method-select option:selected').val();
+				console.log("Method selected: " + selected);
+
+				switch (selected) {
+					case "Table":
+						globals.options.drawMode = "per_table";
+						break;
+
+					case "Unit":
+						globals.options.drawMode = "per_unit";
+						break;
+
+					case "None":
+						globals.options.drawMode = "all";
+						break;
+				}
+
+				drawAlbertisRome();
+			});
+
+			$("#mainms-select").change(function () {
+				var selected = $('#mainms-select option:selected').val();
+				console.log("Main ms selected: " + selected);
+			});
+
+			flashEnabled = true;
+
+
+		});
+
+
+
+		$(window).on("load", function () {
+			console.log("Window loaded.");
+
+			console.log("Run some tests...");
+
+			var canvas = document.getElementById('DescriptioCanvas');
+
+			// Create an empty project and a view for the canvas:
+			paper.setup(canvas);
+
+			// Does this help?
+			// https://stackoverflow.com/questions/32825525/paper-js-why-does-tool-onmousedown-not-trigger
+			var tool = new paper.Tool();
+			tool.activate();
+
+			elem = document.getElementById('location_pin');
+			svg_location_pin = new paper.Symbol(paper.project.importSVG(elem));
+			elem.parentNode.removeChild(elem);
+
+			elem = document.getElementById('porta_icon');
+			svg_porta_icon = new paper.Symbol(paper.project.importSVG(elem));
+			elem.parentNode.removeChild(elem);
+
+			elem = document.getElementById('svg_measure_pin');
+			svg_measure_pin = new paper.Symbol(paper.project.importSVG(elem));
+			elem.parentNode.removeChild(elem);
+
+
+			tool.onMouseDown = function (event) {
+				console.log("Mouse down!");
+				globals.descriptioMouseDown(event);
+			}
+
+			tool.onMouseDrag = function (event) {
+				console.log("Mouse dragged!");
+				globals.descriptioMouseDrag(event);
+			}
+
+			tool.onMouseUp = function (event) {
+				console.log("Mouse up!");
+				globals.descriptioMouseUp(event);
+			}
+
+			tool.onMouseMove = function (event) {
+				globals.descriptioMouseMove(event);
+			}
+
+			paper.view.onFrame = function (event) {
+				globals.descriptioFrame(event);
+			}
+
+
+			console.log("Paper.js initialized.");
+
+
+			WebFont.load({
+				active: function () {
+					fontLoaded = true;
+					console.log("Font Lusitana loaded.");
+					initWindow();
+				},
+				google: {
+					families: ['Lusitana']
+				}
+			});
+
+
+			$('#DescriptioCanvas').mousewheel(function (event, delta) {
+
+				if (delta < 0) {
+					ZoomLevel++;
+					paper.view.scale(ZoomInFactor, globals.CurrentMousePosition);
+				} else {
+					ZoomLevel--;
+					if (ZoomLevel > MinZoomLevel) {
+						paper.view.scale(ZoomOutFactor, globals.CurrentMousePosition);
+					}
+				}
+
+				return false; // prevent default
+			});
+			console.log("jQuery mouse wheel handler set up.")
+
+
+			$.getJSON("Tabulae.json", function (data) {
+				console.log("Tabulae.json loaded!");
+				console.log("Data:" + data);
+
+				tabulaeJSON = data;
+
+				jsonLoaded = true;
+				console.log("JSON parsed.");
+				initWindow();
+
+			});
+
+
+
+		});
+	</script>
+</head>
+
+
+<!-- Resize canvas to available size
+     Source: https://stackoverflow.com/questions/28896260/paper-js-wont-resize-the-canvas-correctly -->
+<style type="text/css">
+	html,
+	body {
+		margin: 0;
+		overflow: hidden;
+		height: 100%;
+	}
+
+	body {
+		background: #f9f9f9;
+	}
+
+	#wrapper {
+		padding: 90px 15px;
+	}
+
+	.navbar-expand-lg .navbar-nav.side-nav {
+		flex-direction: column;
+	}
+
+	.card {
+		margin-bottom: 15px;
+		border-radius: 0;
+		box-shadow: 0 3px 5px rgba(0, 0, 0, .1);
+	}
+
+	.header-top {
+		box-shadow: 0 3px 5px rgba(0, 0, 0, .1)
+	}
+
+	.leftmenutrigger {
+		display: none
+	}
+
+	@media(min-width:992px) {
+		.leftmenutrigger {
+			display: block;
+			display: block;
+			margin: 7px 20px 4px 0;
+			cursor: pointer;
+		}
+
+		#wrapper {
+			padding: 90px 15px 15px 15px;
+		}
+
+		.navbar-nav.side-nav.open {
+			left: 0;
+		}
+
+		.navbar-nav.side-nav {
+			background: #CDCDCD;
+			box-shadow: 2px 1px 2px rgba(0, 0, 0, .1);
+			position: fixed;
+			top: 56px;
+			flex-direction: column !important;
+			left: -220px;
+			width: 220px;
+			overflow-y: auto;
+			bottom: 0;
+			overflow-x: hidden;
+			padding-bottom: 40px
+		}
+	}
+
+	.animate {
+		-webkit-transition: all .3s ease-in-out;
+		-moz-transition: all .3s ease-in-out;
+		-o-transition: all .3s ease-in-out;
+		-ms-transition: all .3s ease-in-out;
+		transition: all .3s ease-in-out
+	}
+
+	.dropdown-submenu {
+		position: relative;
+	}
+
+	.dropdown-submenu a::after {
+		transform: rotate(-90deg);
+		position: absolute;
+		right: 6px;
+		top: .8em;
+	}
+
+	.dropdown-submenu .dropdown-menu {
+		top: 0;
+		left: 100%;
+		margin-left: .1rem;
+		margin-right: .1rem;
+	}
+
+	/* Scale canvas with resize attribute to full size */
+
+	canvas[resize] {
+		width: 100%;
+		height: 100%;
+	}
+
+	/* latin */
+
+	@font-face {
+		font-family: 'Lusitana';
+		font-style: normal;
+		font-weight: 400;
+		/*src: local('Lusitana'), url(https://fonts.gstatic.com/s/lusitana/v5/h_1ZjHXv2tOhJGwbefP69vesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');*/
+		src: local('Lusitana'), url('fonts/Lusitana-Regular.ttf') format('truetype');
+		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
+	}
+
+	.main_ms_button {
+		min-width: 60px;
+		max-width: 60px;
+
+	}
+
+	.descriptio-color {
+		color: #4CAC95 !important;
+		border-color: #4CAC95 !important;
+	}
+
+	.toggle-handle {
+		color: #4CAC95 !important;
+	}
+
+	.add-padding-top {
+		padding-top: 10px
+	}
+
+	.small-padding-top {
+		padding-top: 3px
+	}
+
+	.category-padding-top {
+		padding-top: 25px;
+	}
+
+	/* http://blog.koalite.com/bbg/ */
+	.btn-descriptio {
+		color: #2D2D2D;
+		background-color: #F0F0F0;
+		/*border-color: #2D2D2D;*/
+		border-width: 3px;
+		border-radius: 6px;
+	}
+
+	.btn-descriptio:hover,
+	.btn-descriptio:focus,
+	.btn-descriptio:active,
+	.btn-descriptio.active,
+	.open .dropdown-toggle.btn-descriptio {
+		color: #2D2D2D;
+		border-color: rgba(45, 45, 45, 0.8);
+		border-width: 3px;
+		border-radius: 6px;
+		box-shadow: 5px 7px 20px -10px rgba(0, 0, 0, 0.37);
+	}
+
+	.btn-descriptio:active,
+	.btn-descriptio.active,
+	.open .dropdown-toggle.btn-descriptio {
+		background-image: none;
+	}
+
+	.btn-descriptio.disabled,
+	.btn-descriptio[disabled],
+	fieldset[disabled] .btn-descriptio,
+	.btn-descriptio.disabled:hover,
+	.btn-descriptio[disabled]:hover,
+	fieldset[disabled] .btn-descriptio:hover,
+	.btn-descriptio.disabled:focus,
+	.btn-descriptio[disabled]:focus,
+	fieldset[disabled] .btn-descriptio:focus,
+	.btn-descriptio.disabled:active,
+	.btn-descriptio[disabled]:active,
+	fieldset[disabled] .btn-descriptio:active,
+	.btn-descriptio.disabled.active,
+	.btn-descriptio[disabled].active,
+	fieldset[disabled] .btn-descriptio.active {
+		background-color: #F0F0F0;
+		border-color: rgb(88, 88, 88);
+	}
+
+	.btn-descriptio .badge {
+		color: #F0F0F0;
+		background-color: #2D2D2D;
+	}
+
+	.tooltip {
+		text-decoration: none;
+		position: relative;
+
+	}
+
+	.tooltip span {
+		display: none;
+	}
+
+	.descriptio-tooltip {
+		position: relative;
+		display: none;
+
+		background: rgba(240, 240, 240, 0.85);
+		border-color: rgba(45, 45, 45, 0.8);
+		border-style: solid;
+		border-width: 4px;
+		border-radius: 6px;
+		min-height: 175px;
+
+		margin: 1rem;
+		min-width: 220px;
+
+		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+	}
+
+	.dtt-heading {
+		font-family: Lusitana;
+		font-size: 20px;
+		font-weight: bold;
+	}
+
+	.dtt-pad-left {
+		padding-left: 20px;
+	}
+
+	.dtt-pad-top {
+		padding-top: 10px;
+	}
+
+	.dtt-pad-top-sm {
+		padding-top: 7px;
+	}
+
+	.dtt-entry {
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+		font-size: 12px;
+	}
+
+	.dtt-right {
+		text-align: right;
+		padding-right: 20px;
+	}
+
+	.dtt-text::after {
+		content: attr(data-value);
+	}
+</style>
+
+<body>
+
+	<div id="wrapper" class="animate" style="padding-bottom: 0px;">
+		<nav class="navbar header-top fixed-top navbar-expand-lg  navbar-dark bg-dark">
+			<span class="navbar-toggler-icon leftmenutrigger"></span>
+			<a class="navbar-brand" href="#">Descriptio urbis Romae</a>
+			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText"
+				aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+				<span class="navbar-toggler-icon"></span>
+			</button>
+
+			<div class="collapse navbar-collapse" id="navbarText">
+
+				<ul class="navbar-nav animate side-nav">
+
+					<li>
+
+						<div class="container">
+
+							<div class="row add-padding-top">
+								<div class="col" style="vertical-align: middle;">
+									Grouping:
+								</div>
+							</div>
+
+							<div class="row small-padding-top">
+								<div class="col">
+
+									<select class="form-control selectpicker btn-block" id="method-select"
+										name="drawModeSelect">
+										<option>Table</option>
+										<option>Unit</option>
+										<option>None</option>
+									</select>
+								</div>
+							</div>
+
+							<div class="row add-padding-top">
+								<div class="col">
+									<button type="button" class="btn btn-default btn-block shadow btn-descriptio"
+										id="update-btn">
+										<i class="fa fa-pencil"></i> Draw
+									</button>
+								</div>
+							</div>
+
+							<div class="row add-padding-top">
+								<div class="col">
+									<button type="button" class="btn btn-default btn-block btn-descriptio"
+										id="variants-btn">
+										<i class="fa fa-code-fork"></i> Variants
+									</button>
+								</div>
+							</div>
+
+							<div class="row category-padding-top">
+
+								<div class="col">
+									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
+										id="map-btn">
+										<i class="fa fa-map-o"></i>
+									</button>
+								</div>
+
+								<div class="col">
+									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
+										id="nice-map-btn">
+										<i class="fa fa-magic"></i>
+									</button>
+								</div>
+								
+							</div>
+
+
+
+							<div class="row add-padding-top">
+
+								<div class="col">
+									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
+										id="starts-btn">
+										<i class="fa fa-font-awesome"></i>
+									</button>
+								</div>
+
+								<div class="col">
+									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
+										id="measure-btn">
+										<i class="fa fa-map-marker"></i>
+									</button>
+								</div>
+
+								<div class="col">
+									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
+										id="circle-btn">
+										<i class="fa fa-circle-o"></i>
+									</button>
+								</div>
+							</div>
+
+
+
+							<div class="row category-padding-top">
+
+								<div class="col">
+									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
+										id="points-btn">
+										<i class="fa fa-refresh"></i>
+									</button>
+								</div>
+
+								<div class="col">
+									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
+										id="svg-export-btn">
+										<i class="fa fa-download"></i>
+									</button>
+								</div>
+
+							</div>
+						</div>
+
+					</li>
+
+					<li>
+
+						<div class="container">
+
+							<div class="row add-padding-top">
+								<div class="col">
+									Ms.
+								</div>
+
+								<div class="col">
+									Compare
+								</div>
+							</div>
+
+
+							<div class="row">
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-bf-btn"
+											onclick="setMainMs('Boriaud-Furlan');"> B/F
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-bf-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('Boriaud-Furlan', 'var-ms-bf-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-a-btn"
+											onclick="setMainMs('A');"> A
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-a-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('A', 'var-ms-a-toggle');">
+								</div>
+
+							</div>
+
+
+							<div class="row">
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-a1-btn"
+											onclick="setMainMs('A1');"> A<sup>1</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-a1-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('A1', 'var-ms-a1-toggle');">
+								</div>
+							</div>
+
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-a2-btn"
+											onclick="setMainMs('A2');"> A<sup>2</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-a2-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('A2', 'var-ms-a2-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-b-btn"
+											onclick="setMainMs('B');"> B
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-b-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('B', 'var-ms-b-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-bac-btn"
+											onclick="setMainMs('Bac');"> B<sup>ac</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-bac-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('Bac', 'var-ms-bac-toggle');">
+								</div>
+							</div>
+
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-b1-btn"
+											onclick="setMainMs('B1');"> B<sup>1</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-b1-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('B1', 'var-ms-b1-toggle');">
+								</div>
+							</div>
+
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-c-btn"
+											onclick="setMainMs('C');"> C
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-c-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('C', 'var-ms-c-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-cac-btn"
+											onclick="setMainMs('Cac');"> C<sup>ac</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-cac-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('Cac', 'var-ms-cac-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-cpc-btn"
+											onclick="setMainMs('Cpc');"> C<sup>pc</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-cpc-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('Cpc', 'var-ms-cpc-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-m-btn"
+											onclick="setMainMs('M');"> M
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-m-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('M', 'var-ms-m-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-n-btn"
+											onclick="setMainMs('N');"> N
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-n-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('N', 'var-ms-n-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-nac-btn"
+											onclick="setMainMs('Nac');"> N<sup>ac</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-nac-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('Nac', 'var-ms-nac-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-npc-btn"
+											onclick="setMainMs('Npc');"> N<sup>pc</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-npc-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('Npc', 'var-ms-npc-toggle');">
+								</div>
+							</div>
+
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-o-btn"
+											onclick="setMainMs('O');"> O
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-o-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('O', 'var-ms-o-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-oac-btn"
+											onclick="setMainMs('Oac');"> O<sup>ac</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-oac-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('Oac', 'var-ms-oac-toggle');">
+								</div>
+							</div>
+
+							<div class="row">
+
+								<div class="col">
+									<label class="main_ms_button text-left">
+										<input type="radio" name="main_mss" id="main-ms-opc-btn"
+											onclick="setMainMs('Opc');"> O<sup>pc</sup>
+									</label>
+								</div>
+
+								<div class="col">
+									<input type="checkbox" id="var-ms-opc-toggle" data-toggle="toggle"
+										data-onstyle="default" data-offstyle="outline-light" data-size="xs"
+										onchange="setVariantMs('Opc', 'var-ms-opc-toggle');">
+								</div>
+							</div>
+
+						</div>
+					</li>
+
+				</ul>
+
+			</div>
+
+
+
+			<ul class="navbar-nav ml-md-auto d-md-flex">
+				<li class="nav-item">
+					<a class="nav-link" href="https://github.com/qlat" target="_blank">Github
+					</a>
+				</li>
+
+			</ul>
+	</div>
+	</nav>
+
+	<canvas id="DescriptioCanvas" resize></canvas>
+
+	<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+		xmlns="http://www.w3.org/2000/svg" xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+		xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape" xml:space="preserve" width="12"
+		viewBox="0 0 12 13.756259" version="1.1" id="location_pin" height="13.756259" enable-background="new 0 0 64 64"
+		sodipodi:docname="flag.svg" inkscape:version="0.92.4 (5da689c313, 2019-01-14)">
+		<sodipodi:namedview pagecolor="#ffffff" bordercolor="#666666" borderopacity="1" objecttolerance="10"
+			gridtolerance="10" guidetolerance="10" inkscape:pageopacity="0" inkscape:pageshadow="2"
+			inkscape:window-width="1920" inkscape:window-height="1017" id="namedview6" showgrid="false"
+			fit-margin-top="0" fit-margin-left="0" fit-margin-right="0" fit-margin-bottom="0" inkscape:zoom="25.618729"
+			inkscape:cx="9.4574597" inkscape:cy="8.3907545" inkscape:window-x="-8" inkscape:window-y="-8"
+			inkscape:window-maximized="1" inkscape:current-layer="Layer_1" />
+		<metadata id="metadata9">
+			<rdf:RDF>
+				<cc:Work rdf:about="">
+					<dc:format>image/svg+xml</dc:format>
+					<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+					<dc:title></dc:title>
+				</cc:Work>
+			</rdf:RDF>
+		</metadata>
+		<defs id="defs7" />
+		<path style="fill:#4cac95;fill-opacity:1;stroke-width:0.26397994" id="path2"
+			d="m 11.867482,1.7594268 c -0.08923,-0.088692 -0.194289,-0.1333104 -0.31572,-0.1333104 -0.06045,0 -0.187954,0.049632 -0.381715,0.1475652 C 10.976022,1.8718776 10.770117,1.98117 10.55339,2.1031284 10.336134,2.2242948 10.079018,2.3341104 9.7823046,2.4323112 9.485855,2.5302432 9.2113159,2.5798764 8.9586871,2.5798764 8.7253289,2.5798764 8.5194245,2.5355244 8.34203,2.446566 7.7536187,2.1709716 7.2417617,1.9653312 6.8072507,1.8296448 6.3727397,1.6942236 5.9054952,1.6261164 5.4052532,1.6261164 c -0.8637423,0 -1.8475956,0.2808744 -2.9505038,0.8415684 C 2.2271987,2.5811928 2.0640592,2.6691012 1.9584672,2.7335124 L 1.8536676,1.9650672 C 2.0904576,1.7594268 2.243302,1.4598096 2.243302,1.1216508 2.243302,0.5020896 1.7412121,0 1.1216512,0 0.50208984,0 0,0.5020896 0,1.1216508 0,1.5258048 0.21593558,1.8771612 0.53640724,2.0746188 L 2.0516521,13.185534 c 0.04514,0.330767 0.3281271,0.570725 0.6530863,0.570725 0.029566,0 0.059659,-0.0018 0.090017,-0.0058 0.3611246,-0.04963 0.6140174,-0.381978 0.5646531,-0.743104 L 2.750407,8.5415988 c 1.10502,-0.548286 2.0608914,-0.8246736 2.8649743,-0.8246736 0.3413259,0 0.6742047,0.050952 0.998636,0.1539012 0.3246953,0.103212 0.5947468,0.2151432 0.8096265,0.3363096 0.2148796,0.1214316 0.4685644,0.2338872 0.7602622,0.3363108 0.2922258,0.102948 0.5807559,0.154428 0.8655903,0.154428 0.7196093,0 1.5815037,-0.2711064 2.5859477,-0.8130576 C 11.761626,7.81935 11.854019,7.7549388 11.912359,7.6918476 11.970698,7.6287564 12,7.5390036 12,7.422324 V 2.0748828 C 12,1.9537152 11.95592,1.8483876 11.867482,1.7594268 Z"
+			inkscape:connector-curvature="0" />
+	</svg>
+
+	<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+		xmlns="http://www.w3.org/2000/svg" id="porta_icon" version="1.1" viewBox="0 0 23.685986 29.754699"
+		height="29.754698mm" width="23.685986mm">
+		<defs id="defs2" />
+		<metadata id="metadata5">
+			<rdf:RDF>
+				<cc:Work rdf:about="">
+					<dc:format>image/svg+xml</dc:format>
+					<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+					<dc:title></dc:title>
+					<dc:identifier>porta_icon</dc:identifier>
+				</cc:Work>
+			</rdf:RDF>
+		</metadata>
+		<g transform="translate(-11.009008,-106.2263)" id="layer1">
+			<rect y="110.7217" x="21.084097" height="22.357187" width="3.2140224" id="rect844"
+				style="fill:#ffffff;fill-opacity:1;stroke:none;stroke-width:1.67309225;stroke-linecap:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+			<path id="path835"
+				d="m 23.381167,133.231 h -9.622 l -1.59e-4,-13.70334 c 0.133634,-5.88696 3.073725,-10.43689 9.622159,-10.55178 M 22.322833,133.231 h 9.622 l 1.59e-4,-13.70334 c -0.133634,-5.88696 -3.073725,-10.43689 -9.622159,-10.55178"
+				style="fill:#ffffff;fill-opacity:1;stroke:#000000;stroke-width:5.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-opacity:1" />
+		</g>
+	</svg>
+
+	<svg xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#"
+		xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns:svg="http://www.w3.org/2000/svg"
+		xmlns="http://www.w3.org/2000/svg" version="1.1" id="svg_measure_pin" x="0px" y="0px" width="9.000001"
+		height="14.335359" viewBox="0 0 9.0000006 14.335359" xml:space="preserve">
+		<metadata id="metadata11">
+			<rdf:RDF>
+				<cc:Work rdf:about="">
+					<dc:format>image/svg+xml</dc:format>
+					<dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+					<dc:title></dc:title>
+				</cc:Work>
+			</rdf:RDF>
+		</metadata>
+		<defs id="defs9" />
+		<g style="stroke:none;stroke-opacity:1;fill:#4CAC95;fill-opacity:1" id="g4"
+			transform="matrix(0.03365392,0,0,0.03365392,-2.6676789,0)">
+			<path style="stroke:none;stroke-opacity:1;fill:#4CAC95;fill-opacity:1"
+				d="m 213.285,0 h -0.608 C 139.114,0 79.268,59.826 79.268,133.361 c 0,48.202 21.952,111.817 65.246,189.081 32.098,57.281 64.646,101.152 64.972,101.588 0.906,1.217 2.334,1.934 3.847,1.934 0.043,0 0.087,0 0.13,-0.002 1.561,-0.043 3.002,-0.842 3.868,-2.143 0.321,-0.486 32.637,-49.287 64.517,-108.976 43.03,-80.563 64.848,-141.624 64.848,-181.482 C 346.693,59.825 286.846,0 213.285,0 Z m 61.58,136.62 c 0,34.124 -27.761,61.884 -61.885,61.884 -34.123,0 -61.884,-27.761 -61.884,-61.884 0,-34.123 27.761,-61.884 61.884,-61.884 34.124,0 61.885,27.761 61.885,61.884 z"
+				id="path2" />
+		</g>
+	</svg>
+
+	<!-- Tooltip that shows info about the currently hovered coordinate. -->
+	<span class="descriptio-tooltip" id="tooltip-span">
+		<div class="container">
+
+			<div class="row dtt-pad-top">
+
+				<div class="col dtt-heading dtt-pad-left">
+					Tab.
+				</div>
+				<div class="col-6 dtt-heading dtt-right dtt-text" id="tt-table"></div>
+			</div>
+
+			<div class="row">
+				<div class="col dtt-heading dtt-pad-left">
+					Ms.
+				</div>
+				<div class="col-6 dtt-heading dtt-right dtt-text" id="tt-ms"></div>
+			</div>
+
+			<div class="row dtt-pad-top-sm">
+				<div class="col dtt-entry dtt-pad-left">
+					Horzion Gradus
+				</div>
+
+				<div class="col-5 dtt-entry dtt-right dtt-text" id="tt-hg"></div>
+
+			</div>
+
+			<div class="row">
+				<div class="col dtt-entry dtt-pad-left">
+					Horzion Minuta
+				</div>
+
+				<div class="col-5 dtt-entry dtt-right dtt-text" id="tt-hm"></div>
+			</div>
+
+			<div class="row">
+				<div class="col dtt-entry dtt-pad-left">
+					Radius Gradus
+				</div>
+
+				<div class="col-5 dtt-entry dtt-right dtt-text" id="tt-rg"></div>
+			</div>
+
+			<div class="row">
+				<div class="col dtt-entry dtt-pad-left">
+					Radius Minuta
+				</div>
+
+				<div class="col-5 dtt-entry dtt-right dtt-text" id="tt-rm"></div>
+			</div>
+
+		</div>
+
+
+	</span>
+
+</body>
+
+</html>
