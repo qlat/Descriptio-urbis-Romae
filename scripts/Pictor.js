@@ -388,27 +388,27 @@ globals.descriptioMouseMove = function (event) {
         relY = -(event.point.y - horizonCenter.y);
         //console.log("rel_pos=("+relX+"|"+relY+")");
 
-        hypotenuse = Math.sqrt(relX*relX + relY*relY);
+        hypotenuse = Math.sqrt(relX * relX + relY * relY);
 
         //angleCart = Math.atan(relY / relX) - (Math.PI / 2);
         //angleCart = Math.asin(relY / hypotenuse) - (Math.PI / 2);
         vec1_x = 0;
         vec1_y = 1;
 
-        len = Math.sqrt(relX*relX + relY*relY);
+        len = Math.sqrt(relX * relX + relY * relY);
         relX /= len;
         relY /= len;
 
-        angleCart = Math.acos(vec1_x*relX + vec1_y*relY);
+        angleCart = Math.acos(vec1_x * relX + vec1_y * relY);
         angleCart *= 180 / Math.PI;
 
         if (relX < 0) {
-            angleCart = 180 + (180-angleCart);
+            angleCart = 180 + (180 - angleCart);
         }
 
         //console.log("rel_pos=("+relX+"|"+relY+")" + " angleCart="+angleCart);
         //console.log("angleCart="+angleCart);
-        
+
         angleGradus = Math.floor(angleCart / 7.5)
         angleMinuta = Math.floor((angleCart - angleGradus * 7.5) / 1.875);
 
@@ -420,11 +420,42 @@ globals.descriptioMouseMove = function (event) {
 
         r = radiusGradus * (bigHorizonRadius / 50) + radiusMinuta * (bigHorizonRadius / (50 * 4));
 
-        x = r * Math.cos((Math.PI / 2) + angleGradus * (Math.PI / 48) + radiusMinuta * (Math.PI / (48 * 4)));
-        y = r * Math.sin((Math.PI / 2) + angleGradus * (Math.PI / 48) + radiusMinuta * (Math.PI / (48 * 4)));
+        // Adjustments
+        if (relY < 0) {
+            r *= -1;
+        }
 
         /*
-        cart_point = new paper.Point(horizonCenter.x - x, horizonCenter.y - y);
+        x = r * Math.cos((Math.PI / 2) + angleGradus * (Math.PI / 48) + radiusMinuta * (Math.PI / (48 * 4)));
+        y = r * Math.sin((Math.PI / 2) + angleGradus * (Math.PI / 48) + radiusMinuta * (Math.PI / (48 * 4)));
+        */
+        
+        angleAlberti = angleGradus * (2 * Math.PI / 48) + angleMinuta * (2 * Math.PI / (48 * 4));
+        angleAlberti += Math.PI / 2;
+
+        x = r * Math.cos(angleAlberti);
+        /*
+        if (relX < 0 && relY < 0) {
+            x *= -1;
+        }
+        */
+       
+       
+        y = r * Math.sin(angleAlberti);
+
+        // Lower right quadrant
+        if (relX > 0 && relY < 0) {
+            x *= -1;
+            y *= -1;
+        }
+
+        // Lower left quadrant
+        if (relX < 0 && relY < 0) {
+            x *= -1;
+            y *= -1;
+        }
+
+        cart_point = new paper.Point(horizonCenter.x-x, horizonCenter.y - y);
 
 
         if (globals.construction_cursor != null) {
@@ -434,7 +465,7 @@ globals.descriptioMouseMove = function (event) {
         globals.construction_cursor = new paper.Path.Circle(cart_point, 2);
         globals.construction_cursor.strokeColor = new paper.Color(1, 0, 0);
         globals.construction_cursor.strokeWidth = 1.5;
-        */
+        /**/
 
     }
 
