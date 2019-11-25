@@ -21,8 +21,8 @@ globals.variantMss = [];
 // Rotation of horizon in multiples of (2*pi/48), i.e. of bigStep
 globals.HorizonRotation = 12;
 
-// Possible values are "none", "choose_start_coord", "choose_variant", "measure_distance"
-globals.app_state = "none";
+// Possible values are "none", "choose_start_coord", "choose_variant", "measure_distance", "construction"
+globals.app_state = "construction";
 
 // Indicates whether a drawing animation is currently active
 globals.draw_animation = false;
@@ -34,6 +34,8 @@ globals.variants_expanded = false;
 globals.niceMap = false;
 
 globals.circleOverlay = false;
+
+globals.construction_cursor = null;
 
 
 globals.measureOverlay = {
@@ -377,6 +379,65 @@ globals.descriptioMouseUp = function (event) {
 globals.descriptioMouseMove = function (event) {
     globals.CurrentMousePosition = event.point;
 
+
+    if (globals.app_state == "construction") {
+
+        //console.log("x="+event.point.x+", y="+event.point.y+", horizon center: ("+horizonCenter.x+"|"+horizonCenter.y+")");
+
+        relX = event.point.x - horizonCenter.x;
+        relY = -(event.point.y - horizonCenter.y);
+        //console.log("rel_pos=("+relX+"|"+relY+")");
+
+        hypotenuse = Math.sqrt(relX*relX + relY*relY);
+
+        //angleCart = Math.atan(relY / relX) - (Math.PI / 2);
+        //angleCart = Math.asin(relY / hypotenuse) - (Math.PI / 2);
+        vec1_x = 0;
+        vec1_y = 1;
+
+        len = Math.sqrt(relX*relX + relY*relY);
+        relX /= len;
+        relY /= len;
+
+        angleCart = Math.acos(vec1_x*relX + vec1_y*relY);
+        angleCart *= 180 / Math.PI;
+
+        if (relX < 0) {
+            angleCart = 180 + (180-angleCart);
+        }
+
+        //console.log("rel_pos=("+relX+"|"+relY+")" + " angleCart="+angleCart);
+        //console.log("angleCart="+angleCart);
+        
+        angleGradus = Math.floor(angleCart / 7.5)
+        angleMinuta = Math.floor((angleCart - angleGradus * 7.5) / 1.875);
+
+
+        radiusGradus = Math.floor(hypotenuse / (bigHorizonRadius / 50));
+        radiusMinuta = Math.floor((hypotenuse - radiusGradus * (bigHorizonRadius / 50)) / (bigHorizonRadius / (50 * 4)));
+
+        console.log("HG: " + angleGradus + " HM: " + angleMinuta + " RG: " + radiusGradus + " RM: " + radiusMinuta);
+
+        r = radiusGradus * (bigHorizonRadius / 50) + radiusMinuta * (bigHorizonRadius / (50 * 4));
+
+        x = r * Math.cos((Math.PI / 2) + angleGradus * (Math.PI / 48) + radiusMinuta * (Math.PI / (48 * 4)));
+        y = r * Math.sin((Math.PI / 2) + angleGradus * (Math.PI / 48) + radiusMinuta * (Math.PI / (48 * 4)));
+
+        /*
+        cart_point = new paper.Point(horizonCenter.x - x, horizonCenter.y - y);
+
+
+        if (globals.construction_cursor != null) {
+            globals.construction_cursor.remove();
+        }
+
+        globals.construction_cursor = new paper.Path.Circle(cart_point, 2);
+        globals.construction_cursor.strokeColor = new paper.Color(1, 0, 0);
+        globals.construction_cursor.strokeWidth = 1.5;
+        */
+
+    }
+
     
     if (globals.app_state == "measure_distance" && globals.measureOverlay.waitingForEndCoord) {
         
@@ -480,9 +541,11 @@ globals.descriptioMouseMove = function (event) {
 
     }
     else {
+        /*
         console.log("No coord, clean up!");
         console.log("New start marker pos choosen="+newStartMarkerPosChoosen);
         console.log("Highlighted = "+dmtHighlighted);
+        */
 
         // No coord choosen => clean up
         if (dmtHighlighted) {
@@ -937,6 +1000,51 @@ function drawHorizon() {
         //globals.radius.rotate(90 + 322.5, horizonCenter);
         //globals.radius.rotate(90, horizonCenter);
         globals.radius.visible = false;
+
+
+        // Contained inside MS O
+        // TODO Change in future versions
+        if (globals.app_state == "construction") {
+
+            // Degrees
+            x1 = horizonCenter.x;
+            y1 = horizonCenter.y;
+
+            for (i = 0; i < 48; i++) {
+                x2 = horizonCenter.x + cosTable[i] * smallHorizonRadius;
+                y2 = horizonCenter.y - sinTable[i] * smallHorizonRadius;
+
+                speiche = new paper.Path.Line(new paper.Point(x1, y1), new paper.Point(x2, y2));
+                speiche.strokeColor = globals.horizonColor;
+                speiche.strokeWidth = globals.horizonStrokeWidth*0.5;
+            }
+
+            // Minuta
+            for (i = 0; i < 192; i++) {
+
+                if ((i+1) % 4 == 0) {
+                    continue;
+                }
+
+                x2 = horizonCenter.x + spikeCosTable[i] * (smallHorizonRadius + 4);
+                y2 = horizonCenter.y - spikeSinTable[i] * (smallHorizonRadius + 4);
+
+                lowerSpike = new paper.Path.Line(new paper.Point(x1, y1), new paper.Point(x2, y2));
+                lowerSpike.strokeColor = globals.horizonColor;
+                lowerSpike.strokeWidth = globals.horizonStrokeWidth*0.5;
+            }
+
+            // Radius
+            radiusStep = smallHorizonRadius / 50 / 4;
+            for (i = 0; i < 50*4; i++) {
+
+                middleHorizon = new paper.Path.Circle(horizonCenter, radiusStep * i);
+                middleHorizon.strokeColor = globals.horizonColor;
+                middleHorizon.strokeWidth = globals.horizonStrokeWidth*0.5;
+
+            }
+
+        }
     }
 }
 
