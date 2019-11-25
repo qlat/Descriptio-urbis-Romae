@@ -406,15 +406,12 @@ globals.descriptioMouseMove = function (event) {
             angleCart = 180 + (180 - angleCart);
         }
 
-        //console.log("rel_pos=("+relX+"|"+relY+")" + " angleCart="+angleCart);
-        //console.log("angleCart="+angleCart);
-
-        angleGradus = Math.floor(angleCart / 7.5)
-        angleMinuta = Math.floor((angleCart - angleGradus * 7.5) / 1.875);
+        angleGradus = Math.round(angleCart / 7.5)
+        angleMinuta = Math.round((angleCart - angleGradus * 7.5) / 1.875);
 
 
-        radiusGradus = Math.floor(hypotenuse / (bigHorizonRadius / 50));
-        radiusMinuta = Math.floor((hypotenuse - radiusGradus * (bigHorizonRadius / 50)) / (bigHorizonRadius / (50 * 4)));
+        radiusGradus = Math.round(hypotenuse / (bigHorizonRadius / 50));
+        radiusMinuta = Math.round((hypotenuse - radiusGradus * (bigHorizonRadius / 50)) / (bigHorizonRadius / (50 * 4)));
 
         console.log("HG: " + angleGradus + " HM: " + angleMinuta + " RG: " + radiusGradus + " RM: " + radiusMinuta);
 
@@ -424,23 +421,11 @@ globals.descriptioMouseMove = function (event) {
         if (relY < 0) {
             r *= -1;
         }
-
-        /*
-        x = r * Math.cos((Math.PI / 2) + angleGradus * (Math.PI / 48) + radiusMinuta * (Math.PI / (48 * 4)));
-        y = r * Math.sin((Math.PI / 2) + angleGradus * (Math.PI / 48) + radiusMinuta * (Math.PI / (48 * 4)));
-        */
         
         angleAlberti = angleGradus * (2 * Math.PI / 48) + angleMinuta * (2 * Math.PI / (48 * 4));
         angleAlberti += Math.PI / 2;
 
-        x = r * Math.cos(angleAlberti);
-        /*
-        if (relX < 0 && relY < 0) {
-            x *= -1;
-        }
-        */
-       
-       
+        x = r * Math.cos(angleAlberti);  
         y = r * Math.sin(angleAlberti);
 
         // Lower right quadrant
@@ -465,8 +450,6 @@ globals.descriptioMouseMove = function (event) {
         globals.construction_cursor = new paper.Path.Circle(cart_point, 2);
         globals.construction_cursor.strokeColor = new paper.Color(1, 0, 0);
         globals.construction_cursor.strokeWidth = 1.5;
-        /**/
-
     }
 
     
