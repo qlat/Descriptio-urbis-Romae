@@ -2005,20 +2005,28 @@ function drawAlbertisRome() {
     
     globals.mapLayer.activate();
 
-    center = horizonCenter;
+    center = new paper.Point(horizonCenter.x+10, horizonCenter.y-13);
 
     globals.backgroundMap = new paper.Raster({
-        source: 'img/ancient-rome.jpg',
+        //source: 'img/ancient-rome.jpg',
+        source: 'img/shep022a.jpg',
         position: center
     });
 
     console.log("Map center="+center);
 
     // 447: Empirically established value
+    /*
     globals.backgroundMap.scale(0.28 * (bigHorizonRadius / 447));
     globals.backgroundMap.opacity = 0;
     globals.backgroundMap.rotation = -7;
     globals.backgroundMap.visible = false;
+    */
+
+    globals.backgroundMap.scale(0.285 * (bigHorizonRadius / 447));
+    globals.backgroundMap.opacity = 1;
+    globals.backgroundMap.rotation = -13;
+    globals.backgroundMap.visible = true;
 
     // Calculate cartesian coordinates based on horizon parameters
     calculateCartesianCoordinates();
