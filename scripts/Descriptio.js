@@ -384,6 +384,23 @@ function createCoordinateList() {
                 }
             }
 
+            // Read recte coordinate
+            if (currentAC.Recte != null) {
+
+                newAC.recte = {};
+                newAC.recte.horizonGradus = currentAC.Recte.HorizonGradus;
+                newAC.recte.horizonMinuta = currentAC.Recte.HorizonMinuta;
+                newAC.recte.radiusGradus = currentAC.Recte.RadiusGradus;
+                newAC.recte.radiusMinuta = currentAC.Recte.RadiusMinuta;
+
+                console.log("Recte: (" + newAC.recte.horizonGradus + "|" 
+                                       + newAC.recte.horizonMinuta + "|"
+                                       + newAC.recte.radiusGradus  + "|"
+                                       + newAC.recte.radiusMinuta  + ")");
+
+            }
+            
+
             globals.albertisCoordinates[acIndex++] = newAC;
 
         }

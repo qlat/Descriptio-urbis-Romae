@@ -5,10 +5,9 @@ function calculateCartesianCoordinates() {
     console.log("Calculate points from Albeti’s coordinates to cartesian coordinates.");
     console.log("Number of coordinates: " + globals.albertisCoordinates.length);
 
-    // Alberti’s radius is divided into 50 gradus, each of which in turn is divided in 4 minuta
-    // x = r*cos(phi)
-    // y = r*sin(phi)
-
+    // Alberti’s horizon is divided into 48 gradus, each of which is in turn divided into 4 minuta.
+    // Alberti’s radius is divided into 50 gradus, each of which is in turn divided into 4 minuta.
+    
     // Calculate one "radius gradus/minuta" and "horizon gradus/minuta" based on
     // dimensions of current viewport
     oneRadiusGradus = bigHorizonRadius / 50;
@@ -22,8 +21,6 @@ function calculateCartesianCoordinates() {
     for (i = 0; i < globals.albertisCoordinates.length; i++) {
 
         currentAC = globals.albertisCoordinates[i];
-
-
 
         //console.log(albertisCoordToString(currentAC));
 
@@ -40,11 +37,25 @@ function calculateCartesianCoordinates() {
             phi -= globals.HorizonRotation * oneHorizonGradus;
 
             //console.log("r="+r+", phi="+phi+", cos(phi)="+Math.cos(phi)+", horizon center="+horizonCenter);
+            // x = r*cos(phi)
+            // y = r*sin(phi)
+
             x = horizonCenter.x + (r * Math.cos(phi));
             y = horizonCenter.y + (r * Math.sin(phi));
             currentVar.cartesianPoint = new paper.Point(x, y);
 
             //console.log("x: " + x + ", y: " + y + " CP: " + currentVar.cartesianPoint);
+        }
+
+        // Transform recte coordinate
+        if (currentAC.recte != null) {
+            r = currentAC.recte.radiusGradus * oneRadiusGradus + currentAC.recte.radiusMinuta * oneRadiusMinuta;
+            phi = currentAC.recte.horizonGradus * oneHorizonGradus + currentAC.recte.horizonMinuta * oneHorizonMinuta;
+            phi -= globals.HorizonRotation * oneHorizonGradus;
+
+            x = horizonCenter.x + (r * Math.cos(phi));
+            y = horizonCenter.y + (r * Math.sin(phi));
+            currentAC.recteCartesianPoint = new paper.Point(x, y);
         }
 
         //console.log(currentAC);

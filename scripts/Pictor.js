@@ -406,12 +406,12 @@ globals.descriptioMouseMove = function (event) {
             angleCart = 180 + (180 - angleCart);
         }
 
-        angleGradus = Math.round(angleCart / 7.5)
-        angleMinuta = Math.round((angleCart - angleGradus * 7.5) / 1.875);
+        angleGradus = Math.floor(angleCart / 7.5)
+        angleMinuta = Math.floor((angleCart - angleGradus * 7.5) / 1.875);
 
 
-        radiusGradus = Math.round(hypotenuse / (bigHorizonRadius / 50));
-        radiusMinuta = Math.round((hypotenuse - radiusGradus * (bigHorizonRadius / 50)) / (bigHorizonRadius / (50 * 4)));
+        radiusGradus = Math.floor(hypotenuse / (bigHorizonRadius / 50));
+        radiusMinuta = Math.floor((hypotenuse - radiusGradus * (bigHorizonRadius / 50)) / (bigHorizonRadius / (50 * 4)));
 
         console.log("HG: " + angleGradus + " HM: " + angleMinuta + " RG: " + radiusGradus + " RM: " + radiusMinuta);
 
@@ -1554,6 +1554,42 @@ function drawCoordMarks(coords, color) {
 }
 
 
+function drawRecteCoordMarks() {
+
+    for (i = 0; i < globals.albertisCoordinates.length; i++) {
+
+        currentCoord = globals.albertisCoordinates[i].recteCartesianPoint;
+        cartCoord = globals.albertisCoordinates[i].variants[globals.albertisCoordinates[i].mainVariantIndex].cartesianPoint;
+
+        if (currentCoord != null) {
+
+            console.log("Recte:");
+            console.log(currentCoord);
+            console.log("Erratum:");
+            console.log(cartCoord);
+
+            p = new paper.Point(currentCoord.x, currentCoord.y);
+            p2 = new paper.Point(cartCoord.x, cartCoord.y);
+
+            connection = new paper.Path(p, p2);
+            connection.strokeWidth = 1;
+            connection.strokeColor = new paper.Color(0, 1, 0);
+
+
+            newMark = new paper.Shape.Circle(p, desc.size);
+
+            newMark.strokeWidth = 1;
+            newMark.strokeColor = new paper.Color(0, 1, 0);
+            newMark.fillColor = new paper.Color(0, 1, 0);
+
+            
+
+
+        }
+    }
+}
+
+
 function drawCoordinates() {
 
     console.log("Draw coordinates.");
@@ -1608,6 +1644,9 @@ function drawCoordinates() {
 
     // Create aedificia
     drawCoordMarks(aedificiaTable.coords);
+
+    // Create recte coordinates
+    drawRecteCoordMarks();
 
 }
 
