@@ -1582,9 +1582,42 @@ function drawRecteCoordMarks() {
             newMark.strokeColor = new paper.Color(0, 1, 0);
             newMark.fillColor = new paper.Color(0, 1, 0);
 
+            // Vector from center to AC
+            vector_from_center = new paper.Point(cartCoord.x - horizonCenter.x, cartCoord.y - horizonCenter.y);
+            console.log("Vector from center:");
+            console.log(vector_from_center);
+
+            // Get orthogonal vector
+            orth_vector = new paper.Point(-vector_from_center.y, vector_from_center.x);
+
+            console.log("Orth vector:");
+            console.log(orth_vector);
+
+            // Normalize
+            len = Math.sqrt(orth_vector.x * orth_vector.x + orth_vector.y * orth_vector.y);
+            orth_vector.x /= len;
+            orth_vector.y /= len;
+
+            // Debug draw orth vector
+            tempPoint = new paper.Point(cartCoord.x+orth_vector.x*10, cartCoord.y+orth_vector.y*10);
+
+            orth_path = new paper.Path(cartCoord, tempPoint);
+            orth_path.strokeWidth = 1;
+            orth_path.strokeColor = new paper.Color(0, 1, 0);
+
+            // Dot product
+            dist_vector = new paper.Point(p2.x - p.x, p2.y - p.y);
+            dot = orth_vector.x * dist_vector.x + orth_vector.y * dist_vector.y;
+
+            //dot *= -1 // Somehow necessary...
+            dot *= 0 // Somehow necessary...
+
+            // Debug draw projection
+            projPoint = new paper.Point(cartCoord.x + orth_vector.x * dot, cartCoord.y + orth_vector.y * dot);
             
-
-
+            projPath = new paper.Path(cartCoord, projPoint);
+            projPath.strokeWidth = 1;
+            projPath.strokeColor = new paper.Color(1, 0, 0);
         }
     }
 }

@@ -173,7 +173,13 @@
           "HorizonMinuta": 3,
           "RadiusGradus": 32,
           "RadiusMinuta": 2
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 4,
+          "HorizonMinuta": 1.5,
+          "RadiusGradus": 37,
+          "RadiusMinuta": 0.5
+        }
       },
       {
         "CoordNumber": 11,
@@ -184,7 +190,13 @@
           "HorizonMinuta": 1,
           "RadiusGradus": 32,
           "RadiusMinuta": 0
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 4,
+          "HorizonMinuta": 2.333,
+          "RadiusGradus": 37,
+          "RadiusMinuta": 1.5
+        }
       },
       {
         "CoordNumber": 12,
@@ -195,7 +207,13 @@
           "HorizonMinuta": 2,
           "RadiusGradus": 37,
           "RadiusMinuta": 1
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 4,
+          "HorizonMinuta": 3.9,
+          "RadiusGradus": 42,
+          "RadiusMinuta": 2.5
+        }
       },
       {
         "CoordNumber": 13,
@@ -214,7 +232,13 @@
             "RadiusGradus": 35,
             "RadiusMinuta": 3
           }
-        ]
+        ],
+        "Recte": {
+          "HorizonGradus": 6,
+          "HorizonMinuta": 0.333,
+          "RadiusGradus": 41,
+          "RadiusMinuta": 0.5
+        }
       },
       {
         "CoordNumber": 14,
@@ -225,7 +249,13 @@
           "HorizonMinuta": 3,
           "RadiusGradus": 32,
           "RadiusMinuta": 0
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 5,
+          "HorizonMinuta": 3.333,
+          "RadiusGradus": 35,
+          "RadiusMinuta": 1.5
+        }
       },
       {
         "CoordNumber": 15,
@@ -236,7 +266,13 @@
           "HorizonMinuta": 3,
           "RadiusGradus": 31,
           "RadiusMinuta": 0.5
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 6,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 0.5
+        }
       },
       {
         "CoordNumber": 16,
@@ -247,7 +283,13 @@
           "HorizonMinuta": 0,
           "RadiusGradus": 32,
           "RadiusMinuta": 0
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 8,
+          "HorizonMinuta": 1.666,
+          "RadiusGradus": 36,
+          "RadiusMinuta": 1.5
+        }
       },
       {
         "CoordNumber": 17,
@@ -258,7 +300,13 @@
           "HorizonMinuta": 1,
           "RadiusGradus": 33,
           "RadiusMinuta": 3
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 9,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 39,
+          "RadiusMinuta": 3
+        }
       },
       {
         "CoordNumber": 18,
@@ -269,7 +317,13 @@
           "HorizonMinuta": 2,
           "RadiusGradus": 35,
           "RadiusMinuta": 0
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 9,
+          "HorizonMinuta": 4,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 3
+        }
       },
       {
         "CoordNumber": 19,
@@ -291,7 +345,13 @@
           "HorizonMinuta": 1,
           "RadiusGradus": 36,
           "RadiusMinuta": 0
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 10,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 41,
+          "RadiusMinuta": 0
+        }
       },
       {
         "CoordNumber": 21,
@@ -310,7 +370,13 @@
             "RadiusGradus": 33,
             "RadiusMinuta": 3
           }
-        ]
+        ],
+        "Recte": {
+          "HorizonGradus": 10,
+          "HorizonMinuta": 3.8,
+          "RadiusGradus": 43,
+          "RadiusMinuta": 0
+        }
       },
       {
         "CoordNumber": 22,
@@ -321,7 +387,13 @@
           "HorizonMinuta": 3,
           "RadiusGradus": 42,
           "RadiusMinuta": 3
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 11,
+          "HorizonMinuta": 1,
+          "RadiusGradus": 46,
+          "RadiusMinuta": 1
+        }
       },
       {
         "CoordNumber": 23,
@@ -332,7 +404,13 @@
           "HorizonMinuta": 0,
           "RadiusGradus": 40,
           "RadiusMinuta": 2
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 11,
+          "HorizonMinuta": 2.666,
+          "RadiusGradus": 44,
+          "RadiusMinuta": 1
+        }
       },
       {
         "CoordNumber": 24,
@@ -351,7 +429,13 @@
             "RadiusGradus": 48,
             "RadiusMinuta": 2
           }
-        ]
+        ],
+        "Recte": {
+          "HorizonGradus": 11,
+          "HorizonMinuta": 3.2,
+          "RadiusGradus": 42,
+          "RadiusMinuta": 3
+        }
       },
       {
         "CoordNumber": 25,
