@@ -1610,7 +1610,7 @@ function drawRecteCoordMarks() {
             dot = orth_vector.x * dist_vector.x + orth_vector.y * dist_vector.y;
 
             //dot *= -1 // Somehow necessary...
-            dot *= 0 // Somehow necessary...
+            dot *= 0 // Don't show projection
 
             // Debug draw projection
             projPoint = new paper.Point(cartCoord.x + orth_vector.x * dot, cartCoord.y + orth_vector.y * dot);
@@ -1618,6 +1618,18 @@ function drawRecteCoordMarks() {
             projPath = new paper.Path(cartCoord, projPoint);
             projPath.strokeWidth = 1;
             projPath.strokeColor = new paper.Color(1, 0, 0);
+
+            // Draw long vector in opposite direction
+            console.log("Big horizon radius="+bigHorizonRadius);
+            farPoint = new paper.Point(cartCoord.x - (p.x-p2.x)*100, cartCoord.y - (p.y-p2.y)*100);
+            console.log(farPoint);
+
+            oppPath = new paper.Path(cartCoord, farPoint);
+            //oppPath.strokeWidth = 1;
+            oppPath.strokeWidth = 0; // Maybe no good idea...
+            oppPath.strokeColor = new paper.Color(1, 0, 0);
+
+
         }
     }
 }
