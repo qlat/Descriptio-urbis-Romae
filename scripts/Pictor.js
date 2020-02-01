@@ -1602,7 +1602,7 @@ function drawRecteCoordMarks() {
             tempPoint = new paper.Point(cartCoord.x+orth_vector.x*10, cartCoord.y+orth_vector.y*10);
 
             orth_path = new paper.Path(cartCoord, tempPoint);
-            orth_path.strokeWidth = 1;
+            orth_path.strokeWidth = 0;//1;
             orth_path.strokeColor = new paper.Color(0, 1, 0);
 
             // Dot product
