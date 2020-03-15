@@ -22,7 +22,7 @@ globals.variantMss = [];
 globals.HorizonRotation = 12;
 
 // Possible values are "none", "choose_start_coord", "choose_variant", "measure_distance", "construction"
-globals.app_state = "construction";
+globals.app_state = "none";
 
 // Indicates whether a drawing animation is currently active
 globals.draw_animation = false;
@@ -1691,8 +1691,9 @@ function drawCoordinates() {
     drawCoordMarks(aedificiaTable.coords);
 
     // Create recte coordinates
-    drawRecteCoordMarks();
-
+    if (globals.app_state == "construction") {
+        drawRecteCoordMarks();
+    }
 }
 
 /**
@@ -2089,11 +2090,12 @@ function drawAlbertisRome() {
     
     globals.mapLayer.activate();
 
-    center = new paper.Point(horizonCenter.x+10, horizonCenter.y-13);
+
+    // Position and rotation of reference map
+    center = new paper.Point(horizonCenter.x+55, horizonCenter.y+85);
 
     globals.backgroundMap = new paper.Raster({
-        //source: 'img/ancient-rome.jpg',
-        source: 'img/shep022a.jpg',
+        source: 'img/Guidoni-Cristallini-1990.jpg',
         position: center
     });
 
@@ -2107,9 +2109,16 @@ function drawAlbertisRome() {
     globals.backgroundMap.visible = false;
     */
 
+    /*
     globals.backgroundMap.scale(0.285 * (bigHorizonRadius / 447));
     globals.backgroundMap.opacity = 1;
     globals.backgroundMap.rotation = -13;
+    globals.backgroundMap.visible = true;
+    */
+
+    globals.backgroundMap.scale(0.275 * (bigHorizonRadius / 447));
+    globals.backgroundMap.opacity = 1;
+    globals.backgroundMap.rotation = -17;
     globals.backgroundMap.visible = true;
 
     // Calculate cartesian coordinates based on horizon parameters
