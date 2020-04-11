@@ -15,14 +15,14 @@ globals.radius = null;
 
 // Main list of all AlbertisCoordinates
 globals.albertisCoordinates = [];
-//globals.mainMs = "Boriaud-Furlan";
 globals.mainMs = "Boriaud-Furlan";
 globals.variantMss = [];
+
 // Rotation of horizon in multiples of (2*pi/48), i.e. of bigStep
 globals.HorizonRotation = 12;
 
 // Possible values are "none", "choose_start_coord", "choose_variant", "measure_distance", "construction"
-globals.app_state = "none";
+globals.app_state = "construction";
 
 // Indicates whether a drawing animation is currently active
 globals.draw_animation = false;
