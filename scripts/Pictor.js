@@ -39,7 +39,7 @@ globals.construction_cursor = null;
 
 
 globals.measureOverlay = {
-    
+
     startPoint: null,
     startCoord: null,
     endCoord: null,
@@ -99,7 +99,7 @@ globals.avxDesc = {
 }
 
 globals.insulaAvxDesc = {
-    strokeColor: new paper.Color(0,0,0),
+    strokeColor: new paper.Color(0, 0, 0),
     fillColor: new paper.Color(1, 1, 1),
     shape: "circle",
     strokeWidth: 1.5,
@@ -116,7 +116,7 @@ globals.avxLaterisFluminisDesc = {
 
 globals.flumenDesc = {
     strokeColor: new paper.Color(0, 0.33, 0.86),
-    fillColor: new paper.Color(1,1,1),
+    fillColor: new paper.Color(1, 1, 1),
     shape: "circle",
     strokeWidth: 2,
     size: 3
@@ -124,7 +124,7 @@ globals.flumenDesc = {
 
 globals.latusFluminisDesc = {
     strokeColor: new paper.Color(0, 0.33, 0.86),
-    fillColor: new paper.Color(1,1,1),
+    fillColor: new paper.Color(1, 1, 1),
     shape: "circle",
     strokeWidth: 2,
     size: 3
@@ -153,7 +153,7 @@ globals.descriptioMouseDown = function (event) {
 
         console.log("Clicked on:");
         console.log(event.item.data);
-        
+
         coord = event.item.data;
 
         if (globals.app_state == "choose_start_coord") {
@@ -164,14 +164,14 @@ globals.descriptioMouseDown = function (event) {
 
                 // Determine draw mode table this coord belongs to
                 dmtIdx = coord.table;
-                console.log("Set start coord of table "+coord.table+" to "+coord.index);
+                console.log("Set start coord of table " + coord.table + " to " + coord.index);
 
                 // Set new start coord
                 drawModeTables.perTable[dmtIdx].startIndex = coord.index;
 
                 // Set start coord marker
                 cartPoint = coord.variants[coord.mainVariantIndex].cartesianPoint;
-                p = new paper.Point(cartPoint.x+4, cartPoint.y-7);
+                p = new paper.Point(cartPoint.x + 4, cartPoint.y - 7);
                 console.log(p);
 
                 drawModeTables.perTable[dmtIdx].startMarker.position = p;
@@ -188,17 +188,17 @@ globals.descriptioMouseDown = function (event) {
 
                 if (coord.variants.length > 1) {
 
-                    for (i=0;i<coord.variants.length;i++) {
+                    for (i = 0; i < coord.variants.length; i++) {
                         if (markerName == coord.variants[i].coordMarkerName) {
 
                             isVariant = true;
 
                             idx = globals.variantMss.indexOf(coord.variants[i].ms);
-                            console.log("About to choose variant from ms "+coord.variants[i].ms+ " with index="+idx);
+                            console.log("About to choose variant from ms " + coord.variants[i].ms + " with index=" + idx);
 
                             oldMainMs = globals.mainMs;
                             btnId = '#main-ms-' + coord.variants[i].ms.toLowerCase() + '-btn';
-                            console.log("Button id for main ms: "+btnId);
+                            console.log("Button id for main ms: " + btnId);
 
                             // Change mss by clicking buttons
                             flashEnabled = false;
@@ -206,7 +206,7 @@ globals.descriptioMouseDown = function (event) {
                             toggleVariantMss('off');
 
                             chooseVariant(coord.variants[i].ms);
-                            
+
                             break;
                         }
                     }
@@ -215,154 +215,153 @@ globals.descriptioMouseDown = function (event) {
 
                 if (!isVariant) {
                     console.log("No variant.");
+                }
+
+            }
+        }
+
+        if (globals.app_state == "measure_distance") {
+
+            console.log("Measure distance:");
+            console.log(coord);
+
+            if (coord.hasOwnProperty('coordType')) {
+                console.log("Select have a valid coord!");
+
+                if (globals.measureOverlay.startCoord == null) {
+
+                    globals.measureOverlay.startPoint = new paper.Point(coord.variants[idx].cartesianPoint.x, coord.variants[idx].cartesianPoint.y);
+                    globals.measureOverlay.startCoord = coord;
+                    globals.measureOverlay.waitingForEndCoord = true;
+
+                    globals.measureLayer.activate();
+                    placeMeasurePin(coord);
+
+                    idx = coord.mainVariantIndex;
+                    path = new paper.Path();
+                    path.add(coord.variants[idx].cartesianPoint.x, coord.variants[idx].cartesianPoint.y);
+                    path.add(coord.variants[idx].cartesianPoint.x, coord.variants[idx].cartesianPoint.y);
+                    path.strokeColor = new paper.Color(0.18, 0.18, 0.18);
+                    path.dashArray = [4, 3];
+                    path.strokeWidth = 0.75;
+
+                    globals.measureOverlay.indicatorPath = path;
+
+
+                } else {
+
+                    globals.measureOverlay.endCoord = coord;
+                    globals.measureOverlay.waitingForEndCoord = false;
+
+                    globals.measureLayer.activate();
+
+                    // Save dest point
+                    idx = coord.mainVariantIndex;
+                    destPoint = new paper.Point(coord.variants[idx].cartesianPoint.x, coord.variants[idx].cartesianPoint.y);
+                    globals.measureOverlay.indicatorPath.lastSegment.point = destPoint;
+
+
+
+                    // Get src point
+                    idx = globals.measureOverlay.startCoord.mainVariantIndex;
+                    srcPoint = new paper.Point(globals.measureOverlay.startCoord.variants[idx].cartesianPoint.x,
+                        globals.measureOverlay.startCoord.variants[idx].cartesianPoint.y);
+
+                    dist = Math.sqrt((destPoint.x - srcPoint.x) * (destPoint.x - srcPoint.x) + (destPoint.y - srcPoint.y) * (destPoint.y - srcPoint.y));
+
+
+
+
+
+                    //rect = new paper.Rectangle(new paper.Point(srcPoint), new paper.Point(20, 10));
+                    console.log('srcPoint:');
+                    console.log(srcPoint);
+
+                    rect_width = 30;
+                    rect_height = 18;
+                    adjust_y = 2;
+                    rect = new paper.Rectangle(new paper.Point(srcPoint.x - (rect_width * 0.5), srcPoint.y - (rect_height * 0.5) - adjust_y), new paper.Size(rect_width, rect_height));
+                    console.log("rect:");
+                    console.log(rect);
+
+                    // New path that connects start and end point
+                    measurePath = new paper.Path();
+                    measurePath.add(srcPoint);
+                    measurePath.add(srcPoint);
+                    measurePath.strokeColor = new paper.Color(0.18, 0.18, 0.18, 0.8);
+                    measurePath.strokeWidth = 1;
+
+                    radius = new paper.Size(3, 3);
+                    rect_path = new paper.Path.Rectangle(rect, radius);
+                    rect_path.fillColor = new paper.Color(0.94, 0.94, 0.94, 0.9);
+                    rect_path.strokeColor = new paper.Color(0.18, 0.18, 0.18, 0.8);
+                    rect_path.strokeWidth = 2;
+
+
+
+
+                    distText = new paper.PointText(srcPoint);
+                    distText.content = 0;
+                    distText.fontSize = 7;
+                    distText.fontFamily = 'Segoe UI';
+                    distText.fillColor = new paper.Color(0, 0, 0);
+                    distText.justification = "center";
+
+
+                    finalPos = new paper.Point(srcPoint.x + (destPoint.x - srcPoint.x) * 0.5, srcPoint.y + (destPoint.y - srcPoint.y) * 0.5);
+
+
+
+
+                    tl = anime.timeline({
+                        targets: distText,
+                        duration: 1000,
+                    });
+                    placeMeasurePin(coord, tl).add({
+                        targets: distText,
+                        content: dist,
+                        round: 2,
+                        easing: 'easeInSine'
+                    }, 250).add({
+                        targets: distText.point,
+                        x: finalPos.x,
+                        y: finalPos.y,
+                        easing: 'easeInSine'
+                    }, 250).add({
+                        targets: rect_path.position,
+                        x: finalPos.x,
+                        y: finalPos.y - adjust_y,
+                        easing: 'easeInSine',
+
+                    }, 250).add({
+                        targets: globals.measureOverlay.indicatorPath.firstSegment.point,
+                        x: destPoint.x,
+                        y: destPoint.y,
+                        easing: 'easeInSine'
+                    }, 250).add({
+                        targets: measurePath.lastSegment.point,
+                        x: destPoint.x,
+                        y: destPoint.y,
+                        easing: 'easeInSine',
+                    }, 250);
+
+
+
+                    globals.measureOverlay.startCoord = null;
+                    globals.measureOverlay.endCoord = null;
+                    globals.measureOverlay.indicatorPath = null;
+                    globals.measureOverlay.waitingForEndCoord = false;
+
+                }
             }
 
         }
-    }
-
-    if (globals.app_state == "measure_distance") {
-
-        console.log("Measure distance:");
-        console.log(coord);
-
-        if (coord.hasOwnProperty('coordType')) {
-            console.log("Select have a valid coord!");
-
-            if (globals.measureOverlay.startCoord == null) {
-                
-                globals.measureOverlay.startPoint = new paper.Point(coord.variants[idx].cartesianPoint.x, coord.variants[idx].cartesianPoint.y);
-                globals.measureOverlay.startCoord = coord;
-                globals.measureOverlay.waitingForEndCoord = true;
-
-                globals.measureLayer.activate();
-                placeMeasurePin(coord);
-               
-                idx = coord.mainVariantIndex;
-                path = new paper.Path();
-                path.add(coord.variants[idx].cartesianPoint.x, coord.variants[idx].cartesianPoint.y);
-                path.add(coord.variants[idx].cartesianPoint.x, coord.variants[idx].cartesianPoint.y);
-                path.strokeColor = new paper.Color(0.18,0.18,0.18);
-                path.dashArray = [4,3];
-                path.strokeWidth = 0.75;
-
-                globals.measureOverlay.indicatorPath = path;
-
-
-            }
-            else {
-
-                globals.measureOverlay.endCoord = coord;
-                globals.measureOverlay.waitingForEndCoord = false;
-
-                globals.measureLayer.activate();
-
-                // Save dest point
-                idx = coord.mainVariantIndex;
-                destPoint = new paper.Point(coord.variants[idx].cartesianPoint.x, coord.variants[idx].cartesianPoint.y);
-                globals.measureOverlay.indicatorPath.lastSegment.point = destPoint;
-
-                
-
-                // Get src point
-                idx = globals.measureOverlay.startCoord.mainVariantIndex;
-                srcPoint = new paper.Point(globals.measureOverlay.startCoord.variants[idx].cartesianPoint.x,
-                                        globals.measureOverlay.startCoord.variants[idx].cartesianPoint.y);
-
-                dist = Math.sqrt((destPoint.x-srcPoint.x)*(destPoint.x-srcPoint.x) + (destPoint.y-srcPoint.y)*(destPoint.y-srcPoint.y));
-
-
-                
-
-                
-                //rect = new paper.Rectangle(new paper.Point(srcPoint), new paper.Point(20, 10));
-                console.log('srcPoint:');
-                console.log(srcPoint);
-
-                rect_width = 30;
-                rect_height = 18;
-                adjust_y = 2;
-                rect = new paper.Rectangle(new paper.Point(srcPoint.x-(rect_width*0.5), srcPoint.y-(rect_height*0.5)-adjust_y), new paper.Size(rect_width, rect_height));
-                console.log("rect:");
-                console.log(rect);
-
-                // New path that connects start and end point
-                measurePath = new paper.Path();
-                measurePath.add(srcPoint);
-                measurePath.add(srcPoint);
-                measurePath.strokeColor = new paper.Color(0.18,0.18,0.18,0.8);
-                measurePath.strokeWidth = 1;
-
-                radius = new paper.Size(3, 3);
-                rect_path = new paper.Path.Rectangle(rect, radius);
-                rect_path.fillColor = new paper.Color(0.94,0.94,0.94,0.9);
-                rect_path.strokeColor = new paper.Color(0.18,0.18,0.18,0.8);
-                rect_path.strokeWidth = 2;
-
-
-                
-
-                distText = new paper.PointText(srcPoint);
-                distText.content = 0;
-                distText.fontSize = 7;
-                distText.fontFamily = 'Segoe UI';
-                distText.fillColor = new paper.Color(0,0,0);
-                distText.justification = "center";
-                
-
-                finalPos = new paper.Point(srcPoint.x+(destPoint.x-srcPoint.x)*0.5, srcPoint.y+(destPoint.y-srcPoint.y)*0.5);
-
-                
-
-
-                tl = anime.timeline({
-                    targets: distText,
-                    duration: 1000,
-                });
-                placeMeasurePin(coord, tl).add({
-                    targets: distText,
-                    content: dist,
-                    round: 2,
-                    easing: 'easeInSine'
-                }, 250).add({
-                    targets: distText.point,
-                    x: finalPos.x,
-                    y: finalPos.y,
-                    easing: 'easeInSine'
-                }, 250).add({
-                    targets: rect_path.position,
-                    x: finalPos.x,
-                    y: finalPos.y-adjust_y,
-                    easing: 'easeInSine',
-
-                }, 250).add({
-                    targets: globals.measureOverlay.indicatorPath.firstSegment.point,
-                    x: destPoint.x,
-                    y: destPoint.y,
-                    easing: 'easeInSine'
-                }, 250).add({
-                    targets: measurePath.lastSegment.point,
-                    x: destPoint.x,
-                    y: destPoint.y,
-                    easing: 'easeInSine',
-                }, 250);
-
-                
-
-                globals.measureOverlay.startCoord = null;
-                globals.measureOverlay.endCoord = null;
-                globals.measureOverlay.indicatorPath = null;
-                globals.measureOverlay.waitingForEndCoord = false;
-
-            }
-    }
-
-    }
 
     }
 }
 
 globals.descriptioMouseDrag = function (event) {
-    
+
     mouseDragged = true;
 
     vec = event.point.subtract(mouseDownPoint);
@@ -421,11 +420,11 @@ globals.descriptioMouseMove = function (event) {
         if (relY < 0) {
             r *= -1;
         }
-        
+
         angleAlberti = angleGradus * (2 * Math.PI / 48) + angleMinuta * (2 * Math.PI / (48 * 4));
         angleAlberti += Math.PI / 2;
 
-        x = r * Math.cos(angleAlberti);  
+        x = r * Math.cos(angleAlberti);
         y = r * Math.sin(angleAlberti);
 
         // Lower right quadrant
@@ -440,7 +439,7 @@ globals.descriptioMouseMove = function (event) {
             y *= -1;
         }
 
-        cart_point = new paper.Point(horizonCenter.x-x, horizonCenter.y - y);
+        cart_point = new paper.Point(horizonCenter.x - x, horizonCenter.y - y);
 
 
         if (globals.construction_cursor != null) {
@@ -452,11 +451,11 @@ globals.descriptioMouseMove = function (event) {
         globals.construction_cursor.strokeWidth = 1.5;
     }
 
-    
+
     if (globals.app_state == "measure_distance" && globals.measureOverlay.waitingForEndCoord) {
-        
+
         //srcPoint = getPointFromCoord(globals.measureOverlay.startCoord);
-        
+
         p = new paper.Point(event.point.x, event.point.y);
 
         factor = 0.9;
@@ -474,14 +473,14 @@ globals.descriptioMouseMove = function (event) {
         }
 
         //destPoint = new paper.Point(srcPoint.x+(p.x-srcPoint.x)*factor, srcPoint.y+(p.y-srcPoint.y)*factor);
-        destPoint = new paper.Point(p.x-deltaX, p.y-deltaY);
+        destPoint = new paper.Point(p.x - deltaX, p.y - deltaY);
 
         globals.measureOverlay.indicatorPath.lastSegment.point = destPoint;
     }
 
     if (event.item) {
         console.log(event.item.data);
-        
+
         coord = event.item.data;
 
         if (globals.app_state == "choose_start_coord") {
@@ -494,19 +493,19 @@ globals.descriptioMouseMove = function (event) {
 
                 // Determine draw mode table this coord belongs to
                 dmtIdx = coord.table;
-                console.log("Possible start coord for table "+coord.table+": "+coord.index);
+                console.log("Possible start coord for table " + coord.table + ": " + coord.index);
 
                 // Fade out every other table
                 //highlightDrawModeTable(dmtIdx);
 
                 // Temporarily move start marker
                 cartPoint = coord.variants[coord.mainVariantIndex].cartesianPoint;
-                p = new paper.Point(cartPoint.x+4, cartPoint.y-7);
+                p = new paper.Point(cartPoint.x + 4, cartPoint.y - 7);
                 console.log(p);
 
                 drawModeTables.perTable[dmtIdx].startMarker.position = p;
 
-                console.log("Highlight table "+dmtIdx);
+                console.log("Highlight table " + dmtIdx);
                 highlightDrawModeTable(dmtIdx);
             }
         }
@@ -514,7 +513,7 @@ globals.descriptioMouseMove = function (event) {
         if (globals.variants_expanded) {
 
             console.log(coord);
-            console.log("Name: "+event.item.name);
+            console.log("Name: " + event.item.name);
 
             markerName = event.item.name;
 
@@ -522,11 +521,11 @@ globals.descriptioMouseMove = function (event) {
 
             if (coord.variants.length > 1) {
 
-                for (i=0;i<coord.variants.length;i++) {
+                for (i = 0; i < coord.variants.length; i++) {
                     if (markerName == coord.variants[i].coordMarkerName) {
 
                         isVariant = true;
-                        console.log("Hover variant for ms "+coord.variants[i].ms);
+                        console.log("Hover variant for ms " + coord.variants[i].ms);
                         break;
                     }
                 }
@@ -539,22 +538,21 @@ globals.descriptioMouseMove = function (event) {
 
 
 
-            
+
         }
 
-       if (coord.hasOwnProperty('coordType')) {
+        if (coord.hasOwnProperty('coordType')) {
             console.log("We have a valid coord!");
 
             variant = coord.variants[coord.mainVariantIndex];
             //console.log(variant);
             console.log("Ms: '" + variant.ms + "', (" + variant.horizonGradus + "," + variant.horizonMinuta + "|" + variant.radiusGradus + "," + variant.radiusMinuta + ")");
 
-       }
-        
+        }
 
 
-    }
-    else {
+
+    } else {
         /*
         console.log("No coord, clean up!");
         console.log("New start marker pos choosen="+newStartMarkerPosChoosen);
@@ -573,7 +571,7 @@ globals.descriptioMouseMove = function (event) {
             }
         }
 
-        
+
     }
 }
 
@@ -610,11 +608,11 @@ globals.descriptioFrame = function (event) {
 
                             // Resort coords
                             if (t == 4) {
-                                console.log("Table 4 has "+currTable.animCoords.length+" coords:");
+                                console.log("Table 4 has " + currTable.animCoords.length + " coords:");
                                 console.log(currTable.animCoords);
 
                                 // Insula table
-                                currTable.animCoords.move(2,3);
+                                currTable.animCoords.move(2, 3);
                                 // Duplicate start point so we get a closed path
                                 currTable.animCoords.push(currTable.animCoords[0]);
                             }
@@ -622,30 +620,30 @@ globals.descriptioFrame = function (event) {
                             if (t == 5) {
 
                                 // Brute force sort the coords to draw nicely
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 1), 0);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 1), 1);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 2), 2);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 3), 3);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 1), 0);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 1), 1);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 2), 2);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 3), 3);
 
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 2), 4);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 4), 5);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 3), 6);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 5), 7);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 2), 4);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 4), 5);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 3), 6);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 5), 7);
 
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 6), 8);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 4), 9);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 7), 10);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 5), 11);
-                               currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 8), 12);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 6), 8);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 4), 9);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 7), 10);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 14 && x.origCoordNumber == 5), 11);
+                                currTable.animCoords.move(currTable.animCoords.findIndex(x => x.origTable == 13 && x.origCoordNumber == 8), 12);
 
-                               // Get first coord from next table to connect the river nicely
-                               addCoord = drawModeTables.perTable[t+1].animCoords[0];
-                               currTable.animCoords.push(addCoord);
-                               currTable.animCoords.move(13,8);
-                               
+                                // Get first coord from next table to connect the river nicely
+                                addCoord = drawModeTables.perTable[t + 1].animCoords[0];
+                                currTable.animCoords.push(addCoord);
+                                currTable.animCoords.move(13, 8);
+
                             }
 
-                            
+
 
                         }
 
@@ -680,19 +678,17 @@ globals.descriptioFrame = function (event) {
 
                                     if (currTable.path.lastSegment.previous.previous != null) {
                                         point1 = currTable.path.lastSegment.previous.previous;
-                                    }
-                                    else {
+                                    } else {
                                         point1 = point3;
                                     }
-                                }
-                                else {
+                                } else {
                                     point2 = point3;
                                 }
                                 c = new paper.Path.Arc(point1.point, point2.point, point3.point);
-                                c.strokeColor = new paper.Color(1,0,0);
+                                c.strokeColor = new paper.Color(1, 0, 0);
                                 c.strokeWidth = 1.5;
-                                
-                               globals.pathLayer.activate();
+
+                                globals.pathLayer.activate();
                             }
 
 
@@ -824,7 +820,7 @@ function drawHorizon() {
         // Draw little spikes
         for (i = 0; i < 192; i++) {
 
-            if ((i+1) % 4 == 0) {
+            if ((i + 1) % 4 == 0) {
                 continue;
             }
 
@@ -913,13 +909,13 @@ function drawHorizon() {
         // Main rectangle
         mainRect = new paper.Path.Rectangle(horizonCenter, new paper.Point(horizonCenter.x - bigHorizonRadius, horizonCenter.y + radiusHeight));
         mainRect.strokeColor = globals.horizonColor;
-        mainRect.fillColor = new paper.Color(1,1,1);
+        mainRect.fillColor = new paper.Color(1, 1, 1);
         mainRect.strokeWidth = globals.horizonStrokeWidth;
         globals.radius.addChild(mainRect);
 
         // Second line
         upperLine = new paper.Path(new paper.Point(horizonCenter.x, horizonCenter.y + upperHeight),
-                                   new paper.Point(horizonCenter.x - bigHorizonRadius, horizonCenter.y + upperHeight));
+            new paper.Point(horizonCenter.x - bigHorizonRadius, horizonCenter.y + upperHeight));
         upperLine.strokeColor = globals.horizonColor;
         upperLine.strokeWidth = globals.horizonStrokeWidth;
         globals.radius.addChild(upperLine);
@@ -927,8 +923,8 @@ function drawHorizon() {
 
         startPoint = new paper.Point(horizonCenter.x - bigHorizonRadius - radiusHeight, horizonCenter.y);
 
-        arcPoint = new paper.Point(horizonCenter.x - bigHorizonRadius - Math.cos(45)*radiusHeight,
-                                   horizonCenter.y + radiusHeight - Math.sin(45)*radiusHeight);
+        arcPoint = new paper.Point(horizonCenter.x - bigHorizonRadius - Math.cos(45) * radiusHeight,
+            horizonCenter.y + radiusHeight - Math.sin(45) * radiusHeight);
 
         endPoint = new paper.Point(horizonCenter.x - bigHorizonRadius, horizonCenter.y + radiusHeight);
 
@@ -939,29 +935,29 @@ function drawHorizon() {
         spike.arcTo(arcPoint, endPoint);
 
         spike.strokeColor = globals.horizonColor;
-        spike.fillColor = new paper.Color(1,1,1);
+        spike.fillColor = new paper.Color(1, 1, 1);
         spike.strokeWidth = globals.horizonStrokeWidth;
         globals.radius.addChild(spike);
 
         // Big separators, top to bottom
         for (i = 0; i < 10; i++) {
-            bigSector = new paper.Path(new paper.Point(horizonCenter.x - (i+1)*bigStep, horizonCenter.y),
-                                       new paper.Point(horizonCenter.x - (i+1)*bigStep, horizonCenter.y + radiusHeight));
+            bigSector = new paper.Path(new paper.Point(horizonCenter.x - (i + 1) * bigStep, horizonCenter.y),
+                new paper.Point(horizonCenter.x - (i + 1) * bigStep, horizonCenter.y + radiusHeight));
             bigSector.strokeColor = globals.horizonColor;
             bigSector.strokeWidth = globals.horizonStrokeWidth;
             globals.radius.addChild(bigSector);
 
             // Place numbers
-            numberPoint = new paper.Point(horizonCenter.x - (bigStep*0.5) - i*bigStep,
-                                          horizonCenter.y + upperHeight + (radiusHeight-upperHeight)*0.5);
+            numberPoint = new paper.Point(horizonCenter.x - (bigStep * 0.5) - i * bigStep,
+                horizonCenter.y + upperHeight + (radiusHeight - upperHeight) * 0.5);
 
             radiusNumber = new paper.PointText(numberPoint);
             radiusNumber.justification = 'center';
             radiusNumber.fillColor = globals.horizonNumberColor;
-            radiusNumber.content = '' + ((i + 1)*5);
+            radiusNumber.content = '' + ((i + 1) * 5);
             radiusNumber.fontSize = 6;
             radiusNumber.font = 'Lusitana';
-            radiusNumber.position.y += radiusNumber.strokeBounds.height*0.3;
+            radiusNumber.position.y += radiusNumber.strokeBounds.height * 0.3;
 
             globals.radius.addChild(radiusNumber);
         }
@@ -970,17 +966,17 @@ function drawHorizon() {
 
         for (i = 0; i < 50; i++) {
 
-            x = horizonCenter.x - (i)*smallStep;
+            x = horizonCenter.x - (i) * smallStep;
 
             if (i % 5 == 0) {
 
                 // Create three mini spikes
                 for (j = 0; j < 3; j++) {
-                    
+
                     littleX = x - (j + 1) * miniStep;
 
                     miniSpike = new paper.Path(new paper.Point(littleX, horizonCenter.y),
-                                            new paper.Point(littleX, horizonCenter.y + (upperHeight*0.5)));
+                        new paper.Point(littleX, horizonCenter.y + (upperHeight * 0.5)));
                     miniSpike.strokeWidth = globals.horizonStrokeWidth;
                     miniSpike.strokeColor = globals.horizonColor;
                     globals.radius.addChild(miniSpike);
@@ -988,20 +984,20 @@ function drawHorizon() {
 
                 continue;
             }
-            
+
             littleSpike = new paper.Path(new paper.Point(x, horizonCenter.y),
-                                        new paper.Point(x, horizonCenter.y + upperHeight));
+                new paper.Point(x, horizonCenter.y + upperHeight));
             littleSpike.strokeWidth = globals.horizonStrokeWidth;
             littleSpike.strokeColor = globals.horizonColor;
             globals.radius.addChild(littleSpike);
 
             // Create three mini spikes
             for (j = 0; j < 3; j++) {
-                
+
                 littleX = x - (j + 1) * miniStep;
 
                 miniSpike = new paper.Path(new paper.Point(littleX, horizonCenter.y),
-                                           new paper.Point(littleX, horizonCenter.y + (upperHeight*0.5)));
+                    new paper.Point(littleX, horizonCenter.y + (upperHeight * 0.5)));
                 miniSpike.strokeWidth = globals.horizonStrokeWidth;
                 miniSpike.strokeColor = globals.horizonColor;
                 globals.radius.addChild(miniSpike);
@@ -1018,6 +1014,7 @@ function drawHorizon() {
 
         // Contained inside MS O
         // TODO Change in future versions
+        /*
         if (globals.app_state == "construction") {
 
             // Degrees
@@ -1030,13 +1027,13 @@ function drawHorizon() {
 
                 speiche = new paper.Path.Line(new paper.Point(x1, y1), new paper.Point(x2, y2));
                 speiche.strokeColor = globals.horizonColor;
-                speiche.strokeWidth = globals.horizonStrokeWidth*0.5;
+                speiche.strokeWidth = globals.horizonStrokeWidth * 0.5;
             }
 
             // Minuta
             for (i = 0; i < 192; i++) {
 
-                if ((i+1) % 4 == 0) {
+                if ((i + 1) % 4 == 0) {
                     continue;
                 }
 
@@ -1045,20 +1042,21 @@ function drawHorizon() {
 
                 lowerSpike = new paper.Path.Line(new paper.Point(x1, y1), new paper.Point(x2, y2));
                 lowerSpike.strokeColor = globals.horizonColor;
-                lowerSpike.strokeWidth = globals.horizonStrokeWidth*0.5;
+                lowerSpike.strokeWidth = globals.horizonStrokeWidth * 0.5;
             }
 
             // Radius
             radiusStep = smallHorizonRadius / 50 / 4;
-            for (i = 0; i < 50*4; i++) {
+            for (i = 0; i < 50 * 4; i++) {
 
                 middleHorizon = new paper.Path.Circle(horizonCenter, radiusStep * i);
                 middleHorizon.strokeColor = globals.horizonColor;
-                middleHorizon.strokeWidth = globals.horizonStrokeWidth*0.5;
+                middleHorizon.strokeWidth = globals.horizonStrokeWidth * 0.5;
 
             }
 
         }
+        */
     }
 }
 
@@ -1078,11 +1076,11 @@ function showTooltip(item) {
     group.opacity = 0;
 
     // Create tooltip from rectangle
-    
+
     x = item.position.x;
     y = item.position.y;
 
-    view_point = paper.project.view.projectToView(new paper.Point(x,y));
+    view_point = paper.project.view.projectToView(new paper.Point(x, y));
 
     tooltipSpan = document.getElementById('tooltip-span');
 
@@ -1091,20 +1089,20 @@ function showTooltip(item) {
 
     tooltipSpan.style.display = 'block';
     tooltipSpan.style.position = 'fixed';
-    tooltipSpan.style.overflow = 'hidden'; 
+    tooltipSpan.style.overflow = 'hidden';
 
     tooltipSpan.style.top = view_point.y + 'px';
     tooltipSpan.style.left = view_point.x + 'px';
 
-    console.log("Set table to "+toRoman(coord.origTable)+' '+coord.origCoordNumber);
+    console.log("Set table to " + toRoman(coord.origTable) + ' ' + coord.origCoordNumber);
 
     // Set values
     table = document.getElementById('tt-table');
-    table.setAttribute('data-value', toRoman(coord.origTable)+' '+coord.origCoordNumber);
+    table.setAttribute('data-value', toRoman(coord.origTable) + ' ' + coord.origCoordNumber);
 
     ms = document.getElementById('tt-ms');
     //ms.setAttribute('data-value', variant.ms=='Boriaud-Furlan'?'BF':variant.ms+"1".sup());
-    ms.innerHTML = (variant.ms=='Boriaud-Furlan'?'BF':superscriptMs(variant.ms));
+    ms.innerHTML = (variant.ms == 'Boriaud-Furlan' ? 'BF' : superscriptMs(variant.ms));
 
     hg = document.getElementById('tt-hg');
     hg.setAttribute('data-value', numberWithFraction(variant.horizonGradus.toString()));
@@ -1119,16 +1117,16 @@ function showTooltip(item) {
     rm.setAttribute('data-value', numberWithFraction(variant.radiusMinuta.toString()));
 
     tooltipSpan.style.opacity = 0.0;
-    
+
     anime({
         targets: '.descriptio-tooltip',
         opacity: 1,
         duration: 150,
         easing: 'linear',
     });
-    
 
-    console.log("Point="+x+"|"+y);
+
+    console.log("Point=" + x + "|" + y);
 
 }
 
@@ -1224,8 +1222,7 @@ function drawCoordMarks(coords, color) {
 
                     newMark = new paper.Path.RegularPolygon(p, 6, desc.size);
                     newMark.rotation = -30;
-                }
-                else {
+                } else {
                     newMark = new paper.Shape.Circle(p, desc.size);
                 }
 
@@ -1239,26 +1236,26 @@ function drawCoordMarks(coords, color) {
                     newMark.fillColor = desc.fillColor;
                 }
 
-                
+
 
                 if (currentAC.variants.length > 1) {
 
                     //newMark.fillColor = new paper.Color(1, 0.55, 0);
                     //newMark.fillColor = new paper.Color(0.97,0.82,0.84);
-                    newMark.fillColor = new paper.Color(0.87,0.28,0.37);
+                    newMark.fillColor = new paper.Color(0.87, 0.28, 0.37);
 
                     globals.variantSignalLayer.activate();
-                    
+
                     variantSignal = new paper.Shape.Circle(p, 5);
 
-                    
+
                     //variantSignal.strokeColor = new paper.Color(1, 0.55, 0);
-                    variantSignal.fillColor = new paper.Color(0.87,0.28,0.37);
+                    variantSignal.fillColor = new paper.Color(0.87, 0.28, 0.37);
                     //variantSignal.fillColor = new paper.Color(0.97,0.82,0.84);
                     variantSignal.opacity = 0.1;
-                    variantSignal.scaling = 1.0;                   
+                    variantSignal.scaling = 1.0;
 
-                    
+
                     tl = anime.timeline({
                         targets: variantSignal,
                         loop: true,
@@ -1273,7 +1270,7 @@ function drawCoordMarks(coords, color) {
                         easing: 'linear',
                         duration: 750
                     }, 1000);
-                                       
+
 
                     globals.coordMarkerLayer.activate();
                 }
@@ -1295,21 +1292,21 @@ function drawCoordMarks(coords, color) {
 
                 if (currentAC.variants.length > 1) {
                     //newMark.fillColor = new paper.Color(1, 0.55, 0);
-                    newMark.fillColor = new paper.Color(0.87,0.28,0.37);
+                    newMark.fillColor = new paper.Color(0.87, 0.28, 0.37);
 
                     globals.variantSignalLayer.activate();
 
                     variantSignal = new paper.Shape.Rectangle(p, s);
-                    
+
                     //variantSignal.strokeColor = new paper.Color(1, 0.55, 0);
-                    variantSignal.fillColor = new paper.Color(0.87,0.28,0.37);
+                    variantSignal.fillColor = new paper.Color(0.87, 0.28, 0.37);
                     //variantSignal.fillColor = new paper.Color(0.97,0.82,0.84);
-                    variantSignal.applyMatrix = false; 
+                    variantSignal.applyMatrix = false;
 
                     variantSignal.opacity = 0;
-                    variantSignal.scaling = 1;                 
+                    variantSignal.scaling = 1;
 
-                    
+
                     tl = anime.timeline({
                         targets: variantSignal,
                         loop: true,
@@ -1324,15 +1321,15 @@ function drawCoordMarks(coords, color) {
                         easing: 'linear',
                         duration: 950
                     }, 1000);
-                    
+
                     globals.coordMarkerLayer.activate();
 
                 }
 
                 break;
-            
+
             case "porta":
-                            
+
                 //newMark = svg_porta_icon.place();
 
                 portaWidth = 6;
@@ -1340,24 +1337,24 @@ function drawCoordMarks(coords, color) {
                 arcHeight = 3;
 
                 base = new paper.Path();
-                base.add(new paper.Point(x - (portaWidth/2), y-baseHeight));
-                base.add(new paper.Point(x - (portaWidth/2), y));
-                base.add(new paper.Point(x + (portaWidth/2), y));
-                base.add(new paper.Point(x + (portaWidth/2), y-baseHeight));
+                base.add(new paper.Point(x - (portaWidth / 2), y - baseHeight));
+                base.add(new paper.Point(x - (portaWidth / 2), y));
+                base.add(new paper.Point(x + (portaWidth / 2), y));
+                base.add(new paper.Point(x + (portaWidth / 2), y - baseHeight));
 
-                arc = new paper.Path.Arc(new paper.Point(x + (portaWidth/2), y-baseHeight+0.4),
-                                         new paper.Point(x, y-baseHeight-arcHeight),
-                                         new paper.Point(x - (portaWidth/2), y-baseHeight+0.4));
+                arc = new paper.Path.Arc(new paper.Point(x + (portaWidth / 2), y - baseHeight + 0.4),
+                    new paper.Point(x, y - baseHeight - arcHeight),
+                    new paper.Point(x - (portaWidth / 2), y - baseHeight + 0.4));
 
-                
+
                 newMark = new paper.CompoundPath(arc, base);
                 newMark.position = new paper.Point(x, y);
                 //newMark.scale(0.3,0.3);
 
                 //console.log("Symbol stroke color="+newMark.strokeColor);
 
-                newMark.strokeColor = new paper.Color(0,0,0);
-                newMark.fillColor = new paper.Color(1,1,1);
+                newMark.strokeColor = new paper.Color(0, 0, 0);
+                newMark.fillColor = new paper.Color(1, 1, 1);
                 newMark.strokeWidth = 2;
 
 
@@ -1365,35 +1362,35 @@ function drawCoordMarks(coords, color) {
 
                     //newMark.fillColor = new paper.Color(1, 0.55, 0);
                     //newMark.fillColor = new paper.Color(0.97,0.82,0.84);
-                    newMark.fillColor = new paper.Color(0.87,0.28,0.37);
+                    newMark.fillColor = new paper.Color(0.87, 0.28, 0.37);
 
                     globals.variantSignalLayer.activate();
-                    
+
                     //variantSignal = new paper.Shape.Circle(p, 5);
-                    
+
                     varbase = new paper.Path();
-                    varbase.add(new paper.Point(x - (portaWidth/2), y-baseHeight));
-                    varbase.add(new paper.Point(x - (portaWidth/2), y));
-                    varbase.add(new paper.Point(x + (portaWidth/2), y));
-                    varbase.add(new paper.Point(x + (portaWidth/2), y-baseHeight));
+                    varbase.add(new paper.Point(x - (portaWidth / 2), y - baseHeight));
+                    varbase.add(new paper.Point(x - (portaWidth / 2), y));
+                    varbase.add(new paper.Point(x + (portaWidth / 2), y));
+                    varbase.add(new paper.Point(x + (portaWidth / 2), y - baseHeight));
 
-                    vararc = new paper.Path.Arc(new paper.Point(x + (portaWidth/2), y-baseHeight+0.4),
-                                            new paper.Point(x, y-baseHeight-arcHeight),
-                                            new paper.Point(x - (portaWidth/2), y-baseHeight+0.4));
+                    vararc = new paper.Path.Arc(new paper.Point(x + (portaWidth / 2), y - baseHeight + 0.4),
+                        new paper.Point(x, y - baseHeight - arcHeight),
+                        new paper.Point(x - (portaWidth / 2), y - baseHeight + 0.4));
 
-                    
+
                     variantSignal = new paper.CompoundPath(vararc, varbase);
                     variantSignal.position = new paper.Point(x, y);
 
-                    
+
                     //variantSignal.strokeColor = new paper.Color(1, 0.55, 0);
-                    variantSignal.fillColor = new paper.Color(0.87,0.28,0.37);
+                    variantSignal.fillColor = new paper.Color(0.87, 0.28, 0.37);
                     //variantSignal.fillColor = new paper.Color(0.97,0.82,0.84);
                     variantSignal.opacity = 0.1;
                     variantSignal.scaling = 1.3;
-                    variantSignal.applyMatrix = false;                   
+                    variantSignal.applyMatrix = false;
 
-                    
+
                     tl = anime.timeline({
                         targets: variantSignal,
                         loop: true,
@@ -1421,25 +1418,25 @@ function drawCoordMarks(coords, color) {
         newMark.data = currentAC;
         newMark.data2 = currentAC.mainVariantIndex;
 
-        name = "object_"+newMark.id.toString();
+        name = "object_" + newMark.id.toString();
         newMark.name = name;
         currentAC.variants[currentAC.mainVariantIndex].coordMarkerName = name;
 
-        newMark.onMouseEnter = function(event) {
+        newMark.onMouseEnter = function (event) {
             console.log("This is:")
             console.log(this);
 
             if (globals.app_state != "choose_start_coord") {
                 showTooltip(this);
             }
-            
+
             //showTooltip(currentAC.variants[currentAC.mainVariantIndex]);
             //showTooltip(newMark);
 
-            
+
         }
 
-        newMark.onMouseLeave = function(event) {
+        newMark.onMouseLeave = function (event) {
             console.log("Leave coordinate!");
 
             tooltipSpan = document.getElementById('tooltip-span');
@@ -1453,14 +1450,14 @@ function drawCoordMarks(coords, color) {
 
         // Clone marker for every variant, change color and hide
 
-        srcPoint = new paper.Point(x,y);
-        
-        for (j=0;j<currentAC.variants.length;j++) {
-            
+        srcPoint = new paper.Point(x, y);
+
+        for (j = 0; j < currentAC.variants.length; j++) {
+
             if (j != currentAC.mainVariantIndex) {
 
                 currVar = currentAC.variants[j];
-                console.log("Variant: " +currVar);
+                console.log("Variant: " + currVar);
                 //console.log(currVar);
 
                 destPoint = new paper.Point(srcPoint.x, srcPoint.y);
@@ -1470,29 +1467,29 @@ function drawCoordMarks(coords, color) {
                 //variantMarker = new paper.Path.Circle(new paper.Point(0,0), new paper.Size(2.5,2.5));
                 variantMarker.data = currentAC;
                 variantMarker.data2 = j;
-                
-                variantMarker.onMouseEnter = function(event) {
+
+                variantMarker.onMouseEnter = function (event) {
 
                     if (globals.app_state != "choose_start_coord") {
                         showTooltip(this);
                     }
                 }
-                
-                variantMarker.onMouseLeave = function(event) {
+
+                variantMarker.onMouseLeave = function (event) {
                     console.log("Leave coordinate!");
                     //this.parent.children['tooltip'].remove();
                     tooltipSpan = document.getElementById('tooltip-span');
                     tooltipSpan.style.display = 'none';
                 }
-                
+
                 variantMarker.position = new paper.Point(srcPoint);
-                variantMarker.strokeColor = new paper.Color(0.18,0.18,0.18);
+                variantMarker.strokeColor = new paper.Color(0.18, 0.18, 0.18);
                 //variantMarker.strokeColor = new paper.Color(1,0,0);
                 //variantMarker.fillColor = new paper.Color(0.8,0.8,0.8);
-                variantMarker.fillColor = new paper.Color(1,1,1);
-                variantMarker.dashArray = [2,1];
+                variantMarker.fillColor = new paper.Color(1, 1, 1);
+                variantMarker.dashArray = [2, 1];
                 variantMarker.strokeWidth = 0.75;
-                
+
                 //variantMarker.fillColor = new paper.Color(1,1,1);
                 variantMarker.visible = false;
 
@@ -1506,15 +1503,15 @@ function drawCoordMarks(coords, color) {
                 globals.pathLayer.activate();
 
                 varPath = new paper.Path();
-                varPath.strokeColor = new paper.Color(0.18,0.18,0.18);
+                varPath.strokeColor = new paper.Color(0.18, 0.18, 0.18);
                 varPath.add(srcPoint);
                 varPath.add(destPoint);
                 varPath.visible = false;
-                varPath.dashArray = [6,3];
+                varPath.dashArray = [6, 3];
                 varPath.strokeWidth = 0.75;
 
                 // Reorient if we have an aedificium
-                console.log("coord type="+currentAC.coordType);
+                console.log("coord type=" + currentAC.coordType);
 
                 pathOrientation = 3;
                 if (currentAC.coordType == "Aedificium") {
@@ -1531,23 +1528,23 @@ function drawCoordMarks(coords, color) {
                 varPath.name = pathName;
                 currVar.variantPathName = pathName;
 
-               varPath.variantPathAnimation = anime.timeline({
+                varPath.variantPathAnimation = anime.timeline({
                     duration: 2500,
                     easing: 'linear',
                     autoplay: false,
                     loop: true
-               });
-               varPath.variantPathAnimation.add({
+                });
+                varPath.variantPathAnimation.add({
                     targets: varPath,
                     dashOffset: -9
-               }, 0).add({
-                   targets: variantMarker,
-                   dashOffset: pathOrientation
-               }, 0);
-               
+                }, 0).add({
+                    targets: variantMarker,
+                    dashOffset: pathOrientation
+                }, 0);
+
 
             }
-            
+
         }
     }
 
@@ -1599,10 +1596,10 @@ function drawRecteCoordMarks() {
             orth_vector.y /= len;
 
             // Debug draw orth vector
-            tempPoint = new paper.Point(cartCoord.x+orth_vector.x*10, cartCoord.y+orth_vector.y*10);
+            tempPoint = new paper.Point(cartCoord.x + orth_vector.x * 10, cartCoord.y + orth_vector.y * 10);
 
             orth_path = new paper.Path(cartCoord, tempPoint);
-            orth_path.strokeWidth = 0;//1;
+            orth_path.strokeWidth = 0; //1;
             orth_path.strokeColor = new paper.Color(0, 1, 0);
 
             // Dot product
@@ -1614,14 +1611,14 @@ function drawRecteCoordMarks() {
 
             // Debug draw projection
             projPoint = new paper.Point(cartCoord.x + orth_vector.x * dot, cartCoord.y + orth_vector.y * dot);
-            
+
             projPath = new paper.Path(cartCoord, projPoint);
             projPath.strokeWidth = 1;
             projPath.strokeColor = new paper.Color(1, 0, 0);
 
             // Draw long vector in opposite direction
-            console.log("Big horizon radius="+bigHorizonRadius);
-            farPoint = new paper.Point(cartCoord.x - (p.x-p2.x)*100, cartCoord.y - (p.y-p2.y)*100);
+            console.log("Big horizon radius=" + bigHorizonRadius);
+            farPoint = new paper.Point(cartCoord.x - (p.x - p2.x) * 100, cartCoord.y - (p.y - p2.y) * 100);
             console.log(farPoint);
 
             oppPath = new paper.Path(cartCoord, farPoint);
@@ -1712,54 +1709,54 @@ function showVariants() {
 
     //globals.markerLayer.activate();
 
-    for (i=0; i<drawModeTables.perTable.length;i++) {
+    for (i = 0; i < drawModeTables.perTable.length; i++) {
         currTable = drawModeTables.perTable[i];
 
-        for (j=0;j<currTable.coords.length;j++) {
+        for (j = 0; j < currTable.coords.length; j++) {
             currAC = currTable.coords[j];
 
 
             if (currAC.variants.length > 1) {
 
-                for (k=0;k<currAC.variants.length;k++) {
+                for (k = 0; k < currAC.variants.length; k++) {
 
                     if (k != currAC.mainVariantIndex) {
 
                         name = currAC.variants[k].coordMarkerName;
-                                    marker = globals.coordMarkerLayer.children[name];
+                        marker = globals.coordMarkerLayer.children[name];
 
-                                    console.log("Marker name="+name);
+                        console.log("Marker name=" + name);
 
-                                    marker.visible = true;
-                                    marker.opacity = 1.0;
+                        marker.visible = true;
+                        marker.opacity = 1.0;
 
-                                   new_x = currAC.variants[k].cartesianPoint.x;
-                                   new_y = currAC.variants[k].cartesianPoint.y;
+                        new_x = currAC.variants[k].cartesianPoint.x;
+                        new_y = currAC.variants[k].cartesianPoint.y;
 
-                                   srcPoint = new paper.Point(currAC.variants[currAC.mainVariantIndex].cartesianPoint.x, currAC.variants[currAC.mainVariantIndex].cartesianPoint.y);
+                        srcPoint = new paper.Point(currAC.variants[currAC.mainVariantIndex].cartesianPoint.x, currAC.variants[currAC.mainVariantIndex].cartesianPoint.y);
 
-                                   marker.position = srcPoint;
+                        marker.position = srcPoint;
 
-                                   // Get variant path
-                                   pathName = currAC.variants[k].variantPathName;
-                                   console.log("path name="+pathName);
+                        // Get variant path
+                        pathName = currAC.variants[k].variantPathName;
+                        console.log("path name=" + pathName);
 
-                                   //variantPath = paper.project.activeLayer.children[pathName];
-                                   variantPath = globals.pathLayer.children[pathName];
-                                   variantPath.visible = true;
-                                   variantPath.opacity = 1.0;
-                                   console.log("variant path:");
-                                   console.log(variantPath);
-                                    
+                        //variantPath = paper.project.activeLayer.children[pathName];
+                        variantPath = globals.pathLayer.children[pathName];
+                        variantPath.visible = true;
+                        variantPath.opacity = 1.0;
+                        console.log("variant path:");
+                        console.log(variantPath);
 
-                                   anime({
-                                       targets: [marker.position, variantPath.lastSegment.point],
-                                       x: new_x,
-                                       y: new_y,
-                                       round: 1
-                                   });
 
-                                   variantPath.variantPathAnimation.play();
+                        anime({
+                            targets: [marker.position, variantPath.lastSegment.point],
+                            x: new_x,
+                            y: new_y,
+                            round: 1
+                        });
+
+                        variantPath.variantPathAnimation.play();
 
                     }
                 }
@@ -1768,12 +1765,12 @@ function showVariants() {
     }
 
     // Handle Aedifica separately
-    for (j=0;j<aedificiaTable.coords.length;j++) {
+    for (j = 0; j < aedificiaTable.coords.length; j++) {
         currAC = aedificiaTable.coords[j];
 
         if (currAC.variants.length > 1) {
 
-            for (k=0;k<currAC.variants.length;k++) {
+            for (k = 0; k < currAC.variants.length; k++) {
 
                 if (k != currAC.mainVariantIndex) {
 
@@ -1781,7 +1778,7 @@ function showVariants() {
                     name = currAC.variants[k].coordMarkerName;
                     marker = globals.coordMarkerLayer.children[name];
 
-                    console.log("Variant marker name="+name);
+                    console.log("Variant marker name=" + name);
 
                     marker.visible = true;
                     marker.opacity = 1.0;
@@ -1795,7 +1792,7 @@ function showVariants() {
 
                     // Get variant path
                     pathName = currAC.variants[k].variantPathName;
-                    console.log("path name="+pathName);
+                    console.log("path name=" + pathName);
 
                     //variantPath = paper.project.activeLayer.children[pathName];
                     variantPath = globals.pathLayer.children[pathName];
@@ -1803,7 +1800,7 @@ function showVariants() {
                     variantPath.opacity = 1.0;
                     console.log("variant path:");
                     console.log(variantPath);
-                    
+
 
                     anime({
                         targets: [marker.position, variantPath.lastSegment.point],
@@ -1828,16 +1825,16 @@ function hideVariants() {
 
     console.log("Hiding variants...");
 
-    for (i=0; i<drawModeTables.perTable.length;i++) {
+    for (i = 0; i < drawModeTables.perTable.length; i++) {
         currTable = drawModeTables.perTable[i];
 
-        for (j=0;j<currTable.coords.length;j++) {
+        for (j = 0; j < currTable.coords.length; j++) {
             currAC = currTable.coords[j];
 
 
             if (currAC.variants.length > 1) {
 
-                for (k=0;k<currAC.variants.length;k++) {
+                for (k = 0; k < currAC.variants.length; k++) {
 
                     if (k != currAC.mainVariantIndex) {
 
@@ -1845,12 +1842,12 @@ function hideVariants() {
                         //marker = paper.project.activeLayer.children[name];
                         marker = globals.coordMarkerLayer.children[name];
 
-                       new_x = currAC.variants[currAC.mainVariantIndex].cartesianPoint.x;
+                        new_x = currAC.variants[currAC.mainVariantIndex].cartesianPoint.x;
                         new_y = currAC.variants[currAC.mainVariantIndex].cartesianPoint.y;
 
                         // Get variant path
                         pathName = currAC.variants[k].variantPathName;
-                        console.log("path name="+pathName);
+                        console.log("path name=" + pathName);
 
                         //variantPath = paper.project.activeLayer.children[pathName];
                         variantPath = globals.pathLayer.children[pathName];
@@ -1858,10 +1855,10 @@ function hideVariants() {
                         console.log("variant path:");
                         console.log(variantPath);
 
-                       tl = anime.timeline({
-                                easing: 'easeOutCubic',
-                                duration: 1000
-                            });
+                        tl = anime.timeline({
+                            easing: 'easeOutCubic',
+                            duration: 1000
+                        });
                         tl.add({
                             targets: [marker.position, variantPath.lastSegment.point],
                             x: new_x,
@@ -1880,12 +1877,12 @@ function hideVariants() {
 
     // Handle aedificia separately
 
-    for (j=0;j<aedificiaTable.coords.length;j++) {
+    for (j = 0; j < aedificiaTable.coords.length; j++) {
         currAC = aedificiaTable.coords[j];
 
         if (currAC.variants.length > 1) {
 
-            for (k=0;k<currAC.variants.length;k++) {
+            for (k = 0; k < currAC.variants.length; k++) {
 
                 if (k != currAC.mainVariantIndex) {
 
@@ -1898,7 +1895,7 @@ function hideVariants() {
 
                     // Get variant path
                     pathName = currAC.variants[k].variantPathName;
-                    console.log("path name="+pathName);
+                    console.log("path name=" + pathName);
 
                     //variantPath = paper.project.activeLayer.children[pathName];
                     variantPath = globals.pathLayer.children[pathName];
@@ -1907,9 +1904,9 @@ function hideVariants() {
                     console.log(variantPath);
 
                     tl = anime.timeline({
-                            easing: 'easeOutCubic',
-                            duration: 1000
-                        });
+                        easing: 'easeOutCubic',
+                        duration: 1000
+                    });
                     tl.add({
                         targets: [marker.position, variantPath.lastSegment.point],
                         x: new_x,
@@ -1932,20 +1929,20 @@ function hideVariants() {
 
 function chooseVariant(newMs) {
 
-    console.log("Old main ms: "+globals.mainMs+ ", old variant mss: "+globals.variantMss);
-    console.log("New ms = "+newMs);
+    console.log("Old main ms: " + globals.mainMs + ", old variant mss: " + globals.variantMss);
+    console.log("New ms = " + newMs);
 
     // Remove all variant signals
     globals.variantSignalLayer.removeChildren();
 
 
     // Animate main coords to variant coords
-    for (i=0; i<drawModeTables.perTable.length;i++) {
+    for (i = 0; i < drawModeTables.perTable.length; i++) {
         currTable = drawModeTables.perTable[i];
         //console.log("Current table:");
         //console.log(currTable);
 
-        for (j=0;j<currTable.coords.length;j++) {
+        for (j = 0; j < currTable.coords.length; j++) {
             currAC = currTable.coords[j];
 
             //console.log("Current AC:");
@@ -1954,24 +1951,24 @@ function chooseVariant(newMs) {
             markerName = currAC.variants[currAC.mainVariantIndex].coordMarkerName;
             marker = globals.coordMarkerLayer.children[markerName];
             //marker = paper.project.activeLayer.children[markerName];
-            
+
 
             if (currAC.variants.length > 1) {
 
-                for (k=0;k<currAC.variants.length;k++) {
+                for (k = 0; k < currAC.variants.length; k++) {
 
                     if (currAC.variants[k].ms == newMs) {
 
                         newVar = currAC.variants[k];
 
                         pathName = newVar.variantPathName;
-                        console.log("path name="+pathName);
+                        console.log("path name=" + pathName);
                         //variantPath = paper.project.activeLayer.children[pathName];
                         variantPath = globals.pathLayer.children[pathName];
 
                         numAnimationsRunning++;
 
-                        
+
                         tl = anime.timeline({
                             easing: 'easeInCubic',
                             duration: 750
@@ -1982,30 +1979,30 @@ function chooseVariant(newMs) {
                             //targets: marker.position,
                             x: newVar.cartesianPoint.x,
                             y: newVar.cartesianPoint.y,
-                            complete: function(anim) {
+                            complete: function (anim) {
                                 numAnimationsRunning--;
 
                                 if (numAnimationsRunning == 0) {
                                     console.log("ALL ANIMATIONS FINISHED!");
 
                                     $('#variants-btn').blur();
-                                    
+
                                     drawAlbertisRome();
                                     flashEnabled = true;
                                 }
-                              }
+                            }
                         }, 0);
 
-                        
+
                     }
                 }
             }
-            
+
         }
     }
 
 
-    console.log("New main ms: "+globals.mainMs+ ", new variant mss: "+globals.variantMss);
+    console.log("New main ms: " + globals.mainMs + ", new variant mss: " + globals.variantMss);
 
     globals.variants_expanded = false;
 
@@ -2038,7 +2035,7 @@ function clearLayers() {
     globals.labelLayer.removeChildren();
     globals.markerLayer.removeChildren();
     globals.radiusLayer.removeChildren();
-    globals.measureLayer.removeChildren(); 
+    globals.measureLayer.removeChildren();
 
     paper.view.draw();
 
@@ -2048,9 +2045,9 @@ function resetStartMarkerPositions() {
 
     console.log("Reset start markers.");
 
-    for (i=0; i<drawModeTables.perTable.length;i++) {
+    for (i = 0; i < drawModeTables.perTable.length; i++) {
 
-        console.log("  Table "+i);
+        console.log("  Table " + i);
 
         currTable = drawModeTables.perTable[i];
 
@@ -2058,11 +2055,11 @@ function resetStartMarkerPositions() {
         startCoord = currTable.coords[startIndex];
 
         cartCoord = startCoord.variants[startCoord.mainVariantIndex].cartesianPoint;
-        cartPoint = new paper.Point(cartCoord.x+4, cartCoord.y - 7);
+        cartPoint = new paper.Point(cartCoord.x + 4, cartCoord.y - 7);
 
         currTable.startMarker.position = cartPoint;
 
-    }  
+    }
 }
 
 function toggleMap() {
@@ -2083,23 +2080,23 @@ function drawAlbertisRome() {
 
     // Create a list of coordinates and variants depending
     // on the ms(s) to draw
-    createCoordinateList();    
+    createCoordinateList();
 
     // Calculate horizon and draw it
     drawHorizon();
-    
+
     globals.mapLayer.activate();
 
 
     // Position and rotation of reference map
-    center = new paper.Point(horizonCenter.x+55, horizonCenter.y+85);
+    center = new paper.Point(horizonCenter.x + 27, horizonCenter.y + 8);
 
     globals.backgroundMap = new paper.Raster({
         source: 'img/Guidoni-Cristallini-1990.jpg',
         position: center
     });
 
-    console.log("Map center="+center);
+    console.log("Map center=" + center);
 
     // 447: Empirically established value
     /*
@@ -2116,9 +2113,16 @@ function drawAlbertisRome() {
     globals.backgroundMap.visible = true;
     */
 
+    /*
     globals.backgroundMap.scale(0.275 * (bigHorizonRadius / 447));
     globals.backgroundMap.opacity = 1;
     globals.backgroundMap.rotation = -17;
+    globals.backgroundMap.visible = true;
+    */
+
+    globals.backgroundMap.scale(0.26 * (bigHorizonRadius / 447));
+    globals.backgroundMap.opacity = 1;
+    globals.backgroundMap.rotation = -3.25;
     globals.backgroundMap.visible = true;
 
     // Calculate cartesian coordinates based on horizon parameters
@@ -2131,5 +2135,5 @@ function drawAlbertisRome() {
     createLabels();
 
     globals.coordMarkerLayer.activate();
-    
+
 }
