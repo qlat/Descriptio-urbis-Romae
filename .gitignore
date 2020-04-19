@@ -2,3 +2,4 @@ node_modules
 analyze.py
 proximus_punctus.py
 .vs
+kmeans.ipynb
