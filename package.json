@@ -23,7 +23,7 @@
     "@fortawesome/fontawesome-free": "^5.13.0",
     "@popperjs/core": "^2.3.3",
     "animejs": "^3.2.0",
-    "bootstrap": "^4.3.1",
+    "bootstrap": "4.3.1",
     "bootstrap-select": "^1.13.14",
     "bootstrap4-toggle": "^3.6.1",
     "d3": "^5.15.1",
