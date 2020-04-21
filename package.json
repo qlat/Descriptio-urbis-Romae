@@ -17,6 +17,21 @@
   "author": "GitHub",
   "license": "CC0-1.0",
   "devDependencies": {
-    "electron": "^6.1.9"
+    "electron": "^6.1.10"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "@popperjs/core": "^2.3.3",
+    "animejs": "^3.2.0",
+    "bootstrap": "4.0.0",
+    "bootstrap-select": "^1.13.14",
+    "bootstrap4-toggle": "^3.6.1",
+    "d3": "^5.15.1",
+    "file-saver": "^2.0.2",
+    "jquery": "^3.5.0",
+    "jquery-mousewheel": "^3.1.13",
+    "paper": "^0.12.4",
+    "popper.js": "^1.16.0",
+    "webfontloader": "^1.6.28"
   }
 }

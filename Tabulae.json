@@ -1193,7 +1193,13 @@
           "HorizonMinuta": 0.5,
           "RadiusGradus": 48,
           "RadiusMinuta": 9
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 38,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 45,
+          "RadiusMinuta": 3
+        }
       },
       {
         "CoordNumber": 6,
@@ -1211,7 +1217,13 @@
           "HorizonMinuta": 0.666,
           "RadiusGradus": 46,
           "RadiusMinuta": 0
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 38,
+          "HorizonMinuta": 3,
+          "RadiusGradus": 44,
+          "RadiusMinuta": 2
+        }
       },
       {
         "CoordNumber": 7,
@@ -1240,7 +1252,13 @@
           "HorizonMinuta": 0,
           "RadiusGradus": 43,
           "RadiusMinuta": 8
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 39,
+          "HorizonMinuta": 3.666,
+          "RadiusGradus": 40,
+          "RadiusMinuta": 2
+        }
       },
       {
         "CoordNumber": 9,
@@ -1251,7 +1269,13 @@
           "HorizonMinuta": 3,
           "RadiusGradus": 41,
           "RadiusMinuta": 0
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 39,
+          "HorizonMinuta": 1.333,
+          "RadiusGradus": 38,
+          "RadiusMinuta": 3
+        }
       },
       {
         "CoordNumber": 10,
@@ -1358,7 +1382,13 @@
           "HorizonMinuta": 3.5,
           "RadiusGradus": 26,
           "RadiusMinuta": 1
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 40,
+          "HorizonMinuta": 2,
+          "RadiusGradus": 25,
+          "RadiusMinuta": 2
+        }
       }
     ]
   },
@@ -1408,7 +1438,13 @@
           "HorizonMinuta": 2,
           "RadiusGradus": 30,
           "RadiusMinuta": 0
-        }]
+        }],
+        "Recte": {
+          "HorizonGradus": 40,
+          "HorizonMinuta": 0,
+          "RadiusGradus": 31,
+          "RadiusMinuta": 1
+        }
       }
     ]
   },

@@ -473,7 +473,7 @@ function createLabels() {
    
     
     // Setup labels
-    var sim_ann = d3.labeler()
+     var sim_ann = d3.labeler()
         .label(label_array)
         .anchor(anchor_array)
         .width(screen_width)

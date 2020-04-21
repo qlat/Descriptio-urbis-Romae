@@ -22,7 +22,7 @@ globals.variantMss = [];
 globals.HorizonRotation = 12;
 
 // Possible values are "none", "choose_start_coord", "choose_variant", "measure_distance", "construction"
-globals.app_state = "none"; // "construction";
+globals.app_state = "none"; //"construction";
 
 // Indicates whether a drawing animation is currently active
 globals.draw_animation = false;
@@ -1709,6 +1709,8 @@ function showVariants() {
 
     //globals.markerLayer.activate();
 
+    numberOfVariants = 0;
+
     for (i = 0; i < drawModeTables.perTable.length; i++) {
         currTable = drawModeTables.perTable[i];
 
@@ -1748,6 +1750,8 @@ function showVariants() {
                         console.log("variant path:");
                         console.log(variantPath);
 
+
+                        numberOfVariants++;
 
                         anime({
                             targets: [marker.position, variantPath.lastSegment.point],
@@ -1801,6 +1805,7 @@ function showVariants() {
                     console.log("variant path:");
                     console.log(variantPath);
 
+                    numberOfVariants++;
 
                     anime({
                         targets: [marker.position, variantPath.lastSegment.point],
@@ -1817,6 +1822,8 @@ function showVariants() {
         }
     }
 
+    console.log("Number of variants: " + numberOfVariants);
+    
     globals.app_state = "choose_variant";
 
 }

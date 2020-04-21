@@ -6,39 +6,59 @@
 	<meta charset="UTF-8">
 	<title>Descriptio urbis Romae</title>
 
-	<script type="text/javascript" src="scripts/webfont.js"></script>
-	<script type="text/javascript" src="scripts/jquery.min.js"></script>
+	<!-- Web font loader ^1.6.28 -->
+	<!-- https://github.com/typekit/webfontloader -->
+	<script type="text/javascript" src="node_modules/webfontloader/webfontloader.js"></script>
 
-	<!-- popper.js 1.11.0 -->
-	<script type="text/javascript" src="scripts/popper.min.js"></script>
+	<!-- jQuery ^3.5.0 -->
+	<!-- https://jquery.com/ -->
+	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 
-	<!-- bootstrap.min.js 4.0.0 -->
-	<script type="text/javascript" src="scripts/bootstrap.min.js"></script>
+	<!-- Popper ^1.16.0 -->
+	<!-- https://popper.js.org/ -->
+	<script type="text/javascript" src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 
-	<!-- boootstrap.min.css 4.0.0 -->
-	<link href="css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<!-- Bootstrap 4.0.0 -->
+	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-	<!-- font-awesome.min.css 4.7.0 -->
-	<link rel="stylesheet" href="css/font-awesome.min.css">
+	<!-- Font Awesome ^5.13.0 -->
+	<!-- https://fontawesome.com -->
+	<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
 
-	<!-- bootstrap4-toggle.min.css 3.4.0 -->
-	<link href="css/bootstrap4-toggle.min.css" rel="stylesheet">
+	<!-- Bootstrap Toggle 3.6.0 -->
+	<link href="node_modules/bootstrap4-toggle/css/bootstrap4-toggle.min.css" rel="stylesheet">
+	<script type="text/javascript" src="node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js"></script>
 
-	<!-- bootstrap4-toggle.min.js 3.4.0 -->
-	<script type="text/javascript" src="scripts/bootstrap4-toggle.min.js"></script>
+	<!-- bootstrap-select 1.13.14 -->
+	<!-- https://developer.snapappointments.com/bootstrap-select/ -->
+	<link rel="stylesheet" href="node_modules/bootstrap-select/dist/css/bootstrap-select.min.css">
+	<script type="text/javascript" src="node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
-	<!-- bootstrap-select.min.css 1.13.9 -->
-	<link rel="stylesheet" href="css/bootstrap-select.min.css">
+	<!-- file-saver ^2.0.2 -->
+	<!-- https://github.com/eligrey/FileSaver.js -->
+	<script type="text/javascript" src="node_modules/file-saver/dist/FileSaver.min.js"></script>
 
-	<!-- bootstrap-select.min.js 1.13.9 -->
-	<script type="text/javascript" src="scripts/bootstrap-select.min.js"></script>
+	<!-- D3.js ^5.15.1 -->
+	<!-- https://d3js.org/ -->
+	<script type="text/javascript" src="node_modules/d3/dist/d3.min.js"></script>
 
-	<script type="text/javascript" src="scripts/FileSaver.min.js"></script>
-	<script type="text/javascript" src="scripts/d3.min.js"></script>
+	<!-- D3.js-Labeler -->
+	<!-- npm package does not work -->
+	<!-- https://github.com/tinker10/D3-Labeler -->
 	<script type="text/javascript" src="scripts/labeler.js"></script>
-	<script type="text/javascript" src="scripts/anime.min.js"></script>
-	<script type="text/javascript" src="scripts/paperjs/paper-full.js"></script>
-	<script type="text/javascript" src="scripts/jquery.mousewheel.js"></script>
+
+	<!-- anime.js ^3.2.0 -->
+	<!-- https://animejs.com/ -->
+	<script type="text/javascript" src="node_modules/animejs/lib/anime.min.js"></script>
+
+	<!-- Paper.js ^0.12.4 -->
+	<!-- http://paperjs.org/ -->
+	<script type="text/javascript" src="node_modules/paper/dist/paper-full.js"></script>
+
+	<!-- jquery-mousewheel 3.1.13 -->
+	<!-- https://github.com/jquery/jquery-mousewheel -->
+	<script type="text/javascript" src="node_modules/jquery-mousewheel/jquery.mousewheel.js"></script>
 
 	<script type="text/javascript" src="scripts/utils.js"></script>
 	<script type="text/javascript" src="scripts/tables.js"></script>
@@ -52,7 +72,7 @@
 
 		var flashBtnAnim = null;
 		var flashEnabled = false;
-
+		
 		function initWindow() {
 			if (jsonLoaded && fontLoaded) {
 				console.log("Everything loaded. Init window.");
@@ -267,6 +287,8 @@
 
 
 		$(document).ready(function () {
+
+			//var awesomefont = require("@fortawesome/fontawesome-free");
 
 			$('.selectpicker').selectpicker('val', 'None');
 
@@ -938,7 +960,7 @@
 								<div class="col">
 									<button type="button" class="btn btn-default btn-block shadow btn-descriptio"
 										id="update-btn">
-										<i class="fa fa-pencil"></i> Draw
+										<i class="fas fa-pencil-alt"></i> Draw
 									</button>
 								</div>
 							</div>
@@ -947,7 +969,7 @@
 								<div class="col">
 									<button type="button" class="btn btn-default btn-block btn-descriptio"
 										id="variants-btn">
-										<i class="fa fa-code-fork"></i> Variants
+										<i class="fas fa-code-branch"></i> Variants
 									</button>
 								</div>
 							</div>
@@ -957,7 +979,7 @@
 								<div class="col">
 									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
 										id="map-btn">
-										<i class="fa fa-map-o"></i>
+										<i class="far fa-map"></i>
 									</button>
 								</div>
 
@@ -977,7 +999,7 @@
 								<div class="col">
 									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
 										id="starts-btn">
-										<i class="fa fa-font-awesome"></i>
+										<i class="fab fa-font-awesome-flag"></i>
 									</button>
 								</div>
 
@@ -991,7 +1013,7 @@
 								<div class="col">
 									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
 										id="circle-btn">
-										<i class="fa fa-circle-o"></i>
+										<i class="far fa-circle"></i>
 									</button>
 								</div>
 							</div>
@@ -1003,7 +1025,7 @@
 								<div class="col">
 									<button type="button" class="btn btn-default btn-sm btn-block btn-descriptio"
 										id="points-btn">
-										<i class="fa fa-refresh"></i>
+										<i class="fas fa-sync-alt"></i>
 									</button>
 								</div>
 
