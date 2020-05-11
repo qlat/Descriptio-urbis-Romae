@@ -1,18 +1,19 @@
 {
-  "name": "electron-quick-start",
-  "version": "1.0.0",
-  "description": "A minimal Electron application",
+  "name": "descriptio-urbis-romae",
+  "version": "0.1.0",
+  "description": "Descriptio urbis Romae",
   "main": "main.js",
   "scripts": {
     "start": "electron ."
   },
-  "repository": "https://github.com/electron/electron-quick-start",
+  "repository": "https://github.com/qlat/Descriptio-urbis-Romae",
   "keywords": [
-    "Electron",
-    "quick",
-    "start",
-    "tutorial",
-    "demo"
+    "Leon",
+    "Battista",
+    "Alberti",
+    "Descriptio",
+    "urbis",
+    "Romae"
   ],
   "author": "GitHub",
   "license": "CC0-1.0",
