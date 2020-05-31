@@ -285,4 +285,200 @@ Array.prototype.move = function (from, to) {
     this.splice(to, 0, this.splice(from, 1)[0]);
 };
 
+function setVariantMs(ms, toggle) {
 
+    flashUpdateBtn();
+
+    console.log("Set variant ms: " + ms);
+    console.log("Toggle: " + toggle + ", checked=" + document.getElementById(toggle).checked);
+
+    if (document.getElementById(toggle).checked) {
+        globals.variantMss.push(ms);
+    } else {
+        idx = globals.variantMss.indexOf(ms);
+        if (idx > -1) {
+            globals.variantMss.splice(idx, 1);
+        }
+    }
+
+    console.log("Main ms: >" + globals.mainMs + "<, variant mss: " + globals.variantMss);
+}
+
+function flashUpdateBtn() {
+
+    console.log("flashUpdateBtn(), flashBtnAnim=" + flashBtnAnim + ", flashEnabled=" + flashEnabled);
+
+    if (flashBtnAnim == null && flashEnabled) {
+
+        console.log("Make new flash button...");
+
+        flashBtnAnim = anime({
+            targets: '#points-btn',
+            backgroundColor: '#EF96A2',
+            easing: 'steps(1)',
+            duration: 750,
+            direction: 'alternate',
+            loop: true,
+        });
+    }
+}
+
+function toggleVariantMss(toggle) {
+
+    $('#var-ms-bf-toggle').bootstrapToggle(toggle);
+    $('#var-ms-a-toggle').bootstrapToggle(toggle);
+    $('#var-ms-a1-toggle').bootstrapToggle(toggle);
+    $('#var-ms-a2-toggle').bootstrapToggle(toggle);
+
+    $('#var-ms-b-toggle').bootstrapToggle(toggle);
+    $('#var-ms-bac-toggle').bootstrapToggle(toggle);
+    $('#var-ms-b1-toggle').bootstrapToggle(toggle);
+
+    $('#var-ms-c-toggle').bootstrapToggle(toggle);
+    $('#var-ms-cac-toggle').bootstrapToggle(toggle);
+    $('#var-ms-cpc-toggle').bootstrapToggle(toggle);
+    $('#var-ms-m-toggle').bootstrapToggle(toggle);
+    $('#var-ms-n-toggle').bootstrapToggle(toggle);
+    $('#var-ms-nac-toggle').bootstrapToggle(toggle);
+    $('#var-ms-npc-toggle').bootstrapToggle(toggle);
+    $('#var-ms-o-toggle').bootstrapToggle(toggle);
+    $('#var-ms-oac-toggle').bootstrapToggle(toggle);
+    $('#var-ms-opc-toggle').bootstrapToggle(toggle);
+
+}
+
+function setMainMs(ms) {
+
+    flashUpdateBtn();
+
+    // Deactivate variant switches
+    enableAllVariantToggles();
+
+    switch (ms) {
+
+        case "Boriaud-Furlan":
+            $('#var-ms-bf-toggle').bootstrapToggle('off');
+            $('#var-ms-bf-toggle').bootstrapToggle('disable');
+            break;
+
+        case "A":
+            $('#var-ms-a-toggle').bootstrapToggle('off');
+            $('#var-ms-a-toggle').bootstrapToggle('disable');
+            break;
+
+        case "A1":
+            $('#var-ms-a1-toggle').bootstrapToggle('off');
+            $('#var-ms-a1-toggle').bootstrapToggle('disable');
+            break;
+
+        case "A2":
+            $('#var-ms-a2-toggle').bootstrapToggle('off');
+            $('#var-ms-a2-toggle').bootstrapToggle('disable');
+            break;
+
+        case "B":
+            $('#var-ms-b-toggle').bootstrapToggle('off');
+            $('#var-ms-b-toggle').bootstrapToggle('disable');
+            break;
+
+        case "Bac":
+            $('#var-ms-bac-toggle').bootstrapToggle('off');
+            $('#var-ms-bac-toggle').bootstrapToggle('disable');
+            break;
+
+        case "B1":
+            $('#var-ms-b1-toggle').bootstrapToggle('off');
+            $('#var-ms-b1-toggle').bootstrapToggle('disable');
+            break;
+
+        case "C":
+            $('#var-ms-c-toggle').bootstrapToggle('off');
+            $('#var-ms-c-toggle').bootstrapToggle('disable');
+            break;
+
+        case "Cac":
+            $('#var-ms-cac-toggle').bootstrapToggle('off');
+            $('#var-ms-cac-toggle').bootstrapToggle('disable');
+            break;
+
+        case "Cpc":
+            $('#var-ms-cpc-toggle').bootstrapToggle('off');
+            $('#var-ms-cpc-toggle').bootstrapToggle('disable');
+            break;
+
+        case "M":
+            $('#var-ms-m-toggle').bootstrapToggle('off');
+            $('#var-ms-m-toggle').bootstrapToggle('disable');
+            break;
+
+        case "N":
+            $('#var-ms-n-toggle').bootstrapToggle('off');
+            $('#var-ms-n-toggle').bootstrapToggle('disable');
+            break;
+
+        case "Nac":
+            $('#var-ms-nac-toggle').bootstrapToggle('off');
+            $('#var-ms-nac-toggle').bootstrapToggle('disable');
+            break;
+
+        case "Npc":
+            $('#var-ms-npc-toggle').bootstrapToggle('off');
+            $('#var-ms-npc-toggle').bootstrapToggle('disable');
+            break;
+
+        case "O":
+            $('#var-ms-o-toggle').bootstrapToggle('off');
+            $('#var-ms-o-toggle').bootstrapToggle('disable');
+            break;
+
+        case "Oac":
+            $('#var-ms-oac-toggle').bootstrapToggle('off');
+            $('#var-ms-oac-toggle').bootstrapToggle('disable');
+            break;
+
+        case "Opc":
+            $('#var-ms-opc-toggle').bootstrapToggle('off');
+            $('#var-ms-opc-toggle').bootstrapToggle('disable');
+            break;
+
+    }
+
+
+    console.log("Set main ms to >" + ms + "<.");
+    globals.mainMs = ms;
+
+    // Remove ms from variant mss if it were listed there
+    while (globals.variantMss.indexOf(ms) > -1) {
+        globals.variantMss.splice(globals.variantMss.indexOf(ms), 1);
+    }
+
+    console.log("Main ms: >" + globals.mainMs + "<, variant mss: " + globals.variantMss);
+
+}
+
+function enableAllVariantToggles() {
+
+    $('#var-ms-bf-toggle').bootstrapToggle('enable');
+    $('#var-ms-a-toggle').bootstrapToggle('enable');
+    $('#var-ms-a1-toggle').bootstrapToggle('enable');
+    //$('#var-ms-a1ac-toggle').bootstrapToggle('enable');
+    //$('#var-ms-a1pc-toggle').bootstrapToggle('enable');
+    $('#var-ms-a2-toggle').bootstrapToggle('enable');
+
+    $('#var-ms-b-toggle').bootstrapToggle('enable');
+    $('#var-ms-bac-toggle').bootstrapToggle('enable');
+    //$('#var-ms-bpc-toggle').bootstrapToggle('enable');
+    $('#var-ms-b1-toggle').bootstrapToggle('enable');
+
+    $('#var-ms-c-toggle').bootstrapToggle('enable');
+    $('#var-ms-cac-toggle').bootstrapToggle('enable');
+    $('#var-ms-cpc-toggle').bootstrapToggle('enable');
+    $('#var-ms-m-toggle').bootstrapToggle('enable');
+    $('#var-ms-n-toggle').bootstrapToggle('enable');
+    $('#var-ms-nac-toggle').bootstrapToggle('enable');
+    $('#var-ms-npc-toggle').bootstrapToggle('enable');
+    $('#var-ms-o-toggle').bootstrapToggle('enable');
+    $('#var-ms-oac-toggle').bootstrapToggle('enable');
+    $('#var-ms-opc-toggle').bootstrapToggle('enable');
+
+}

@@ -6,40 +6,40 @@
 	<meta charset="UTF-8">
 	<title>Descriptio urbis Romae</title>
 
-	<!-- Web font loader ^1.6.28 -->
+	<!-- Web font loader@^1.6.28 -->
 	<!-- https://github.com/typekit/webfontloader -->
 	<script type="text/javascript" src="node_modules/webfontloader/webfontloader.js"></script>
 
-	<!-- jQuery ^3.5.0 -->
+	<!-- jQuery@^3.5.0 -->
 	<!-- https://jquery.com/ -->
 	<script type="text/javascript" src="node_modules/jquery/dist/jquery.min.js"></script>
 
-	<!-- Popper ^1.16.0 -->
+	<!-- Popper@^1.16.0 -->
 	<!-- https://popper.js.org/ -->
 	<script type="text/javascript" src="node_modules/popper.js/dist/umd/popper.min.js"></script>
 
-	<!-- Bootstrap 4.0.0 -->
+	<!-- Bootstrap@4.3.1 -->
 	<link href="node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
 	<script type="text/javascript" src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
 
-	<!-- Font Awesome ^5.13.0 -->
+	<!-- Font Awesome@^5.13.0 -->
 	<!-- https://fontawesome.com -->
 	<link rel="stylesheet" href="node_modules/@fortawesome/fontawesome-free/css/all.css">
 
-	<!-- Bootstrap Toggle 3.6.0 -->
+	<!-- Bootstrap Toggle@3.6.0 -->
 	<link href="node_modules/bootstrap4-toggle/css/bootstrap4-toggle.min.css" rel="stylesheet">
 	<script type="text/javascript" src="node_modules/bootstrap4-toggle/js/bootstrap4-toggle.min.js"></script>
 
-	<!-- bootstrap-select 1.13.14 -->
+	<!-- bootstrap-select@1.13.14 -->
 	<!-- https://developer.snapappointments.com/bootstrap-select/ -->
 	<link rel="stylesheet" href="node_modules/bootstrap-select/dist/css/bootstrap-select.min.css">
 	<script type="text/javascript" src="node_modules/bootstrap-select/dist/js/bootstrap-select.min.js"></script>
 
-	<!-- file-saver ^2.0.2 -->
+	<!-- file-saver@^2.0.2 -->
 	<!-- https://github.com/eligrey/FileSaver.js -->
 	<script type="text/javascript" src="node_modules/file-saver/dist/FileSaver.min.js"></script>
 
-	<!-- D3.js ^5.15.1 -->
+	<!-- D3.js@^5.15.1 -->
 	<!-- https://d3js.org/ -->
 	<script type="text/javascript" src="node_modules/d3/dist/d3.min.js"></script>
 
@@ -48,245 +48,66 @@
 	<!-- https://github.com/tinker10/D3-Labeler -->
 	<script type="text/javascript" src="scripts/labeler.js"></script>
 
-	<!-- anime.js ^3.2.0 -->
+	<!-- anime.js@^3.2.0 -->
 	<!-- https://animejs.com/ -->
 	<script type="text/javascript" src="node_modules/animejs/lib/anime.min.js"></script>
 
-	<!-- Paper.js ^0.12.4 -->
+	<!-- Paper.js@^0.12.4 -->
 	<!-- http://paperjs.org/ -->
 	<script type="text/javascript" src="node_modules/paper/dist/paper-full.js"></script>
 
-	<!-- jquery-mousewheel 3.1.13 -->
+	<!-- jquery-mousewheel@3.1.13 -->
 	<!-- https://github.com/jquery/jquery-mousewheel -->
 	<script type="text/javascript" src="node_modules/jquery-mousewheel/jquery.mousewheel.js"></script>
+
+	<!-- jQuery LoadingOverlay@^2.1.7-->
+	<!-- https://gasparesganga.com/labs/jquery-loading-overlay/ -->
+	<script type="text/javascript" src="node_modules/gasparesganga-jquery-loading-overlay/dist/loadingoverlay.min.js"></script>	
 
 	<script type="text/javascript" src="scripts/utils.js"></script>
 	<script type="text/javascript" src="scripts/tables.js"></script>
 	<script type="text/javascript" src="scripts/Descriptio.js"></script>
 	<script type="text/javascript" src="scripts/Pictor.js"></script>
 
-
 	<script type="text/javascript">
+
+		// TODO Loading functions:
+		
+		// TODO window on load
+		// https://stackoverflow.com/questions/4584373/difference-between-window-load-and-document-ready-functions
+
+		// TODO document ready
+
+		// TODO initWindow()
+		// Eigene Funktion
+
 		var jsonLoaded = false;
 		var fontLoaded = false;
 
 		var flashBtnAnim = null;
 		var flashEnabled = false;
 		
+		// Custom function
+		// TODO Rename to initWindowAfterLoading o.ä.
 		function initWindow() {
 			if (jsonLoaded && fontLoaded) {
 				console.log("Everything loaded. Init window.");
 
 				createLayers();
 
-				//initMap();
-
 				drawAlbertisRome();
+
+				// Hide loading screen
+				$.LoadingOverlay("hide");
 			} else {
 				console.log("Loading not finished: jsonLoaded=" + jsonLoaded + ", fontLoaded=" + fontLoaded);
 			}
 		}
 
-		function enableAllVariantToggles() {
-
-			$('#var-ms-bf-toggle').bootstrapToggle('enable');
-			$('#var-ms-a-toggle').bootstrapToggle('enable');
-			$('#var-ms-a1-toggle').bootstrapToggle('enable');
-			//$('#var-ms-a1ac-toggle').bootstrapToggle('enable');
-			//$('#var-ms-a1pc-toggle').bootstrapToggle('enable');
-			$('#var-ms-a2-toggle').bootstrapToggle('enable');
-
-			$('#var-ms-b-toggle').bootstrapToggle('enable');
-			$('#var-ms-bac-toggle').bootstrapToggle('enable');
-			//$('#var-ms-bpc-toggle').bootstrapToggle('enable');
-			$('#var-ms-b1-toggle').bootstrapToggle('enable');
-
-			$('#var-ms-c-toggle').bootstrapToggle('enable');
-			$('#var-ms-cac-toggle').bootstrapToggle('enable');
-			$('#var-ms-cpc-toggle').bootstrapToggle('enable');
-			$('#var-ms-m-toggle').bootstrapToggle('enable');
-			$('#var-ms-n-toggle').bootstrapToggle('enable');
-			$('#var-ms-nac-toggle').bootstrapToggle('enable');
-			$('#var-ms-npc-toggle').bootstrapToggle('enable');
-			$('#var-ms-o-toggle').bootstrapToggle('enable');
-			$('#var-ms-oac-toggle').bootstrapToggle('enable');
-			$('#var-ms-opc-toggle').bootstrapToggle('enable');
-
-		}
-
-		function setMainMs(ms) {
-
-			flashUpdateBtn();
-
-			// Deactivate variant switches
-			enableAllVariantToggles();
-
-			switch (ms) {
-
-				case "Boriaud-Furlan":
-					$('#var-ms-bf-toggle').bootstrapToggle('off');
-					$('#var-ms-bf-toggle').bootstrapToggle('disable');
-					break;
-
-				case "A":
-					$('#var-ms-a-toggle').bootstrapToggle('off');
-					$('#var-ms-a-toggle').bootstrapToggle('disable');
-					break;
-
-				case "A1":
-					$('#var-ms-a1-toggle').bootstrapToggle('off');
-					$('#var-ms-a1-toggle').bootstrapToggle('disable');
-					break;
-
-				case "A2":
-					$('#var-ms-a2-toggle').bootstrapToggle('off');
-					$('#var-ms-a2-toggle').bootstrapToggle('disable');
-					break;
-
-				case "B":
-					$('#var-ms-b-toggle').bootstrapToggle('off');
-					$('#var-ms-b-toggle').bootstrapToggle('disable');
-					break;
-
-				case "Bac":
-					$('#var-ms-bac-toggle').bootstrapToggle('off');
-					$('#var-ms-bac-toggle').bootstrapToggle('disable');
-					break;
-
-				case "B1":
-					$('#var-ms-b1-toggle').bootstrapToggle('off');
-					$('#var-ms-b1-toggle').bootstrapToggle('disable');
-					break;
-
-				case "C":
-					$('#var-ms-c-toggle').bootstrapToggle('off');
-					$('#var-ms-c-toggle').bootstrapToggle('disable');
-					break;
-
-				case "Cac":
-					$('#var-ms-cac-toggle').bootstrapToggle('off');
-					$('#var-ms-cac-toggle').bootstrapToggle('disable');
-					break;
-
-				case "Cpc":
-					$('#var-ms-cpc-toggle').bootstrapToggle('off');
-					$('#var-ms-cpc-toggle').bootstrapToggle('disable');
-					break;
-
-				case "M":
-					$('#var-ms-m-toggle').bootstrapToggle('off');
-					$('#var-ms-m-toggle').bootstrapToggle('disable');
-					break;
-
-				case "N":
-					$('#var-ms-n-toggle').bootstrapToggle('off');
-					$('#var-ms-n-toggle').bootstrapToggle('disable');
-					break;
-
-				case "Nac":
-					$('#var-ms-nac-toggle').bootstrapToggle('off');
-					$('#var-ms-nac-toggle').bootstrapToggle('disable');
-					break;
-
-				case "Npc":
-					$('#var-ms-npc-toggle').bootstrapToggle('off');
-					$('#var-ms-npc-toggle').bootstrapToggle('disable');
-					break;
-
-				case "O":
-					$('#var-ms-o-toggle').bootstrapToggle('off');
-					$('#var-ms-o-toggle').bootstrapToggle('disable');
-					break;
-
-				case "Oac":
-					$('#var-ms-oac-toggle').bootstrapToggle('off');
-					$('#var-ms-oac-toggle').bootstrapToggle('disable');
-					break;
-
-				case "Opc":
-					$('#var-ms-opc-toggle').bootstrapToggle('off');
-					$('#var-ms-opc-toggle').bootstrapToggle('disable');
-					break;
-
-			}
-
-
-			console.log("Set main ms to >" + ms + "<.");
-			globals.mainMs = ms;
-
-			// Remove ms from variant mss if it were listed there
-			while (globals.variantMss.indexOf(ms) > -1) {
-				globals.variantMss.splice(globals.variantMss.indexOf(ms), 1);
-			}
-
-			console.log("Main ms: >" + globals.mainMs + "<, variant mss: " + globals.variantMss);
-
-		}
-
-		function setVariantMs(ms, toggle) {
-
-			flashUpdateBtn();
-
-			console.log("Set variant ms: " + ms);
-			console.log("Toggle: " + toggle + ", checked=" + document.getElementById(toggle).checked);
-
-			if (document.getElementById(toggle).checked) {
-				globals.variantMss.push(ms);
-			} else {
-				idx = globals.variantMss.indexOf(ms);
-				if (idx > -1) {
-					globals.variantMss.splice(idx, 1);
-				}
-			}
-
-			console.log("Main ms: >" + globals.mainMs + "<, variant mss: " + globals.variantMss);
-		}
-
-		function flashUpdateBtn() {
-
-			console.log("flashUpdateBtn(), flashBtnAnim=" + flashBtnAnim + ", flashEnabled=" + flashEnabled);
-
-			if (flashBtnAnim == null && flashEnabled) {
-
-				console.log("Make new flash button...");
-
-				flashBtnAnim = anime({
-					targets: '#points-btn',
-					backgroundColor: '#EF96A2',
-					easing: 'steps(1)',
-					duration: 750,
-					direction: 'alternate',
-					loop: true,
-				});
-			}
-		}
-
-		function toggleVariantMss(toggle) {
-
-			$('#var-ms-bf-toggle').bootstrapToggle(toggle);
-			$('#var-ms-a-toggle').bootstrapToggle(toggle);
-			$('#var-ms-a1-toggle').bootstrapToggle(toggle);
-			$('#var-ms-a2-toggle').bootstrapToggle(toggle);
-
-			$('#var-ms-b-toggle').bootstrapToggle(toggle);
-			$('#var-ms-bac-toggle').bootstrapToggle(toggle);
-			$('#var-ms-b1-toggle').bootstrapToggle(toggle);
-
-			$('#var-ms-c-toggle').bootstrapToggle(toggle);
-			$('#var-ms-cac-toggle').bootstrapToggle(toggle);
-			$('#var-ms-cpc-toggle').bootstrapToggle(toggle);
-			$('#var-ms-m-toggle').bootstrapToggle(toggle);
-			$('#var-ms-n-toggle').bootstrapToggle(toggle);
-			$('#var-ms-nac-toggle').bootstrapToggle(toggle);
-			$('#var-ms-npc-toggle').bootstrapToggle(toggle);
-			$('#var-ms-o-toggle').bootstrapToggle(toggle);
-			$('#var-ms-oac-toggle').bootstrapToggle(toggle);
-			$('#var-ms-opc-toggle').bootstrapToggle(toggle);
-
-		}
-
-
 		$(document).ready(function () {
+
+			// Show loading overlay
+			$.LoadingOverlay("show");
 
 			$('.selectpicker').selectpicker('val', 'None');
 
@@ -563,10 +384,11 @@
 
 		});
 
-
-
+		// TODO window on load
 		$(window).on("load", function () {
 			console.log("Window loaded.");
+
+			// TODO Show load screen
 
 			console.log("Run some tests...");
 
@@ -620,6 +442,7 @@
 			console.log("Paper.js initialized.");
 
 
+			// Expensive loading
 			WebFont.load({
 				active: function () {
 					fontLoaded = true;
@@ -649,6 +472,7 @@
 			console.log("jQuery mouse wheel handler set up.")
 
 
+			// Expensive loading
 			$.getJSON("Tabulae.json", function (data) {
 				console.log("Tabulae.json loaded!");
 				console.log("Data:" + data);
@@ -665,257 +489,9 @@
 
 		});
 	</script>
+
+	<link rel="stylesheet" href="Descriptio.css">
 </head>
-
-
-<!-- Resize canvas to available size
-     Source: https://stackoverflow.com/questions/28896260/paper-js-wont-resize-the-canvas-correctly -->
-<style type="text/css">
-	html,
-	body {
-		margin: 0;
-		overflow: hidden;
-		height: 100%;
-	}
-
-	body {
-		background: #f9f9f9;
-	}
-
-	#wrapper {
-		padding: 90px 15px;
-	}
-
-	.navbar-expand-lg .navbar-nav.side-nav {
-		flex-direction: column;
-	}
-
-	.card {
-		margin-bottom: 15px;
-		border-radius: 0;
-		box-shadow: 0 3px 5px rgba(0, 0, 0, .1);
-	}
-
-	.header-top {
-		box-shadow: 0 3px 5px rgba(0, 0, 0, .1)
-	}
-
-	.leftmenutrigger {
-		display: none
-	}
-
-	@media(min-width:992px) {
-		.leftmenutrigger {
-			display: block;
-			display: block;
-			margin: 7px 20px 4px 0;
-			cursor: pointer;
-		}
-
-		#wrapper {
-			padding: 90px 15px 15px 15px;
-		}
-
-		.navbar-nav.side-nav.open {
-			left: 0;
-		}
-
-		.navbar-nav.side-nav {
-			background: #CDCDCD;
-			box-shadow: 2px 1px 2px rgba(0, 0, 0, .1);
-			position: fixed;
-			top: 56px;
-			flex-direction: column !important;
-			left: -220px;
-			width: 220px;
-			overflow-y: auto;
-			bottom: 0;
-			overflow-x: hidden;
-			padding-bottom: 40px
-		}
-	}
-
-	.animate {
-		-webkit-transition: all .3s ease-in-out;
-		-moz-transition: all .3s ease-in-out;
-		-o-transition: all .3s ease-in-out;
-		-ms-transition: all .3s ease-in-out;
-		transition: all .3s ease-in-out
-	}
-
-	.dropdown-submenu {
-		position: relative;
-	}
-
-	.dropdown-submenu a::after {
-		transform: rotate(-90deg);
-		position: absolute;
-		right: 6px;
-		top: .8em;
-	}
-
-	.dropdown-submenu .dropdown-menu {
-		top: 0;
-		left: 100%;
-		margin-left: .1rem;
-		margin-right: .1rem;
-	}
-
-	/* Scale canvas with resize attribute to full size */
-
-	canvas[resize] {
-		width: 100%;
-		height: 100%;
-	}
-
-	/* latin */
-
-	@font-face {
-		font-family: 'Lusitana';
-		font-style: normal;
-		font-weight: 400;
-		/*src: local('Lusitana'), url(https://fonts.gstatic.com/s/lusitana/v5/h_1ZjHXv2tOhJGwbefP69vesZW2xOQ-xsNqO47m55DA.woff2) format('woff2');*/
-		src: local('Lusitana'), url('fonts/Lusitana-Regular.ttf') format('truetype');
-		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2212, U+2215;
-	}
-
-	.main_ms_button {
-		min-width: 60px;
-		max-width: 60px;
-
-	}
-
-	.descriptio-color {
-		color: #4CAC95 !important;
-		border-color: #4CAC95 !important;
-	}
-
-	.toggle-handle {
-		color: #4CAC95 !important;
-	}
-
-	.add-padding-top {
-		padding-top: 10px
-	}
-
-	.small-padding-top {
-		padding-top: 3px
-	}
-
-	.category-padding-top {
-		padding-top: 25px;
-	}
-
-	/* http://blog.koalite.com/bbg/ */
-	.btn-descriptio {
-		color: #2D2D2D;
-		background-color: #F0F0F0;
-		/*border-color: #2D2D2D;*/
-		border-width: 3px;
-		border-radius: 6px;
-	}
-
-	.btn-descriptio:hover,
-	.btn-descriptio:focus,
-	.btn-descriptio:active,
-	.btn-descriptio.active,
-	.open .dropdown-toggle.btn-descriptio {
-		color: #2D2D2D;
-		border-color: rgba(45, 45, 45, 0.8);
-		border-width: 3px;
-		border-radius: 6px;
-		box-shadow: 5px 7px 20px -10px rgba(0, 0, 0, 0.37);
-	}
-
-	.btn-descriptio:active,
-	.btn-descriptio.active,
-	.open .dropdown-toggle.btn-descriptio {
-		background-image: none;
-	}
-
-	.btn-descriptio.disabled,
-	.btn-descriptio[disabled],
-	fieldset[disabled] .btn-descriptio,
-	.btn-descriptio.disabled:hover,
-	.btn-descriptio[disabled]:hover,
-	fieldset[disabled] .btn-descriptio:hover,
-	.btn-descriptio.disabled:focus,
-	.btn-descriptio[disabled]:focus,
-	fieldset[disabled] .btn-descriptio:focus,
-	.btn-descriptio.disabled:active,
-	.btn-descriptio[disabled]:active,
-	fieldset[disabled] .btn-descriptio:active,
-	.btn-descriptio.disabled.active,
-	.btn-descriptio[disabled].active,
-	fieldset[disabled] .btn-descriptio.active {
-		background-color: #F0F0F0;
-		border-color: rgb(88, 88, 88);
-	}
-
-	.btn-descriptio .badge {
-		color: #F0F0F0;
-		background-color: #2D2D2D;
-	}
-
-	.tooltip {
-		text-decoration: none;
-		position: relative;
-
-	}
-
-	.tooltip span {
-		display: none;
-	}
-
-	.descriptio-tooltip {
-		position: relative;
-		display: none;
-
-		background: rgba(240, 240, 240, 0.85);
-		border-color: rgba(45, 45, 45, 0.8);
-		border-style: solid;
-		border-width: 4px;
-		border-radius: 6px;
-		min-height: 175px;
-
-		margin: 1rem;
-		min-width: 220px;
-
-		box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
-	}
-
-	.dtt-heading {
-		font-family: Lusitana;
-		font-size: 20px;
-		font-weight: bold;
-	}
-
-	.dtt-pad-left {
-		padding-left: 20px;
-	}
-
-	.dtt-pad-top {
-		padding-top: 10px;
-	}
-
-	.dtt-pad-top-sm {
-		padding-top: 7px;
-	}
-
-	.dtt-entry {
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-		font-size: 12px;
-	}
-
-	.dtt-right {
-		text-align: right;
-		padding-right: 20px;
-	}
-
-	.dtt-text::after {
-		content: attr(data-value);
-	}
-</style>
 
 <body>
 
