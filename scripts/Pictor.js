@@ -22,7 +22,7 @@ globals.variantMss = [];
 globals.HorizonRotation = 12;
 
 // Possible values are "none", "choose_start_coord", "choose_variant", "measure_distance", "construction"
-globals.app_state = "none"; //"construction";
+globals.app_state = "construction"; //"none";
 
 // Indicates whether a drawing animation is currently active
 globals.draw_animation = false;

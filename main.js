@@ -1,5 +1,5 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow} = require('electron')
+const {app, BrowserWindow, Menu} = require('electron')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -29,6 +29,25 @@ function createWindow () {
     // when you should delete the corresponding element.
     mainWindow = null
   })
+  
+  // Source:
+  // https://coursetro.com/posts/code/119/Working-with-Electron-Menus---Tutorial
+  // See also:
+  // https://stackoverflow.com/questions/54105224/electron-modify-a-single-menu-item
+  var menu = Menu.buildFromTemplate([
+      {
+          label: 'Menu',
+          submenu: [
+              {label:'Adjust Notification Value'},
+              {label:'CoinMarketCap'},
+              {label:'Exit', 
+                click() { 
+                    app.quit() 
+                } }
+          ]
+      }
+  ])
+  Menu.setApplicationMenu(menu); 
 }
 
 // This method will be called when Electron has finished

@@ -54,6 +54,12 @@ var ZoomInFactor = 1 / ZoomMultiplicationFactor;
 var ZoomOutFactor = ZoomMultiplicationFactor;
 var MinZoomLevel = -10;
 
+var jsonLoaded = false;
+var fontLoaded = false;
+
+var flashBtnAnim = null;
+var flashEnabled = false;
+
 
 function loadJSON(callback) {
 
@@ -575,3 +581,401 @@ function showStartMarkers(show) {
         }
     }
 }
+
+function initWindowAfterLoading() {
+    if (jsonLoaded && fontLoaded) {
+        console.log("Everything loaded. Init window.");
+
+        createLayers();
+
+        drawAlbertisRome();
+
+        // Hide loading screen
+        $.LoadingOverlay("hide");
+    } else {
+        console.log("Loading not finished: jsonLoaded=" + jsonLoaded + ", fontLoaded=" + fontLoaded);
+    }
+}
+
+$(document).ready(function () {
+
+    // Show loading overlay
+    $.LoadingOverlay("show");
+
+    $('.selectpicker').selectpicker('val', 'None');
+
+    $('#main-ms-bf-btn').prop("checked", true);
+
+    $('#main-ms-a-btn').prop("checked", false);
+    $('#main-ms-a1-btn').prop("checked", false);
+    $('#main-ms-a2-btn').prop("checked", false);
+
+    $('#main-ms-b-btn').prop("checked", false);
+    $('#main-ms-bac-btn').prop("checked", false);
+    $('#main-ms-b1-btn').prop("checked", false);
+
+    $('#main-ms-c-btn').prop("checked", false);
+    $('#main-ms-cac-btn').prop("checked", false);
+    $('#main-ms-cpc-btn').prop("checked", false);
+    $('#main-ms-m-btn').prop("checked", false);
+    $('#main-ms-n-btn').prop("checked", false);
+    $('#main-ms-nac-btn').prop("checked", false);
+    $('#main-ms-npc-btn').prop("checked", false);
+    $('#main-ms-o-btn').prop("checked", false);
+    $('#main-ms-oac-btn').prop("checked", false);
+    $('#main-ms-opc-btn').prop("checked", false);
+
+
+    toggleVariantMss('off');
+    $('#var-ms-bf-toggle').bootstrapToggle('disable');
+
+
+    $('.leftmenutrigger').on('click', function (e) {
+        $('.side-nav').toggleClass("open");
+        e.preventDefault();
+    });
+    $('.dropdown-menu a.dropdown-toggle').on('click', function (e) {
+        if (!$(this).next().hasClass('show')) {
+            $(this).parents('.dropdown-menu').first().find('.show').removeClass("show");
+        }
+
+    });
+
+
+    $('#update-btn').on('click', function (e) {
+
+        $('#update-btn').blur();
+
+        console.log("Redraw button clicked.");
+
+        resetDrawModeTables();
+        sortDrawModeTables();
+        globals.draw_animation = true;
+
+    });
+
+
+    $('#points-btn').on('click', function (e) {
+
+        $('#points-btn').blur();
+
+        if (flashBtnAnim != null) {
+            flashBtnAnim.seek(0);
+            flashBtnAnim.pause();
+            flashBtnAnim = null;
+        }
+
+        if (globals.variants_expanded) {
+            $('#variants-btn').blur();
+
+            hideVariants();
+            globals.variants_expanded = false;
+        }
+
+
+        console.log("Redraw points.");
+
+        resetDrawModeTables();
+        sortDrawModeTables();
+
+        drawAlbertisRome();
+
+    });
+
+
+    $('#svg-export-btn').on('click', function (e) {
+
+        $('#svg-export-btn').blur();
+
+        console.log("Save to svg");
+
+        svgelem = paper.project.exportSVG({
+            asString: true
+        });
+        console.log(typeof svgelem);
+        console.log(svgelem);
+
+        var blob = new Blob([svgelem], {
+            type: "image/svg+xml;charset=utf-8"
+        });
+        saveAs(blob, "descriptio.svg");
+
+    });
+
+    $('#nice-map-btn').on('click', function (e) {
+
+        console.log("Draw nice map.");
+        $('#nice-map-btn').blur();
+
+        if (!globals.niceMap) {
+
+            globals.niceMap = true;
+
+            $('.selectpicker').selectpicker('val', 'Unit');
+            globals.options.drawMode = "per_unit";
+
+            toggleVariantMss('off');
+            $('#main-ms-bf-btn').click();
+            $('#points-btn').click();
+
+            resetDrawModeTables();
+            sortDrawModeTables();
+            globals.draw_animation = true;
+        }
+
+    });
+
+
+    $('#variants-btn').on('click', function (e) {
+
+        console.log("Variants button clicked.");
+
+        if (globals.variants_expanded) {
+            $('#variants-btn').blur();
+
+            hideVariants();
+            globals.variants_expanded = false;
+        } else {
+            showVariants();
+            globals.variants_expanded = true;
+        }
+
+    });
+
+    $('#starts-btn').on('click', function (e) {
+
+        console.log("Choose new starting points...");
+
+        if (globals.app_state == "choose_start_coord") {
+
+            $('#starts-btn').blur();
+
+            showStartMarkers(false);
+            globals.app_state = "none";
+        } else {
+            showStartMarkers(true);
+            globals.app_state = "choose_start_coord";
+        }
+    });
+
+    $('#measure-btn').on('click', function (e) {
+
+        console.log("Measure distance...");
+
+        if (globals.app_state == "measure_distance") {
+
+            $('#measure-btn').blur();
+
+            globals.measureLayer.removeChildren();
+            globals.app_state = "none";
+
+        } else {
+            globals.app_state = "measure_distance";
+        }
+
+    });
+
+    $('#map-btn').on('click', function (e) {
+
+        console.log("Toggle map...");
+
+        if (globals.backgroundMap.visible) {
+
+            $('#map-btn').blur();
+
+            anime({
+                targets: globals.backgroundMap,
+                opacity: 0,
+                duration: 200,
+                easing: 'linear',
+                complete: function (anim) {
+                    globals.backgroundMap.visible = false;
+                }
+            });
+
+        } else {
+            globals.backgroundMap.visible = true;
+
+            anime({
+                targets: globals.backgroundMap,
+                opacity: 0.7,
+                duration: 200,
+                easing: 'linear'
+            });
+        }
+
+    });
+
+    $('#circle-btn').on('click', function (e) {
+
+        console.log("Circle overlay...");
+
+        $('#circle-btn').blur();
+
+        if (globals.circleOverlayLayer.visible) {
+
+            console.log("Hide overlay layer...");
+
+            anime({
+                targets: globals.circleOverlayLayer,
+                opacity: 0,
+                duration: 100,
+                easing: 'linear',
+                complete: function (anim) {
+                    globals.circleOverlayLayer.visible = false;
+                }
+            });
+
+        } else {
+            console.log("Show overlay layer...");
+
+            globals.circleOverlayLayer.visible = true;
+
+            anime({
+                targets: globals.circleOverlayLayer,
+                opacity: 1,
+                duration: 100,
+                easing: 'linear'
+            });
+
+        }
+
+    });
+
+    $("#method-select").change(function () {
+
+        // Unfocus bootstrap-select. Source: https://stackoverflow.com/a/42161771
+        $(".btn").blur();
+
+        var selected = $('#method-select option:selected').val();
+        console.log("Method selected: " + selected);
+
+        switch (selected) {
+            case "Table":
+                globals.options.drawMode = "per_table";
+                break;
+
+            case "Unit":
+                globals.options.drawMode = "per_unit";
+                break;
+
+            case "None":
+                globals.options.drawMode = "all";
+                break;
+        }
+
+        drawAlbertisRome();
+    });
+
+    $("#mainms-select").change(function () {
+        var selected = $('#mainms-select option:selected').val();
+        console.log("Main ms selected: " + selected);
+    });
+
+    flashEnabled = true;
+
+
+});
+
+
+// TODO window on load
+$(window).on("load", function () {
+    console.log("Window loaded.");
+
+    // TODO Show load screen
+
+    console.log("Run some tests...");
+
+    var canvas = document.getElementById('DescriptioCanvas');
+
+    // Create an empty project and a view for the canvas:
+    paper.setup(canvas);
+
+    // Does this help?
+    // https://stackoverflow.com/questions/32825525/paper-js-why-does-tool-onmousedown-not-trigger
+    var tool = new paper.Tool();
+    tool.activate();
+
+    elem = document.getElementById('location_pin');
+    svg_location_pin = new paper.Symbol(paper.project.importSVG(elem));
+    elem.parentNode.removeChild(elem);
+
+    elem = document.getElementById('porta_icon');
+    svg_porta_icon = new paper.Symbol(paper.project.importSVG(elem));
+    elem.parentNode.removeChild(elem);
+
+    elem = document.getElementById('svg_measure_pin');
+    svg_measure_pin = new paper.Symbol(paper.project.importSVG(elem));
+    elem.parentNode.removeChild(elem);
+
+
+    tool.onMouseDown = function (event) {
+        console.log("Mouse down!");
+        globals.descriptioMouseDown(event);
+    }
+
+    tool.onMouseDrag = function (event) {
+        console.log("Mouse dragged!");
+        globals.descriptioMouseDrag(event);
+    }
+
+    tool.onMouseUp = function (event) {
+        console.log("Mouse up!");
+        globals.descriptioMouseUp(event);
+    }
+
+    tool.onMouseMove = function (event) {
+        globals.descriptioMouseMove(event);
+    }
+
+    paper.view.onFrame = function (event) {
+        globals.descriptioFrame(event);
+    }
+
+
+    console.log("Paper.js initialized.");
+
+
+    // Expensive loading
+    WebFont.load({
+        active: function () {
+            fontLoaded = true;
+            console.log("Font Lusitana loaded.");
+            initWindowAfterLoading();
+        },
+        google: {
+            families: ['Lusitana']
+        }
+    });
+
+
+    $('#DescriptioCanvas').mousewheel(function (event, delta) {
+
+        if (delta < 0) {
+            ZoomLevel++;
+            paper.view.scale(ZoomInFactor, globals.CurrentMousePosition);
+        } else {
+            ZoomLevel--;
+            if (ZoomLevel > MinZoomLevel) {
+                paper.view.scale(ZoomOutFactor, globals.CurrentMousePosition);
+            }
+        }
+
+        return false; // prevent default
+    });
+    console.log("jQuery mouse wheel handler set up.")
+
+
+    // Expensive loading
+    $.getJSON("Tabulae.json", function (data) {
+        console.log("Tabulae.json loaded!");
+        console.log("Data:" + data);
+
+        tabulaeJSON = data;
+
+        jsonLoaded = true;
+        console.log("JSON parsed.");
+        initWindowAfterLoading();
+
+    });
+});
