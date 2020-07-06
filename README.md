@@ -14,7 +14,7 @@ Click [here](https://homepage.univie.ac.at/gabriel.siemoneit/descriptio-urbis-ro
 
 ### Running from source
 
-To run the program from source, you will need a working installation of both *git* and *npm*. In the future, there will be prebuilt binaries for various platforms.
+To run the program from source, you will need a working installation of both *git* and *npm*.
 
 *npm* comes bundled with *Node.js* (tested with the Long Term Support [LTS] release):
 
