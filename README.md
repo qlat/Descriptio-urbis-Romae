@@ -4,13 +4,13 @@
 
 *(Please note that this is work in progress.)*
 
-The *Descriptio urbis Romae* (ca. 1450) by Leon Battista Alberti (1404–1472) explains how to create a map of contemporary Rome. This homonymous application implements his instructions and allows to draw the map according to the known manuscripts.
+The *Descriptio urbis Romae* (ca. 1450) by Leon Battista Alberti (1404–1472) explains how to create a map of contemporary Rome. This homonymous application implements his instructions and allows you to draw the map according to the known manuscripts.
 
 ## Usage
 
 ### On Windows
 
-Click here to download the MSI installer.
+Click [here](https://homepage.univie.ac.at/gabriel.siemoneit/descriptio-urbis-romae.zip) to download the MSI installer for Microsoft Windows.
 
 ### Running from source
 
@@ -39,6 +39,8 @@ npm start
 ```
 
 ## License
+
+Copyright (C) 2020 Gabriel Siemoneit
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
