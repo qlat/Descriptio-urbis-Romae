@@ -1,5 +1,6 @@
 // Modules to control application life and create native browser window
-const {app, BrowserWindow, Menu} = require('electron')
+// const {app, BrowserWindow, Menu} = require('electron')
+const {app, BrowserWindow} = require('electron')
 const path = require('path')
 
 // Keep a global reference of the window object, if you don't, the window will
@@ -15,6 +16,8 @@ function createWindow () {
       preload: path.join(__dirname, 'preload.js')
     }
   })
+  
+  mainWindow.setMenuBarVisibility(false)
 
   // and load the Descriptio.html of the app.
   mainWindow.loadFile('Descriptio.html')
@@ -34,6 +37,7 @@ function createWindow () {
   // https://coursetro.com/posts/code/119/Working-with-Electron-Menus---Tutorial
   // See also:
   // https://stackoverflow.com/questions/54105224/electron-modify-a-single-menu-item
+  /*
   var menu = Menu.buildFromTemplate([
       {
           label: 'Menu',
@@ -47,8 +51,9 @@ function createWindow () {
           ]
       }
   ])
-  Menu.setApplicationMenu(menu); 
+  Menu.setApplicationMenu(menu); */
 }
+
 
 // This method will be called when Electron has finished
 // initialization and is ready to create browser windows.

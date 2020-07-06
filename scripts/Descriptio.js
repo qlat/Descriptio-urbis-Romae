@@ -665,6 +665,9 @@ $(document).ready(function () {
             flashBtnAnim = null;
         }
 
+        // Workaround. anime doesn't seem to work any more for animating background color.
+        $('#points-btn').css('background', '#F0F0F0');
+
         if (globals.variants_expanded) {
             $('#variants-btn').blur();
 
@@ -707,6 +710,7 @@ $(document).ready(function () {
         console.log("Draw nice map.");
         $('#nice-map-btn').blur();
 
+        
         if (!globals.niceMap) {
 
             globals.niceMap = true;
@@ -715,13 +719,19 @@ $(document).ready(function () {
             globals.options.drawMode = "per_unit";
 
             toggleVariantMss('off');
+            
             $('#main-ms-bf-btn').click();
+            
+            // Redraw all points
             $('#points-btn').click();
-
+            
             resetDrawModeTables();
             sortDrawModeTables();
-            globals.draw_animation = true;
+            globals.draw_animation = true;       
+            
+            $('#points-btn').css('background', '#F0F0F0');
         }
+        
 
     });
 

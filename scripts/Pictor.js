@@ -22,7 +22,7 @@ globals.variantMss = [];
 globals.HorizonRotation = 12;
 
 // Possible values are "none", "choose_start_coord", "choose_variant", "measure_distance", "construction"
-globals.app_state = "construction"; //"none";
+globals.app_state = "none"; //"construction";
 
 // Indicates whether a drawing animation is currently active
 globals.draw_animation = false;
@@ -366,6 +366,8 @@ globals.descriptioMouseDrag = function (event) {
 
     vec = event.point.subtract(mouseDownPoint);
     paper.view.translate(vec);
+
+    console.log("Translation vector = "+ paper.view.matrix.translation);
 }
 
 
@@ -754,25 +756,22 @@ globals.descriptioFrame = function (event) {
 function drawHorizon() {
 
     console.log("Draw horizon according to ms '" + globals.horizonSetup + "'.");
-    console.log("paper.view=" + paper.view.viewSize);
 
     globals.horizonLayer.activate();
 
+    /*
     width = paper.view.viewSize.width;
     height = paper.view.viewSize.height;
 
     // Calculate center and radius based on current viewSize
     horizonCenter = new paper.Point(width / 2, height / 2);
-    console.log("Horizon center: " + horizonCenter);
+    */
+    
+    horizonCenter = new paper.Point(paper.view.center);
 
-
-
-    //bigHorizonRadius = ((width < height ? width : height) / 2) - 25;
     bigHorizonRadius = 535;
     middleHorizonRadius = bigHorizonRadius * 0.9;
     smallHorizonRadius = bigHorizonRadius * 0.8;
-
-    console.log("Big horizon radius: " + bigHorizonRadius);
 
     if (globals.horizonSetup == "O") {
 
@@ -1010,53 +1009,6 @@ function drawHorizon() {
         //globals.radius.rotate(90 + 322.5, horizonCenter);
         //globals.radius.rotate(90, horizonCenter);
         globals.radius.visible = false;
-
-
-        // Contained inside MS O
-        // TODO Change in future versions
-        /*
-        if (globals.app_state == "construction") {
-
-            // Degrees
-            x1 = horizonCenter.x;
-            y1 = horizonCenter.y;
-
-            for (i = 0; i < 48; i++) {
-                x2 = horizonCenter.x + cosTable[i] * smallHorizonRadius;
-                y2 = horizonCenter.y - sinTable[i] * smallHorizonRadius;
-
-                speiche = new paper.Path.Line(new paper.Point(x1, y1), new paper.Point(x2, y2));
-                speiche.strokeColor = globals.horizonColor;
-                speiche.strokeWidth = globals.horizonStrokeWidth * 0.5;
-            }
-
-            // Minuta
-            for (i = 0; i < 192; i++) {
-
-                if ((i + 1) % 4 == 0) {
-                    continue;
-                }
-
-                x2 = horizonCenter.x + spikeCosTable[i] * (smallHorizonRadius + 4);
-                y2 = horizonCenter.y - spikeSinTable[i] * (smallHorizonRadius + 4);
-
-                lowerSpike = new paper.Path.Line(new paper.Point(x1, y1), new paper.Point(x2, y2));
-                lowerSpike.strokeColor = globals.horizonColor;
-                lowerSpike.strokeWidth = globals.horizonStrokeWidth * 0.5;
-            }
-
-            // Radius
-            radiusStep = smallHorizonRadius / 50 / 4;
-            for (i = 0; i < 50 * 4; i++) {
-
-                middleHorizon = new paper.Path.Circle(horizonCenter, radiusStep * i);
-                middleHorizon.strokeColor = globals.horizonColor;
-                middleHorizon.strokeWidth = globals.horizonStrokeWidth * 0.5;
-
-            }
-
-        }
-        */
     }
 }
 
@@ -2130,7 +2082,7 @@ function drawAlbertisRome() {
     globals.backgroundMap.scale(0.26 * (bigHorizonRadius / 447));
     globals.backgroundMap.opacity = 1;
     globals.backgroundMap.rotation = -3.25;
-    globals.backgroundMap.visible = true;
+    globals.backgroundMap.visible = false;
 
     // Calculate cartesian coordinates based on horizon parameters
     calculateCartesianCoordinates();

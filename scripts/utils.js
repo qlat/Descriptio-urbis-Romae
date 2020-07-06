@@ -320,6 +320,8 @@ function flashUpdateBtn() {
             direction: 'alternate',
             loop: true,
         });
+        console.log("anim object:");
+        console.log(flashBtnAnim);
     }
 }
 
