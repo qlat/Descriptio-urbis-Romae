@@ -10,7 +10,7 @@ The *Descriptio urbis Romae* (ca. 1450), written by Leon Battista Alberti (1404â
 
 ### Windows
 
-Click [here](https://homepage.univie.ac.at/gabriel.siemoneit/descriptio-urbis-romae.zip) to download the MSI installer for Microsoft Windows.
+Click [here](https://github.com/qlat/Descriptio-urbis-Romae/releases/download/v0.1-alpha/descriptio-urbis-romae.msi) to download the MSI installer for Microsoft Windows.
 
 ### Running from source
 
