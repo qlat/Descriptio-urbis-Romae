@@ -4,11 +4,11 @@
 
 *(Please note that this is work in progress.)*
 
-The *Descriptio urbis Romae* (ca. 1450) by Leon Battista Alberti (1404–1472) explains how to create a map of contemporary Rome. This homonymous application implements his instructions and allows you to draw the map according to the known manuscripts.
+The *Descriptio urbis Romae* (ca. 1450), written by Leon Battista Alberti (1404–1472), explains how to create a map of contemporary Rome. This homonymous application implements the instructions and allows you to draw this map according to the known manuscripts.
 
 ## Usage
 
-### On Windows
+### Windows
 
 Click [here](https://homepage.univie.ac.at/gabriel.siemoneit/descriptio-urbis-romae.zip) to download the MSI installer for Microsoft Windows.
 
