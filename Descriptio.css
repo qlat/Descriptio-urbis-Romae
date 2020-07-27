@@ -31,6 +31,18 @@ body {
     display: none
 }
 
+#versionFont {
+    font-size: 10px;
+    letter-spacing: 2px;
+    word-spacing: 2px;
+    color: #94979B;
+    font-weight: 700;
+    text-decoration: none;
+    font-style: italic;
+    font-variant: normal;
+    text-transform: none;
+    }
+
 @media(min-width:992px) {
     .leftmenutrigger {
         display: block;
