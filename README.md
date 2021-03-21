@@ -4,7 +4,7 @@
 
 *(Please note that this is work in progress.)*
 
-The *Descriptio urbis Romae* (ca. 1450), written by Leon Battista Alberti (1404–1472), explains how to create a map of contemporary Rome. This homonymous application implements the instructions and allows you to draw this map according to the known manuscripts.
+The *Descriptio urbis Romae* (ca. 1450), written by [Leon Battista Alberti](https://en.wikipedia.org/wiki/Leon_Battista_Alberti) (1404–1472), explains how to create a map of contemporary Rome. This homonymous application implements the instructions and allows you to draw this map according to the known manuscripts.
 
 ## Usage
 
@@ -40,7 +40,7 @@ npm start
 
 ## License
 
-Copyright (C) 2020 Gabriel Siemoneit
+Copyright (C) 2020–2021 Gabriel Siemoneit
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
