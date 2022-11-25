@@ -27,7 +27,7 @@
     "bootstrap": "4.3.1",
     "bootstrap-select": "^1.13.14",
     "bootstrap4-toggle": "^3.6.1",
-    "d3": "^5.15.1",
+    "d3": "^7.6.1",
     "electron-packager": "^15.2.0",
     "file-saver": "^2.0.2",
     "gasparesganga-jquery-loading-overlay": "^2.1.7",
