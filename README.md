@@ -2,11 +2,11 @@
 
 ## About
 
-*(Please note that this is work in progress.)*
+*(Please note that this version is rather old by now. A new version with updated technology is in the works.)*
 
-The *Descriptio urbis Romae* (ca. 1450), written by [Leon Battista Alberti](https://en.wikipedia.org/wiki/Leon_Battista_Alberti) (1404–1472), explains how to create a map of contemporary Rome. This homonymous application implements the instructions and allows you to draw this map according to the known manuscripts.
+The *Descriptio urbis Romae* (ca. 1450), written by [Leon Battista Alberti](https://en.wikipedia.org/wiki/Leon_Battista_Alberti) (1404–1472), explains how to create a map of then contemporary Rome. This homonymous application implements the given instructions and allows to draw Alberti's map according to the known manuscripts.
 
-## Usage
+## Getting started
 
 ### Windows
 
@@ -14,13 +14,13 @@ Click [here](https://github.com/qlat/Descriptio-urbis-Romae/releases/download/v0
 
 ### Running from source
 
-To run the program from source, you will need a working installation of both *git* and *npm*.
+To run the program from source, a working installation of both *git* and *npm* is required.
 
 *npm* comes bundled with *Node.js* (tested with the Long Term Support [LTS] release):
 
 https://nodejs.org
 
-*git* is available from this site:
+*git* for Windows is available from this site:
 
 https://git-scm.com/
 
@@ -40,7 +40,9 @@ npm start
 
 ## License
 
-Copyright (C) 2019–2021 Gabriel Siemoneit
+[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](https://www.gnu.org/licenses/gpl-3.0)
+
+Copyright (C) 2019–2023 Gabriel Siemoneit
 
 This program is free software; you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation; either version 3 of the License, or (at your option) any later version.
 
