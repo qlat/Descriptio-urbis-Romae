@@ -1620,8 +1620,8 @@ function drawCoordinates() {
             drawCoordMarks(drawModeTables.perTable[2].coords);
             drawCoordMarks(drawModeTables.perTable[3].coords);
             drawCoordMarks(drawModeTables.perTable[4].coords);
-            //drawCoordMarks(drawModeTables.perTable[5].coords);
-            //drawCoordMarks(drawModeTables.perTable[6].coords);
+            drawCoordMarks(drawModeTables.perTable[5].coords);
+            drawCoordMarks(drawModeTables.perTable[6].coords);
 
             break;
 

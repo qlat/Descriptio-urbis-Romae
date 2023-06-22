@@ -313,20 +313,6 @@ function getIterumFlumenCoords() {
     return iterumFlumen;
 }
 
-function getTiberisCoords() {
-	
-	tiberisCoords = [];
-	
-	flumenCoords = getFlumenCoords();
-	lateraFluminisCoords = getLateraFluminisCoords();
-	iterumFlumenCoords = getIterumFlumenCoords();
-	
-	tiberisCoords = flumenCoords.concat(lateraFluminisCoords);
-	tiberisCoords = tiberisCoords.concat(iterumFlumenCoords);	
-	
-	return tiberisCoords;	
-}
-
 function createDrawModeTables() {
 
     console.log("Creating draw mode tables...");
@@ -394,7 +380,6 @@ function createDrawModeTables() {
             newTable = createDrawModeTable(getMuriAdLeoninamCoords(), 2);
             drawModeTables.perTable.push(newTable);
             
-			/*
             newTable = createDrawModeTable(getFlumenCoords(), 3);
             drawModeTables.perTable.push(newTable);
             
@@ -405,12 +390,6 @@ function createDrawModeTables() {
             drawModeTables.perTable.push(newTable);
 
             newTable = createDrawModeTable(getIterumFlumenCoords(), 6);
-            drawModeTables.perTable.push(newTable);
-			*/
-			newTable = createDrawModeTable(getTiberisCoords(), 3);
-			drawModeTables.perTable.push(newTable);
-			
-			newTable = createDrawModeTable(getInsulaCoords(), 4);
             drawModeTables.perTable.push(newTable);
 
 
